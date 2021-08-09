@@ -1,0 +1,57 @@
+{
+  "name": "buissereth_portfolio",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "serve:webpack": "webpack --watch --config webpack/webpack.dev.js",
+    "serve:eleventy": "ELEVENTY_ENV=development eleventy --serve",
+    "serve": "npm-run-all clean --parallel serve:*",
+    "build:webpack": "webpack --config webpack/webpack.prod.js",
+    "build:eleventy": "ELEVENTY_ENV=production NODE_ENV=production eleventy",
+    "build": "run-s clean build:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erik-Martus/buissereth_portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erik-Martus/buissereth_portfolio/issues"
+  },
+  "homepage": "https://github.com/Erik-Martus/buissereth_portfolio#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "autoprefixer": "^10.3.1",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.2.0",
+    "css-minimizer-webpack-plugin": "^3.0.2",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-webpack-plugin": "^3.0.1",
+    "html-minifier": "^4.0.0",
+    "imagemin-webp": "^6.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "mini-css-extract-plugin": "^2.2.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.6",
+    "postcss-import": "^14.0.2",
+    "postcss-loader": "^6.1.1",
+    "postcss-nested": "^5.0.6",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "style-loader": "^3.2.1",
+    "tailwindcss": "^2.2.7",
+    "webpack": "^5.49.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-merge": "^5.8.0"
+  }
+}
