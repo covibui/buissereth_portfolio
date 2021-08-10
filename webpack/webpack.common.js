@@ -29,9 +29,13 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
+        // {
+        //   from: "./src/assets/images/**/*.{png,jpg,jpeg}",
+        //   to: "./assets/images/[name].webp",
+        // },
         {
-          from: "./src/assets/images/**/*.{png,jpg,jpeg}",
-          to: "./assets/images/[name].webp",
+          from: "./src/fonts/**/*.{eot,svg,ttf,woff,woff2}",
+          to: "./fonts/[name].[ext]",
         },
       ],
     }),

@@ -18,12 +18,10 @@ module.exports = (eleventyConfig) => {
   /**
    * * Live server configuration
    * @key {Array} files - Array of additional files to watch, changes will trigger 11ty rebuild. Recommended to watch files built by Webpack
-   * @key {Bool} https - Use HTTPS
    * @key {Int} port - Localhost port to use, default 8080, can be configured using .env variable PORT
    */
   eleventyConfig.setBrowserSyncConfig({
     files: ["dist/css/styles.css", "dist/js/*.js"],
-    https: true,
     port: process.env.PORT ? process.env.PORT : 8080,
   });
 
@@ -44,10 +42,6 @@ module.exports = (eleventyConfig) => {
       return content;
     });
   }
-
-  // * Add pass through directories to copy content to dist
-  // NOTE: Assets and files requiring bundling and processing should be done through Webpack
-  eleventyConfig.addPassthroughCopy("./src/fonts/");
 
   // * Add collcections
   // Work items, sorted by display order key
