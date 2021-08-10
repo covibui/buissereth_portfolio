@@ -1,0 +1,71 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="wrapper">
+    <div id="hero">
+      <h1>{{ title }}</h1>
+      <p>{{ summary }}</p>
+      <img src="{{ hero.image }}" alt="{{ hero.imageAlt }}">
+      {% if roles %}
+        {% if roles.length > 1 %}
+          {% set text = "Roles" %}
+        {% else %}
+          {% set text = "Role" %}
+        {% endif %}
+        <p>
+          <strong>{{ text }}</strong>
+          {% for item in roles %}
+            <span>{{ item }}</span>
+          {% endfor %}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="keyFeatures">
+      <h2>Key Features</h2>
+      {% for feature in keyFeatures %}
+        <div class="keyFeatures__item">
+          <figure>
+            <img src="{{ feature.image }}" alt="{{ feature.imageAlt }}" loading="lazy">
+            <figcaption>
+              <h3>{{ feature.title }}</h3>
+              <p>{{ feature.summary }}</p>
+            </figcaption>
+          </figure>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="stats">
+      {% for stat in stats %}
+        <div class="stats__item">
+          <p>
+            <strong>{{ stat.main }}</strong>
+          </p>
+          <p>{{ stat.sub }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="gallery">
+      {% for item in gallery %}
+        <figure>
+          <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy">
+          <figcaption>
+            <p>
+              <strong>{{ item.title }}</strong>
+            </p>
+            <p>{{ item.summary }}</p>
+          </figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="content">
+      {{ content | safe }}
+    </div>
+  </div>
+{% endblock %}

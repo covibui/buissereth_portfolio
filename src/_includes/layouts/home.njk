@@ -1,11 +1,26 @@
 {% extends "layouts/base.njk" %}
 {% block content %}
   <div class="wrapper">
-    <article class="intro">
+    <article id="intro">
       <h1>
         {{ intro.eybrow }}
         <em>{{ intro.main }}</em>
       </h1>
+    </article>
+  </div>
+  <div class="wrapper">
+    <article id="work">
+      <div class="work-header">
+        <h2>{{ work.title }}</h2>
+      </div>
+      <div class="work-content">
+        {% for item in collections.work %}
+          <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work-item">
+            <img src="{{ item.data.thumb }}" alt="" loading="lazy">
+            <p>{{ item.data.title }}</p>
+          </a>
+        {% endfor %}
+      </div>
     </article>
   </div>
 {% endblock %}
