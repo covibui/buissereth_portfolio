@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <a href="#main-content" class="btn src-only focus:not-sr-only">Skip to content</a>
+</div>
+<header class="wrapper">
+  <a href="/" aria-label="{{ site.name }} - Home">
+    <div class="logo">{% include "partials/brand.svg" %}</div>
+  </a>
+  <nav class="font-display">
+    <ul>
+      {% for item in navigation.items %}
+        <li>
+          <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe}}>
+            {{ item.text }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>
