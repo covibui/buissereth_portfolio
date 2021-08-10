@@ -9,11 +9,11 @@
     </article>
   </div>
   <div class="wrapper">
-    <article id="work">
-      <div class="work-header">
+    <article class="work">
+      <div class="work__header">
         <h2>{{ work.title }}</h2>
       </div>
-      <div class="work-content">
+      <div class="work__content">
         {% for item in collections.work %}
           <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work-item">
             <img src="{{ item.data.thumb }}" alt="" loading="lazy">
