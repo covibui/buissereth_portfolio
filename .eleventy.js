@@ -9,10 +9,12 @@ const htmlmin = require("html-minifier");
  * @returns {Array} - the sorted collection
  */
 
-const sortByDisplayOrder = (collection) =>
+const sortByDisplayOrder = (collection) => {
   collection.sort((a, b) =>
     Number(a.data.displayOrder) > Number(b.data.displayOrder) ? 1 : -1
   );
+  return collection;
+};
 
 module.exports = (eleventyConfig) => {
   /**
