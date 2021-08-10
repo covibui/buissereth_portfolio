@@ -47,7 +47,7 @@ module.exports = (eleventyConfig) => {
 
   // * Add pass through directories to copy content to dist
   // NOTE: Assets and files requiring bundling and processing should be done through Webpack
-  eleventyConfig.addPassThroughCopy("./src/fonts/");
+  eleventyConfig.addPassthroughCopy("./src/fonts/");
 
   // * Add collcections
   // Work items, sorted by display order key
