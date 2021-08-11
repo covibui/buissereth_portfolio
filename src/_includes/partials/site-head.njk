@@ -1,19 +1,21 @@
 <div class="wrapper">
   <a href="#main-content" class="btn sr-only focus:not-sr-only focus:mt-3 focus:mb-5 focus:px-5 focus:py-4">Skip to content</a>
 </div>
-<header class="wrapper">
-  <a href="/" aria-label="{{ site.name }} - Home">
-    <div class="logo">{% include "partials/brand.svg" %}</div>
-  </a>
-  <nav class="font-display">
-    <ul>
-      {% for item in navigation.items %}
-        <li>
-          <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe}}>
-            {{ item.text }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
+<header class="bg-blueGray-100">
+  <div class="wrapper flex justify-between items-center h-24">
+    <a href="/" aria-label="{{ site.name }} - Home" class="inline-block rounded focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blueGray-900">
+      <div class="logo">{% include "partials/brand.svg" %}</div>
+    </a>
+    <nav id="nav__top" class="h-full">
+      <ul class="flex h-full font-display font-semibold text-blueGray-600">
+        {% for item in navigation.items %}
+          <li class="flex flex-col justify-center mt-4 px-6 pb-4">
+            <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe}}>
+              {{ item.text }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
 </header>
