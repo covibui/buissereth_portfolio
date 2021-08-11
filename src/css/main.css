@@ -3,3 +3,11 @@
 @import "tailwindcss/utilities";
 
 @import "partials/_fonts.css";
+
+.wrapper {
+  @apply w-full mx-auto lg:max-w-5xl;
+}
+
+.btn {
+  @apply inline-block mt-3 mb-5 px-5 py-4 rounded font-display font-semibold leading-none text-white bg-blueGray-900 transition-colors duration-150 hover:bg-orange-600 focus:bg-orange-600 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blueGray-900;
+}
