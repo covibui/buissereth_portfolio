@@ -35,7 +35,7 @@ module.exports = {
         // },
         {
           from: "./src/fonts/**/*.{eot,svg,ttf,woff,woff2}",
-          to: "./fonts/[name].[ext]",
+          to: "./fonts/[name][ext]",
         },
       ],
     }),
