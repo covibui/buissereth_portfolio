@@ -3,6 +3,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
+  src: url("../fonts/poppins-v15-latin-regular.eot"); /* IE9 Compat Modes */
   src: url("../fonts/poppins-v15-latin-regular.eot?#iefix")
       format("embedded-opentype"),
     /* IE6-IE8 */ url("../fonts/poppins-v15-latin-regular.woff2")
@@ -14,11 +15,29 @@
     /* Safari, Android, iOS */
       url("../fonts/poppins-v15-latin-regular.svg#Poppins") format("svg"); /* Legacy iOS */
 }
+/* poppins-600 - latin */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/poppins-v15-latin-600.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("../fonts/poppins-v15-latin-600.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/poppins-v15-latin-600.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/poppins-v15-latin-600.woff")
+      format("woff"),
+    /* Modern Browsers */ url("../fonts/poppins-v15-latin-600.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */ url("../fonts/poppins-v15-latin-600.svg#Poppins")
+      format("svg"); /* Legacy iOS */
+}
+
 /* poppins-700 - latin */
 @font-face {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
+  src: url("../fonts/poppins-v15-latin-700.eot"); /* IE9 Compat Modes */
   src: url("../fonts/poppins-v15-latin-700.eot?#iefix")
       format("embedded-opentype"),
     /* IE6-IE8 */ url("../fonts/poppins-v15-latin-700.woff2") format("woff2"),
@@ -34,6 +53,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 800;
+  src: url("../fonts/poppins-v15-latin-800.eot"); /* IE9 Compat Modes */
   src: url("../fonts/poppins-v15-latin-800.eot?#iefix")
       format("embedded-opentype"),
     /* IE6-IE8 */ url("../fonts/poppins-v15-latin-800.woff2") format("woff2"),
@@ -49,6 +69,7 @@
   font-family: "Poppins";
   font-style: italic;
   font-weight: 900;
+  src: url("../fonts/poppins-v15-latin-900italic.eot"); /* IE9 Compat Modes */
   src: url("../fonts/poppins-v15-latin-900italic.eot?#iefix")
       format("embedded-opentype"),
     /* IE6-IE8 */ url("../fonts/poppins-v15-latin-900italic.woff2")
