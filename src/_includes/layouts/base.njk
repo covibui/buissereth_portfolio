@@ -7,10 +7,9 @@
 
     {% include "partials/meta-info.njk" %}
 
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all'">
   </head>
-  <body class="container box-border min-h-screen font-body">
+  <body class="box-border min-h-screen font-body">
     {% include "partials/site-head.njk" %}
     <main id="main-content" tabindex="-1">
       {% block content %}{% endblock %}
