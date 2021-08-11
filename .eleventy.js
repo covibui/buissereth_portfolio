@@ -45,10 +45,17 @@ module.exports = (eleventyConfig) => {
     });
   }
 
-  // * Add collcections
+  // * Add collections
   // Work items, sorted by display order key
   eleventyConfig.addCollection("work", (collection) => {
     return sortByDisplayOrder(collection.getFilteredByGlob("./src/work/*.md"));
+  });
+
+  // * Add shortcodes
+  // Return current year
+  eleventyConfig.addShortcode("currentYear", () => {
+    let year = new Date().getFullYear().toString();
+    return year;
   });
 
   return {

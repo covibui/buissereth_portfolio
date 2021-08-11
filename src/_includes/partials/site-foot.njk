@@ -1,0 +1,14 @@
+<footer>
+  <div class="wrapper flex justify-between items-center py-6 text-blueGray-600">
+    <p>&copy; {% currentYear %} Brianna Buissereth</p>
+    <nav>
+      <ul class="flex gap-4">
+        {% for item in navigation.items %}
+          <li>
+            <a href="{{ item.url }}">{{ item.text }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</footer>
