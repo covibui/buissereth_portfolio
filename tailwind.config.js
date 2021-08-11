@@ -2,12 +2,30 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   mode: "jit",
-  purge: [
-    "./src/**/*.html",
-    "./src/**/*.njk",
-    "./src/**/*.svg",
-    "./src/js/**/*.js",
-  ],
+  purge: {
+    content: [
+      "./src/**/*.html",
+      "./src/**/*.njk",
+      "./src/**/*.svg",
+      "./src/js/**/*.js",
+    ],
+    safelist: [
+      "bg-red-100",
+      "hover:bg-red-200",
+      "bg-yellow-100",
+      "hover:bg-yellow-200",
+      "bg-green-100",
+      "hover:bg-green-200",
+      "bg-blue-100",
+      "hover:bg-blue-200",
+      "bg-indigo-100",
+      "hover:bg-indigo-200",
+      "bg-purple-100",
+      "hover:bg-purple-200",
+      "bg-pink-100",
+      "hover:bg-pink-200",
+    ],
+  },
   darkMode: "media",
   theme: {
     extend: {
@@ -20,6 +38,7 @@ module.exports = {
         body: ["Roboto", "Helvetica", "Arial", "sans-serif"],
       },
       transitionProperty: {
+        // eslint-disable-next-line
         position: "top, right, bottom, left",
       },
     },

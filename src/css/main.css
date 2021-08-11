@@ -4,12 +4,33 @@
 
 @import "partials/_fonts.css";
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display text-blueGray-900;
+}
+
+h1 {
+  @apply text-5xl font-extrabold;
+}
+
+h2 {
+  @apply inline-block mt-3 mb-5 pb-4 border-b-4 border-blueGray-600 text-4xl font-semibold;
+}
+
 a {
   @apply transition-colors duration-150;
 }
 
 .wrapper {
   @apply w-full mx-auto px-5 lg:max-w-5xl;
+}
+
+.btn {
+  @apply inline-block mt-3 mb-5 px-5 py-4 rounded font-display font-semibold leading-none text-white bg-blueGray-900 transition-colors duration-150 hover:bg-blueGray-600 focus:bg-blueGray-600 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blueGray-900;
 }
 
 #nav__top {
@@ -23,6 +44,26 @@ a {
   }
 }
 
-.btn {
-  @apply inline-block mt-3 mb-5 px-5 py-4 rounded font-display font-semibold leading-none text-white bg-blueGray-900 transition-colors duration-150 hover:bg-orange-600 focus:bg-orange-600 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blueGray-900;
+#intro {
+  @apply py-12 md:py-32;
+
+  h1 {
+    em {
+      @apply block mt-3 font-semibold not-italic text-blueGray-700;
+    }
+  }
+}
+
+.work__content {
+  .work__content__item:nth-child(4n + 1),
+  .work__content__item:nth-child(4n + 4) {
+    @apply lg:col-span-2;
+  }
+  .work__content__item:nth-child(4n + 2),
+  .work__content__item:nth-child(4n + 3) {
+    @apply lg:col-span-1;
+  }
+  .work__content__item:nth-child(odd):last-child {
+    @apply lg:col-span-3;
+  }
 }

@@ -9,9 +9,9 @@
 
     <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all'">
   </head>
-  <body class="box-border min-h-screen font-body">
+  <body class="box-border min-h-screen font-body bg-blueGray-100">
     {% include "partials/site-head.njk" %}
-    <main id="main-content" tabindex="-1">
+    <main id="main-content" class="pb-12 bg-white" tabindex="-1">
       {% block content %}{% endblock %}
     </main>
     <script src="/js/main.js"></script>
