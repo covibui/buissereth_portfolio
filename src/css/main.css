@@ -4,25 +4,35 @@
 
 @import "partials/_fonts.css";
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-display text-blueGray-900;
-}
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-blueGray-900 mb-5;
+  }
 
-h1 {
-  @apply text-5xl font-extrabold;
-}
+  h1 {
+    @apply text-5xl font-extrabold;
+  }
 
-h2 {
-  @apply inline-block mt-3 mb-5 pb-4 border-b-4 border-blueGray-600 text-4xl font-semibold;
-}
+  h2 {
+    @apply text-4xl font-semibold inline-block mt-3 pb-4 border-b-4 border-blueGray-600;
+  }
 
-a {
-  @apply transition-colors duration-150;
+  h3 {
+    @apply text-3xl font-semibold;
+  }
+
+  a {
+    @apply transition-colors duration-150;
+  }
+
+  img {
+    @apply pointer-events-none;
+  }
 }
 
 .wrapper {
@@ -52,6 +62,10 @@ a {
       @apply block mt-3 font-semibold not-italic text-blueGray-700;
     }
   }
+}
+
+#hero {
+  @apply py-8 md:py-28;
 }
 
 .work__content {
