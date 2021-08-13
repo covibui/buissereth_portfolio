@@ -37,8 +37,11 @@ module.exports = {
         display: ["Poppins", "Robooto", "Helvetica", "Arial", "sans-serif"],
         body: ["Roboto", "Helvetica", "Arial", "sans-serif"],
       },
+      spacing: {
+        25: "6.25rem",
+      },
       transitionProperty: {
-        // eslint-disable-next-line
+        "op-pos": "opacity, top, right, bottom, left",
         position: "top, right, bottom, left",
       },
     },
