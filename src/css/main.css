@@ -82,7 +82,7 @@
 
   h1 {
     em {
-      @apply block mt-3 font-semibold not-italic text-blueGray-700;
+      @apply block mt-3 font-normal not-italic text-blueGray-700;
     }
   }
 }
