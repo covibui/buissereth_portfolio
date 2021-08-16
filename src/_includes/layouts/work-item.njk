@@ -57,14 +57,13 @@
     </div>
   </div>
   <div class="wrapper">
-    <div class="gallery">
+    <div class="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3 my-8 md:my-28">
       {% for item in gallery %}
         <figure>
-          <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy">
-          <figcaption>
-            <p>
-              <strong>{{ item.title }}</strong>
-            </p>
+          <div class="aspect-w-1 aspect-h-1">
+            <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-cover w-full h-full">
+          </div>
+          <figcaption class="mt-3">
             <p>{{ item.summary }}</p>
           </figcaption>
         </figure>
