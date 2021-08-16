@@ -39,6 +39,10 @@
   @apply w-full mx-auto px-5 lg:max-w-5xl;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .btn {
   @apply inline-block
     mt-3 mb-5 px-5 py-4
@@ -102,5 +106,39 @@
   }
   .work__content__item:nth-child(odd):last-child {
     @apply lg:col-span-3;
+  }
+}
+
+.gallery__item {
+  .gallery__item__imgCont {
+    &:before {
+      content: "";
+      @apply block
+        absolute left-0 top-0 z-10
+        w-full h-full
+        bg-blueGray-900 bg-opacity-40
+        opacity-0 transition-opacity;
+    }
+
+    &:hover {
+      &:before {
+        @apply opacity-100;
+      }
+      .expand {
+        @apply opacity-100;
+      }
+    }
+  }
+}
+
+#lightbox {
+  .lightbox__item {
+    &.active {
+      @apply flex flex-col;
+    }
+
+    img {
+      height: calc(100% - 2rem);
+    }
   }
 }

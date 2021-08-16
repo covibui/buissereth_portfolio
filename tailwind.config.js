@@ -37,6 +37,9 @@ module.exports = {
         display: ["Poppins", "Robooto", "Helvetica", "Arial", "sans-serif"],
         body: ["Roboto", "Helvetica", "Arial", "sans-serif"],
       },
+      maxHeight: {
+        "3/4": "75%",
+      },
       spacing: {
         25: "6.25rem",
       },
