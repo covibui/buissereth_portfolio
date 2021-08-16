@@ -1,4 +1,5 @@
 const htmlmin = require("html-minifier");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 // Utilities
 
@@ -17,6 +18,7 @@ const sortByDisplayOrder = (collection) => {
 };
 
 module.exports = (eleventyConfig) => {
+  eleventyConfig.addPlugin(syntaxHighlight);
   /**
    * * Live server configuration
    * @key {Array} files - Array of additional files to watch, changes will trigger 11ty rebuild. Recommended to watch files built by Webpack

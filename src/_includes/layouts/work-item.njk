@@ -75,6 +75,11 @@
   </div>
   <div class="wrapper">
     <div class="content">
+      {% set contentHeading = 'Case Study' %}
+      {% if contentTitle %}
+        {% set contentHeading = contentTitle %}
+      {% endif %}
+      <h2>{{ contentHeading }}</h2>
       {{ content | safe }}
     </div>
   </div>

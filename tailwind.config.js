@@ -3,12 +3,7 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   mode: "jit",
   purge: {
-    content: [
-      "./src/**/*.html",
-      "./src/**/*.njk",
-      "./src/**/*.svg",
-      "./src/js/**/*.js",
-    ],
+    content: ["./src/**/*.{html,njk,svg}", "./src/js/**/*.js"],
     safelist: [
       "bg-red-100",
       "hover:bg-red-200",
@@ -39,6 +34,9 @@ module.exports = {
       },
       maxHeight: {
         "3/4": "75%",
+      },
+      maxWidth: {
+        prose: "80ch",
       },
       spacing: {
         25: "6.25rem",
