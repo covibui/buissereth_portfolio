@@ -174,6 +174,12 @@
 }
 
 .work__content {
+  .work__content__item {
+    &:hover {
+      text-decoration: underline theme("colors.blueGray.600") 2px;
+    }
+  }
+
   .work__content__item:nth-child(4n + 1),
   .work__content__item:nth-child(4n + 4) {
     @apply lg:col-span-2;

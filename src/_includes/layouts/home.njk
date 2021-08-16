@@ -15,7 +15,7 @@
       </div>
       <div class="work__content grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
         {% for item in collections.work %}
-          <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work__content__item block bg-{{ item.data.color }}-100 hover:bg-{{ item.data.color }}-200">
+          <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work__content__item block text-blueGray-900 hover:text-blueGray-900 bg-{{ item.data.color }}-100 hover:bg-{{ item.data.color }}-200">
             <div class="flex justify-center items-center py-10">
               <img src="{{ item.data.thumb }}" alt="" loading="lazy" class="w-48 h-48">
             </div>
