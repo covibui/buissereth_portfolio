@@ -8,6 +8,7 @@ $(function () {
 // Modal controls
 $(".close").on("click", function () {
   $(this).parent().toggleClass("hidden").toggleClass("flex");
+  $("body").css("overflow-y", "scroll");
 });
 
 $(".gallery__item").on("click", function () {
@@ -15,6 +16,7 @@ $(".gallery__item").on("click", function () {
   let lightboxItem = $(`[data-lightboxID='${itemIndex}']`);
 
   $("#lightbox").removeClass("hidden").addClass("flex");
+  $("body").css("overflow-y", "hidden");
   lightboxItem.removeClass("hidden").addClass("active");
   lightboxItem.siblings().removeClass("active").addClass("hidden");
 });
