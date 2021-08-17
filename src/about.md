@@ -8,29 +8,55 @@ intro:
 resume:
   title: "Resume"
   experience:
-    - employer: "Company"
-      location: "Philadelphia, PA"
-      position: "Position Title"
+    - employer: "Afiye"
+      location: "Drexel University, Philadelphia, PA"
+      position: "Drexel Senior Project"
+      date: "September 2020 - June 2021"
+      desc: "Established brand identity for a family centric social platform. Organized and led several accounts of virtual workshops and interviews with repeating and new participants. Composed a complete user story throughout the project Afiye. Designed cohesive promotional materials for print, digital and video media."
+      resp:
+        [
+          "Utilized strong assessment skills to determine necessary changes for the evolution of the project.",
+          "Produced high quality assets in different mediums.",
+        ]
+    - employer: "EPAM Systems"
+      location: "Center City, Philadelphia, PA"
+      position: "Associate Experience Designer"
       date: "March 2020 - September 2020"
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat duis ultricies lacus sed turpis tincidunt id aliquet risus."
-    - employer: "Company"
-      location: "Philadelphia, PA"
-      position: "Position Title"
+      desc: "Visualized designed campaigns across various physical and digital media in line with existing client brand identities. Collaborated with multiple asynchronous remote teams and stakeholders. Designed digital products for a wide range of industries. Delivered high quality deliverables utilizing various prototyping tools, Adobe Creative Suite and other programs necessary to complete the task. Participated in diverse virtual experience research workshops with key project stakeholders. Encouraged the utilization of the latest digital tools."
+      resp:
+        [
+          "Researched and designed innovative digital solutions.",
+          "Adapted to new programs to achieve project goals despite short deadlines.",
+        ]
+    - employer: "Thunk"
+      location: "Drexel University, Philadelphia, PA"
+      position: "Drexel junior Project"
       date: "September 2019 - March 2020"
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat duis ultricies lacus sed turpis tincidunt id aliquet risus."
+      desc: "Created and designed the brand identity for a multiplayer online game to inspire creativity and generate fun in groups. Collaborated with and a team of multiple designers to develop an iterative/expandable design system. Developed and led research workshops as well as user play testing sessions to improve and iterate the game mechanics. Managed and outsourced team members for additional project elements."
+      resp:
+        [
+          "Synthesized mediums to achieve an accomplished final product.",
+          "Produced high quality deliverables using various digital tools.",
+        ]
   education:
     - school: "Drexel University"
-      graduation: "June 2021"
-      degree: "Interactive Digital Media"
+      date: "September 2017 - 2021"
+      degree: "BS in Interactive Digital Media"
+      sup: "Minor in Graphic Design"
   skills:
     [
-      "User Interface Design",
-      "User Experience Research",
-      "Front End Web Development",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "Adobe After Effects",
+      "Adobe XD",
+      "Adobe InDesign",
+      "Figma",
+      "Sketch",
+      "InVision",
+      "HTML",
+      "JavaScript",
+      "CSS",
     ]
-  technology: ["Adobe Creative Cloud", "Figma", "HTML", "CSS", "JavaScript"]
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id velit ut tortor pretium viverra. Pretium quam vulputate dignissim suspendisse in est ante. Egestas pretium aenean pharetra magna ac placerat. Facilisis magna etiam tempor orci. Amet nulla facilisi morbi tempus iaculis urna id. Consectetur a erat nam at lectus. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit. Neque sodales ut etiam sit. Volutpat diam ut venenatis tellus in metus. Cras tincidunt lobortis feugiat vivamus at augue. Habitant morbi tristique senectus et. Blandit libero volutpat sed cras ornare arcu.
-
-Adipiscing elit pellentesque habitant morbi tristique senectus et netus et. Placerat in egestas erat imperdiet sed euismod nisi porta. Eu augue ut lectus arcu. Elit scelerisque mauris pellentesque pulvinar pellentesque. Aliquam vestibulum morbi blandit cursus risus. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Enim diam vulputate ut pharetra sit. Ultrices vitae auctor eu augue. Velit egestas dui id ornare arcu. At augue eget arcu dictum.
+Digital media graduate seeking a position that can leverage my aptitude for designing digital/non-digital media solutions and building effective media experiences. Hoping to utilize skills producing applications that create a user-friendly interface while promoting client goals. Eager to improve communication between clients and users. Aspiring to grow in an environment that can offer mentorship, learning opportunities and career growth.

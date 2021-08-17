@@ -11,57 +11,53 @@
     <article class="profile">{{ content | safe }}</article>
   </div>
   <div class="wrapper">
-    <div cleas="resume">
+    <div id="resume">
       <div class="resume__header">
         <h2>{{ resume.title }}</h2>
       </div>
-      <div class="resume__content">
+      <div id="resume__content">
         <div class="resume__experience">
-          <div class="resume__content__header">
-            <h3>Experience</h3>
-          </div>
+          <h3>Experience</h3>
           <ul>
             {% for item in resume.experience %}
-              <li class="resume__experience__item">
-                <h4>{{ item.employer }}</h4>
-                <p>{{ item.position }}</p>
-                <p>{{ item.date }}</p>
-                <p>{{ item.location }}</p>
-                <p>{{ item.desc }}</p>
+              <li class="resume__experience__item grid md:grid-cols-6 my-4 p-5 border-l-4 border-blueGray-600 before:hidden">
+                <h4 class="md:col-span-2">{{ item.employer }}</h4>
+                <p class="md:col-span-4 md:justify-self-end font-display text-xl mb-4">
+                  <strong class="font-normal">{{ item.position }}</strong>
+                </p>
+                <p class="font-medium mb-4 md:col-span-3">{{ item.location }}</p>
+                <p class="font-medium mb-4 md:col-span-3 md:justify-self-end">{{ item.date }}</p>
+                <p class="md:col-span-full">{{ item.desc }}</p>
+                <ul class="mb-0 md:col-span-full">
+                  {% for item in item.resp %}
+                    <li class="last:mb-0">{{ item }}</li>
+                  {% endfor %}
+                </ul>
               </li>
             {% endfor %}
           </ul>
         </div>
         <div class="resume__education">
-          <div class="resume__content__header">
-            <h3>Education</h3>
-          </div>
+          <h3>Education</h3>
           <ul>
             {% for item in resume.education %}
-              <li class="resume__education__item">
-                <h4>{{ item.school }}</h4>
-                <p>{{ item.degree }}</p>
-                <p>{{ item.graudation }}</p>
+              <li class="grid md:grid-cols-2 my-4 p-5 border-l-4 border-blueGray-600 before:hidden">
+                <h4 class="md:col-span-full">{{ item.school }}</h4>
+                <p class="mb-4">
+                  <strong>{{ item.degree }}</strong>
+                </p>
+                {% if item.sup %}
+                  <p class="mb-4 md:order-4">{{ item.sup }}</p>
+                {% endif %}
+                <p class="md:justify-self-end font-medium">{{ item.date }}</p>
               </li>
             {% endfor %}
           </ul>
         </div>
         <div class="resume__skills">
-          <div class="resume__content__header">
-            <h3>Skills</h3>
-          </div>
+          <h3>Skills</h3>
           <ul>
             {% for item in resume.skills %}
-              <li>{{ item }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="resume__technology">
-          <div class="resume__content__header">
-            <h3>Technology</h3>
-          </div>
-          <ul>
-            {% for item in resume.technology %}
               <li>{{ item }}</li>
             {% endfor %}
           </ul>

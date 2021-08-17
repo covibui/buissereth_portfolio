@@ -12,7 +12,7 @@
     <nav id="nav__top" class="hidden md:block h-full">
       <ul class="flex w-auto h-full my-0 z-10">
         {% for item in navigation.items %}
-          <li class="mt-4 mb-8 md:mb-0 before:hidden">
+          <li class="mt-4 mb-0 pl-0 before:hidden">
             <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>
               {{ item.text }}
             </a>
@@ -30,11 +30,11 @@
     </div>
   </div>
 </header>
-<nav id="nav__mobile" class="md:hidden absolute top-0 left-full pt-24 w-screen h-screen bg-blueGray-100 z-10 transition-position">
+<nav id="nav__mobile" class="absolute top-0 left-full pt-24 w-screen h-screen bg-blueGray-100 z-10 transition-position">
   <div class="wrapper">
     <ul>
       {% for item in navigation.items %}
-        <li class="before:hidden mb-4 py-4">
+        <li class="before:hidden mb-4 py-4 pl-0">
           <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
             class="font-display font-semibold text-2xl text-blueGray-600 hover:text-blueGray-900 hover:no-underline"
           >
