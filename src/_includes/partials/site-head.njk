@@ -1,32 +1,47 @@
 <div class="wrapper">
   <a href="#main-content" class="btn sr-only focus:not-sr-only focus:mt-3 focus:mb-5 focus:px-5 focus:py-4">Skip to content</a>
 </div>
-<header>
-  <div class="wrapper flex justify-between items-center h-24">
+<header class="relative z-20">
+  <div class="wrapper flex justify-between items-center h-24 relative">
     <a href="/" aria-label="{{ site.name }} - Home" class="inline-block relative z-20 hover:no-underline rounded focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blueGray-900">
       <div class="logo flex flex-col md:flex-row items-center md:gap-4">
         {% include "partials/brand.svg" %}
         <p class="hidden md:block font-display md:text-xl font-semibold text-blueGray-900">Brianna Buissereth</p>
       </div>
     </a>
-    <nav id="nav__top" class="h-full">
-      <div id="hamburger" class="flex items-center relative md:hidden w-12 h-full text-blueGray-900 cursor-pointer z-20">
-        <div class="block">
-          {% include "icons/menu.svg" %}
-        </div>
-        <div class="hidden">
-          {% include "icons/close.svg" %}
-        </div>
-      </div>
-      <ul class="absolute md:static left-0 top-0 translate-x-full md:translate-x-0 bg-gray-100 md:bg-transparent w-screen h-screen pt-24 md:pt-0 md:flex md:w-auto md:h-full my-0 z-10">
+    <nav id="nav__top" class="hidden md:block h-full">
+      <ul class="flex w-auto h-full my-0 z-10">
         {% for item in navigation.items %}
           <li class="mt-4 mb-8 md:mb-0 before:hidden">
-            <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe}}>
+            <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>
               {{ item.text }}
             </a>
           </li>
         {% endfor %}
       </ul>
     </nav>
+    <div id="hamburger" class="flex items-center relative md:hidden w-12 h-full text-blueGray-900 cursor-pointer z-20">
+      <div class="block">
+        {% include "icons/menu.svg" %}
+      </div>
+      <div class="hidden">
+        {% include "icons/close.svg" %}
+      </div>
+    </div>
   </div>
 </header>
+<nav id="nav__mobile" class="md:hidden absolute top-0 left-full pt-24 w-screen h-screen bg-blueGray-100 z-10 transition-position">
+  <div class="wrapper">
+    <ul>
+      {% for item in navigation.items %}
+        <li class="before:hidden mb-4 py-4">
+          <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
+            class="font-display font-semibold text-2xl text-blueGray-600 hover:text-blueGray-900 hover:no-underline"
+          >
+            {{ item.text }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

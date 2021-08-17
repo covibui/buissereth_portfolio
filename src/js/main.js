@@ -3,33 +3,24 @@ import $ from "jquery";
 
 $(function () {
   // Execute on page load
-
   // Prevent flash of nav on page load
-  if ($(window).width() < 768) {
-    $("#nav__top ul").addClass("transition-transform");
-  }
+  // if ($(window).width() < 768) {
+  //   $("#nav__mobile").addClass("transition-transform");
+  // }
 });
 
 // Menu controls ----------------------------------------------------
 $("#hamburger").on("click", function () {
   $(this).children().toggleClass("block").toggleClass("hidden");
-  $("#nav__top ul").toggleClass("translate-x-full");
+  $("#nav__mobile").toggleClass("left-full").toggleClass("left-0");
   $("body").toggleClass("overflow-y-hidden");
 });
 
 $(window).on("resize", function () {
   if ($(this).width() > 767) {
-    console.log($("#hamburger"));
     $("#hamburger div:first-child").removeClass("hidden").addClass("block");
-    console.log($("#hamburger div:first-child"));
     $("#hamburger div:last-child").removeClass("block").addClass("hidden");
-    $("#nav__top ul")
-      .addClass("translate-x-full")
-      .removeClass("transition-transform");
-  } else if ($(this).width() < 768) {
-    $("#nav__top ul")
-      .addClass("translate-x-full")
-      .addClass("transition-transform");
+    $("#nav__mobile").addClass("left-full");
   }
 });
 // ------------------------------------------------------------------
