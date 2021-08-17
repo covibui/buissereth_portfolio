@@ -3,12 +3,41 @@ import $ from "jquery";
 
 $(function () {
   // Execute on page load
+
+  // Prevent flash of nav on page load
+  if ($(window).width() < 768) {
+    $("#nav__top ul").addClass("transition-transform");
+  }
 });
 
-// Modal controls
+// Menu controls ----------------------------------------------------
+$("#hamburger").on("click", function () {
+  $(this).children().toggleClass("block").toggleClass("hidden");
+  $("#nav__top ul").toggleClass("translate-x-full");
+  $("body").toggleClass("overflow-y-hidden");
+});
+
+$(window).on("resize", function () {
+  if ($(this).width() > 767) {
+    console.log($("#hamburger"));
+    $("#hamburger div:first-child").removeClass("hidden").addClass("block");
+    console.log($("#hamburger div:first-child"));
+    $("#hamburger div:last-child").removeClass("block").addClass("hidden");
+    $("#nav__top ul")
+      .addClass("translate-x-full")
+      .removeClass("transition-transform");
+  } else if ($(this).width() < 768) {
+    $("#nav__top ul")
+      .addClass("translate-x-full")
+      .addClass("transition-transform");
+  }
+});
+// ------------------------------------------------------------------
+
+// Modal controls ---------------------------------------------------
 $(".close").on("click", function () {
   $(this).parent().toggleClass("hidden").toggleClass("flex");
-  $("body").css("overflow-y", "scroll");
+  $("body").toggleClass("overflow-y-hidden");
 });
 
 $(".gallery__item").on("click", function () {
@@ -16,7 +45,7 @@ $(".gallery__item").on("click", function () {
   let lightboxItem = $(`[data-lightboxID='${itemIndex}']`);
 
   $("#lightbox").removeClass("hidden").addClass("flex");
-  $("body").css("overflow-y", "hidden");
+  $("body").toggleClass("overflow-y-hidden");
   lightboxItem.removeClass("hidden").addClass("active");
   lightboxItem.siblings().removeClass("active").addClass("hidden");
 });
@@ -48,3 +77,4 @@ $("#lightbox__next").on("click", function () {
       .toggleClass("active");
   }
 });
+// ------------------------------------------------------------------

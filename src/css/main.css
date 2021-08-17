@@ -135,26 +135,26 @@
 
 #nav__top {
   a {
-    @apply flex flex-col justify-center
-      w-25 h-full px-6 pb-4
+    @apply flex flex-row-reverse md:flex-row items-center justify-end
+      md:w-25 h-full px-6 py-4 md:pt-0 md:pb-4
       relative
-      hover:bg-blueGray-200
-      font-display font-semibold text-center text-blueGray-600 no-underline
+      md:hover:bg-blueGray-200
+      font-display font-semibold text-2xl md:text-base text-center text-blueGray-600 no-underline
         hover:text-blueGray-900
       transition-colors duration-150
-      after:inline-block
-      after:w-2 after:h-1
-      after:absolute after:bottom-8 after:left-1/2 after:-translate-x-1/2
-        hover:after:bottom-6
-        focus:after:bottom-6
-      after:bg-gray-600 after:opacity-0 after:rounded
-        hover:after:bg-blueGray-900 hover:after:opacity-100
-        focus:after:bg-blueGray-900 focus:after:opacity-100
-      after:transition-all after:duration-150;
+      md:after:inline-block
+      md:after:w-2 md:after:h-1
+      md:after:absolute md:after:bottom-8 md:after:left-1/2 md:after:-translate-x-1/2
+        md:hover:after:bottom-6
+        md:focus:after:bottom-6
+      md:after:bg-gray-600 md:after:opacity-0 md:after:rounded
+        md:hover:after:bg-blueGray-900 md:hover:after:opacity-100
+        md:focus:after:bg-blueGray-900 md:focus:after:opacity-100
+      md:after:transition-all md:after:duration-150;
 
     &[aria-current="page"],
     &[data-state="active"] {
-      @apply bg-white text-blueGray-900 after:bottom-6 after:opacity-100;
+      @apply md:bg-white text-blueGray-900 md:after:bottom-6 md:after:opacity-100;
     }
   }
 }

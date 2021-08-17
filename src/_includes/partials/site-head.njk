@@ -3,16 +3,24 @@
 </div>
 <header>
   <div class="wrapper flex justify-between items-center h-24">
-    <a href="/" aria-label="{{ site.name }} - Home" class="inline-block hover:no-underline rounded focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blueGray-900">
+    <a href="/" aria-label="{{ site.name }} - Home" class="inline-block relative z-20 hover:no-underline rounded focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blueGray-900">
       <div class="logo flex flex-col md:flex-row items-center md:gap-4">
         {% include "partials/brand.svg" %}
         <p class="hidden md:block font-display md:text-xl font-semibold text-blueGray-900">Brianna Buissereth</p>
       </div>
     </a>
     <nav id="nav__top" class="h-full">
-      <ul class="flex h-full my-0">
+      <div id="hamburger" class="flex items-center relative md:hidden w-12 h-full text-blueGray-900 cursor-pointer z-20">
+        <div class="block">
+          {% include "icons/menu.svg" %}
+        </div>
+        <div class="hidden">
+          {% include "icons/close.svg" %}
+        </div>
+      </div>
+      <ul class="absolute md:static left-0 top-0 translate-x-full md:translate-x-0 bg-gray-100 md:bg-transparent w-screen h-screen pt-24 md:pt-0 md:flex md:w-auto md:h-full my-0 z-10">
         {% for item in navigation.items %}
-          <li class="mt-4 mb-0 before:hidden">
+          <li class="mt-4 mb-8 md:mb-0 before:hidden">
             <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe}}>
               {{ item.text }}
             </a>
