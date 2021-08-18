@@ -61,7 +61,7 @@ primaryCTA:
   title: "Download a copy of my resume."
   summary: "Get a print ready copy, and don't forget to get in touch with me below to start a conversation."
   button:
-    url: "/assets/buissereth_resume.pdf"
+    url: "/assets/documents/BUISSERETH_Resume.pdf"
     text: "Download"
     type: "document"
 ---

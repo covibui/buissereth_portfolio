@@ -11,7 +11,11 @@
     </div>
     <p class="text-xl md:col-span-5 lg:col-span-4">{{ ctaPrefix.summary }}</p>
     <div class="md:col-span-2 md:col-start-4 lg:col-start-3 md:justify-self-end">
-      <a href="{{ ctaPrefix.button.url }}" class="btn">{{ ctaPrefix.button.text }}</a>
+      <a href="{{ ctaPrefix.button.url }}" class="btn" {% if ctaPrefix.button.type === 'document' %}
+        target="_blank"
+      {% elif ctaPrefix.button.type === 'external' %}
+        target="_blank" rel="nofollow"
+      {% endif %}>{{ ctaPrefix.button.text }}</a>
     </div>
   </article>
 </div>

@@ -41,6 +41,10 @@ module.exports = {
           from: "./src/*.{png,ico,svg}",
           to: "./[name][ext]",
         },
+        {
+          from: "./src/assets/documents/*.pdf",
+          to: "./assets/documents/[name][ext]",
+        },
       ],
     }),
     new ImageminWebpackPlugin({
