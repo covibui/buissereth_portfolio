@@ -171,7 +171,7 @@
 
 #nav__top {
   a {
-    @apply flex items-center
+    @apply flex items-center justify-center
       w-25 h-full px-6 pt-0 md:pb-4
       relative
       hover:bg-blueGray-200
