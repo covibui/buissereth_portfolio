@@ -131,14 +131,42 @@
 
 .btn {
   @apply inline-block
-    mt-3 mb-5 px-5 py-4
-    bg-blueGray-900 rounded
-      hover:bg-blueGray-600
-      focus:bg-blueGray-600
+    mt-3 mb-5 px-8 py-4
+    bg-blueGray-900
+      hover:bg-orange-600
+      focus:bg-orange-600
     outline-none
-      focus:ring focus:ring-offset-2 focus:ring-blueGray-900
-    font-display font-semibold leading-none text-white
+      focus:ring focus:ring-offset-4 focus:ring-blueGray-600
+    font-display font-semibold text-xl leading-none text-white
+      hover:text-white hover:no-underline
+      focus:text-white focus:no-underline
     transition-colors duration-150;
+}
+
+.cta {
+  h2 {
+    @apply mt-0;
+  }
+
+  .btn {
+    @apply mt-12 mb-0;
+  }
+  @apply text-white;
+
+  h2 {
+    @apply text-white;
+  }
+
+  .btn {
+    @apply bg-white
+          hover:bg-blueGray-200
+          focus:bg-blueGray-200
+        outline-none
+          focus:ring focus:ring-offset-blueGray-900 focus:ring-offset-4 focus:ring-white
+        text-blueGray-900
+          hover:text-blueGray-900
+          focus:text-blueGray-900;
+  }
 }
 
 #nav__top {

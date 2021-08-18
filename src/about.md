@@ -57,6 +57,13 @@ resume:
       "JavaScript",
       "CSS",
     ]
+primaryCTA:
+  title: "Download a copy of my resume."
+  summary: "Get a print ready copy, and don't forget to get in touch with me below to start a conversation."
+  button:
+    url: "/assets/buissereth_resume.pdf"
+    text: "Download"
+    type: "document"
 ---
 
 Digital media graduate seeking a position that can leverage my aptitude for designing digital/non-digital media solutions and building effective media experiences. Hoping to utilize skills producing applications that create a user-friendly interface while promoting client goals. Eager to improve communication between clients and users. Aspiring to grow in an environment that can offer mentorship, learning opportunities and career growth.

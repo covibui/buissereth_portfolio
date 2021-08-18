@@ -1,0 +1,17 @@
+{% set ctaPrefix = cta %}
+
+{% if ctaContent %}
+  {% set ctaPrefix = ctaContent %}
+{% endif %}
+
+<div class="wrapper">
+  <article class="cta grid md:grid-cols-6 mt-8 px-5 py-12 md:py-24 bg-blueGray-900">
+    <div class="md:col-span-5 lg:col-span-4">
+      <h2>{{ ctaPrefix.title }}</h2>
+    </div>
+    <p class="text-xl md:col-span-5 lg:col-span-4">{{ ctaPrefix.summary }}</p>
+    <div class="md:col-span-2 md:col-start-4 lg:col-start-3 md:justify-self-end">
+      <a href="{{ ctaPrefix.button.url }}" class="btn">{{ ctaPrefix.button.text }}</a>
+    </div>
+  </article>
+</div>

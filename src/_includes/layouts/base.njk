@@ -13,6 +13,8 @@
     {% include "partials/site-head.njk" %}
     <main id="main-content" class="pb-12 bg-white" tabindex="-1">
       {% block content %}{% endblock %}
+      {% set ctaContent = cta %}
+      {% include "partials/cta.njk" %}
     </main>
     {% include "partials/site-foot.njk" %}
     <script src="/js/main.js"></script>
