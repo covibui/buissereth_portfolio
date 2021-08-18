@@ -37,6 +37,10 @@ module.exports = {
           from: "./src/fonts/**/*.{eot,svg,ttf,woff,woff2}",
           to: "./fonts/[name][ext]",
         },
+        {
+          from: "./src/*.{png,ico,svg}",
+          to: "./[name][ext]",
+        },
       ],
     }),
     new ImageminWebpackPlugin({
