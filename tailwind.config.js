@@ -5,20 +5,13 @@ module.exports = {
   purge: {
     content: ["./src/**/*.{html,njk,svg}", "./src/js/**/*.js"],
     safelist: [
-      "bg-red-100",
-      "hover:bg-red-200",
-      "bg-yellow-100",
-      "hover:bg-yellow-200",
-      "bg-green-100",
-      "hover:bg-green-200",
-      "bg-blue-100",
-      "hover:bg-blue-200",
-      "bg-indigo-100",
-      "hover:bg-indigo-200",
-      "bg-purple-100",
-      "hover:bg-purple-200",
-      "bg-pink-100",
-      "hover:bg-pink-200",
+      "bg-red-500",
+      "bg-yellow-500",
+      "bg-green-500",
+      "bg-blue-500",
+      "bg-indigo-500",
+      "bg-purple-500",
+      "bg-pink-500",
     ],
   },
   darkMode: "media",
@@ -26,6 +19,7 @@ module.exports = {
     extend: {
       colors: {
         blueGray: colors.blueGray,
+        gray: colors.trueGray,
         orange: colors.orange,
       },
       fontFamily: {
