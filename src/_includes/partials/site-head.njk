@@ -9,12 +9,21 @@
         <p class="hidden md:block font-display md:text-xl font-semibold text-blueGray-900">Brianna Buissereth</p>
       </div>
     </a>
-    <nav id="nav__top" class="hidden md:block h-full">
-      <ul class="flex w-auto h-full my-0 z-10">
+    <nav id="nav__top" class="hidden md:flex h-full">
+      <ul class="nav__site flex w-auto h-full my-0 z-10">
         {% for item in navigation.items %}
           <li class="mt-4 mb-0 pl-0 before:hidden">
             <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>
               {{ item.text }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <ul class="nav__social flex items-center gap-5 w-auto my-0 ml-6 z-10">
+        {% for item in social.items %}
+          <li class="before:hidden m-0 p-0">
+            <a href="{{ item.url }}" target="_blank" rel="nofollow" class="block w-8 h-8 text-blueGray-600 hover:text-blueGray-900">
+              {% include item.image %}
             </a>
           </li>
         {% endfor %}
@@ -39,6 +48,15 @@
             class="font-display font-semibold text-2xl text-blueGray-600 hover:text-blueGray-900 hover:no-underline"
           >
             {{ item.text }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <ul class="flex gap-6">
+      {% for item in social.items %}
+        <li class="before:hidden m-0 p-0">
+          <a href="{{ item.url }}" target="_blank" rel="nofollow" class="block w-12 h-12 text-blueGray-600 hover:text-blueGray-900">
+            {% include item.image %}
           </a>
         </li>
       {% endfor %}

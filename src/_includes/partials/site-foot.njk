@@ -1,11 +1,18 @@
 <footer>
-  <div class="wrapper flex justify-between items-center py-6">
+  <div class="wrapper flex flex-col md:flex-row justify-between md:items-center py-6">
     <p>&copy; {% currentYear %} Brianna Buissereth</p>
     <nav>
-      <ul class="flex gap-4">
+      <ul class="flex items-center gap-4">
         {% for item in navigation.items %}
-          <li class="before:hidden">
+          <li class="before:hidden m-0 pl-0">
             <a href="{{ item.url }}" class="font-normal text-blueGray-600 hover:text-blueGray-900 hover:no-underline">{{ item.text }}</a>
+          </li>
+        {% endfor %}
+        {% for item in social.items %}
+          <li class="before:hidden h-5 w-5 m-0 pl-0">
+            <a href="{{ item.url }}" class="text-blueGray-600 hover hover:text-blueGray-900">
+              {% include item.image %}
+            </a>
           </li>
         {% endfor %}
       </ul>
