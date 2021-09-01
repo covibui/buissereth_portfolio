@@ -99,7 +99,13 @@
     }
 
     ol {
-      counter-reset: ol-counter 0;
+      counter-reset: ol-counter;
+
+      li {
+        &::before {
+          content: counter(ol-counter, upper-alpha) ". ";
+        }
+      }
     }
   }
 

@@ -12,6 +12,7 @@ module.exports = {
       "bg-indigo-500",
       "bg-purple-500",
       "bg-pink-500",
+      "bg-orange-500",
     ],
   },
   darkMode: "media",
