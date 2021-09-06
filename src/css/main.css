@@ -48,10 +48,6 @@
     @apply pointer-events-none;
   }
 
-  svg {
-    @apply h-full;
-  }
-
   blockquote {
     @apply my-4 p-5 bg-blueGray-50 dark:bg-gray-800 border-l-4 border-blueGray-600 dark:border-gray-400;
 
@@ -284,5 +280,11 @@
 
   p {
     @apply leading-relaxed my-4;
+  }
+}
+
+.resume__skills {
+  svg {
+    @apply h-full w-full;
   }
 }

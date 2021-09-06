@@ -56,9 +56,12 @@
         </div>
         <div class="resume__skills">
           <h3>Skills</h3>
-          <ul>
+          <ul class="flex flex-wrap gap-6 justify-center">
             {% for item in resume.skills %}
-              <li>{{ item }}</li>
+              <li class="list-none p-2 mb-0 bg-blueGray-50 before:hidden w-36 h-36 md:w-48 md:h-48">
+                <div class="h-16 md:h-24 my-2 md:my-6">{% include item.image %}</div>
+                <p class="text-blueGray-900 font-bold text-center">{{ item.name }}</p>
+              </li>
             {% endfor %}
           </ul>
         </div>

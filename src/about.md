@@ -44,22 +44,31 @@ resume:
       degree: "BS in Interactive Digital Media"
       sup: "Minor in Graphic Design"
   skills:
-    [
-      "Adobe Photoshop",
-      "Adobe Illustrator",
-      "Adobe After Effects",
-      "Adobe XD",
-      "Adobe InDesign",
-      "Figma",
-      "Sketch",
-      "InVision",
-      "HTML",
-      "JavaScript",
-      "CSS",
-    ]
+    - name: "Adobe Photoshop"
+      image: "icons/adobe-photoshop.svg"
+    - name: "Adobe Illustrator"
+      image: "icons/adobe-illustrator.svg"
+    - name: "Adobe After Effects"
+      image: "icons/adobe-after-effects.svg"
+    - name: "Adobe XD"
+      image: "icons/adobe-xd.svg"
+    - name: "Adobe InDesign"
+      image: "icons/adobe-indesign.svg"
+    - name: "Figma"
+      image: "icons/figma.svg"
+    - name: "Sketch"
+      image: "icons/sketch.svg"
+    - name: "InVision"
+      image: "icons/invision.svg"
+    - name: "HTML"
+      image: "icons/html.svg"
+    - name: "JavaScript"
+      image: "icons/js.svg"
+    - name: "CSS"
+      image: "icons/css.svg"
 primaryCTA:
   title: "Download a copy of my resume."
-  summary: "Get a print ready copy, and don't forget to get in touch with me below to start a conversation."
+  summary: "Get a print ready copy of my resume."
   button:
     url: "/assets/documents/BUISSERETH_Resume.pdf"
     text: "Download"
