@@ -44,6 +44,8 @@ stats:
 color: "purple"
 ---
 
+> This project was conducted eniterly during quarantine during the COVID-19 pandemic, as a result reaching a wider user audience was challenging with the given student resources available to the team.
+
 ### Overview
 
 The purpose of this project was to research, design, and develop an app by integrating multiple technologies using the experience and skills our team have gained during our time at Drexel University into a coherent product which effectively communicates a message or to solve a need. That need was to address family communication during the pandemic and our mission was to improve it with our app.
