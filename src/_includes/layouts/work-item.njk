@@ -1,10 +1,10 @@
 {% extends "layouts/base.njk" %}
 {% block content %}
   <div class="wrapper py-4">
-    <div id="hero" class="grid gap-6 md:grid-cols-2 -mx-5 px-5 bg-{{ color }}-500 bg-opacity-20">
+    <div id="hero" class="grid gap-6 md:grid-cols-2 -mx-5 px-5 bg-{{ color }}-500 bg-opacity-20 dark:bg-opacity-70">
       <div class="flex flex-col justify-center">
         <h1>{{ title }}</h1>
-        <p class="font-display text-2xl text-blueGray-700 dark:text-gray-400 mb-5">{{ summary }}</p>
+        <p class="font-display text-2xl text-blueGray-700 dark:text-gray-300 mb-5">{{ summary }}</p>
         {% if roles %}
           {% if roles.length > 1 %}
             {% set text = "Roles" %}
@@ -30,13 +30,12 @@
       <h2>Key Features</h2>
       {% set orderImg = cycler("md:order-1", "md:order-2") %}
       {% set orderCapt = cycler("md:order-2", "md:order-1") %}
-      {% set textDir = cycler("md:text-right", "md:text-left") %}
       {% for feature in keyFeatures %}
         <div class="keyFeatures__item mb-6 md:mb-16">
           <figure class="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
             <img src="{{ feature.image }}" alt="{{ feature.imageAlt }}" loading="lazy" class="{{ orderImg.next() }} lg:col-span-3">
             <figcaption class="{{ orderCapt.next() }} md:pt-20 lg:col-span-2">
-              <h3 class="text-4xl md:text-6xl leading-snug {{ textDir.next() }}">{{ feature.title }}</h3>
+              <h3 class="text-4xl md:text-6xl leading-snug">{{ feature.title }}</h3>
               <p class="text-xl text-blueGray-700 dark:text-gray-400">{{ feature.summary }}</p>
             </figcaption>
           </figure>
