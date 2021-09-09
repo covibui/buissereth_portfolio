@@ -6,5 +6,5 @@ intro:
   eybrow: "Brianna Buissereth"
   main: "A UI and UX designer"
 work:
-  title: "View my work"
+  title: "Projects"
 ---

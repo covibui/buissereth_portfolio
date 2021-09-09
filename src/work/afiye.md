@@ -35,11 +35,11 @@ gallery:
     imageAlt: "A description of the gallery image"
     summary: "An image showcasing the product. 4"
 stats:
-  - main: "50"
+  - main: "40"
     sub: "Users interviewed"
-  - main: "3"
+  - main: "10"
     sub: "Workshops lead"
-  - main: "75"
+  - main: "50"
     sub: "Survey responses"
 color: "purple"
 ---
