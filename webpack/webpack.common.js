@@ -1,15 +1,11 @@
 const path = require("path");
-const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
-const ImageminWebP = require("imagemin-webp");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    // eslint-disable-next-line no-undef
     main: path.resolve(__dirname, "../src/js/main.js"),
   },
   output: {
-    // eslint-disable-next-line no-undef
     path: path.resolve(__dirname, "../dist"),
   },
   module: {
@@ -29,10 +25,10 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
-        // {
-        //   from: "./src/assets/images/**/*.{png,jpg,jpeg}",
-        //   to: "./assets/images/[name].webp",
-        // },
+        {
+          from: "./src/assets/images/**/*.{svg,png,jpg,jpeg,gif}",
+          to: "./assets/images/[name][ext]",
+        },
         {
           from: "./src/fonts/**/*.{eot,svg,ttf,woff,woff2}",
           to: "./fonts/[name][ext]",
@@ -45,13 +41,6 @@ module.exports = {
           from: "./src/assets/documents/*.pdf",
           to: "./assets/documents/[name][ext]",
         },
-      ],
-    }),
-    new ImageminWebpackPlugin({
-      plugins: [
-        ImageminWebP({
-          quality: 75,
-        }),
       ],
     }),
   ],
