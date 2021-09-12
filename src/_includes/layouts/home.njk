@@ -17,7 +17,7 @@
         {% for item in collections.work %}
           <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work__content__item block text-blueGray-900 hover:text-blueGray-900 dark:text-gray-50 dark:hover:text-gray-50 hover:no-underline bg-{{ item.data.color }}-500 bg-opacity-20 dark:bg-opacity-70 hover:bg-opacity-50 dark:hover:bg-opacity-90">
             <div class="flex justify-center items-center py-10">
-              <img src="{{ item.data.thumb }}" alt="" loading="lazy" class="w-48 h-48">
+              <img src="{{ item.data.thumb }}" alt="" loading="lazy" class="h-48">
             </div>
             <p class="py-2 bg-white dark:bg-gray-900 font-display font-semibold text-center">{{ item.data.title }}</p>
           </a>
