@@ -1,18 +1,28 @@
 import "../css/main.css";
 import $ from "jquery";
-$(function () {
-  // Execute on page load
-  // Prevent flash of nav on page load
-  // if ($(window).width() < 768) {
-  //   $("#nav__mobile").addClass("transition-transform");
-  // }
-});
+
+// Prevent scrolling and maintain scroll position. Use for open modals.
+const body = document.body;
+const noScroll = () => {
+  if (body.classList.contains("noScroll")) {
+    const scrollY = body.style.top;
+    body.classList.remove("noScroll");
+    body.style.position = "relative";
+    body.style.top = "";
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  } else {
+    body.classList.add("noScroll");
+    body.style.position = "fixed";
+    body.style.top = `-${window.scrollY}px`;
+  }
+};
 
 // Menu controls ----------------------------------------------------
 $("#hamburger").on("click", function () {
   $(this).children().toggleClass("block").toggleClass("hidden");
   $("#nav__mobile").toggleClass("left-full").toggleClass("left-0");
   $("body").toggleClass("overflow-y-hidden");
+  noScroll();
 });
 
 $(window).on("resize", function () {
