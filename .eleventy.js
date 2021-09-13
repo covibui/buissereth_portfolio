@@ -19,6 +19,19 @@ const sortByDisplayOrder = (collection) => {
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(syntaxHighlight);
+
+  const md = require("markdown-it")();
+  const markdownItAttrs = require("markdown-it-attrs");
+
+  md.use(markdownItAttrs, {
+    // optional, these are default options
+    leftDelimiter: "{",
+    rightDelimiter: "}",
+    allowedAttributes: [], // empty array = all attributes are allowed
+  });
+
+  eleventyConfig.setLibrary("md", md);
+
   /**
    * * Live server configuration
    * @key {Array} files - Array of additional files to watch, changes will trigger 11ty rebuild. Recommended to watch files built by Webpack
