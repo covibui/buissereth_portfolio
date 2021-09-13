@@ -6,6 +6,12 @@
 @import "partials/_code.css";
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    @apply transition duration-150;
+  }
+
   h1,
   h2,
   h3,
@@ -46,6 +52,10 @@
 
   img {
     @apply pointer-events-none;
+  }
+
+  svg {
+    @apply w-full h-full;
   }
 
   blockquote {
@@ -119,172 +129,178 @@
   }
 }
 
-.wrapper {
-  @apply w-full mx-auto px-5 lg:max-w-5xl;
-}
-
-.content {
-  @apply max-w-prose mx-auto;
-
-  p {
-    @apply leading-relaxed my-4;
+@layer utilities {
+  .wrapper {
+    @apply w-full mx-auto px-5 lg:max-w-5xl;
   }
 
-  img {
-    @apply mx-auto;
-  }
-}
+  .content {
+    @apply max-w-prose mx-auto;
 
-.btn {
-  @apply inline-block
-    mt-3 mb-5 px-8 py-4
-    bg-blueGray-900
-      hover:bg-orange-600
-      focus:bg-orange-600
-    outline-none
-      focus:ring focus:ring-offset-4 focus:ring-blueGray-600
-    font-display font-semibold text-xl leading-none text-white
-      hover:text-white hover:no-underline
-      focus:text-white focus:no-underline
-    transition-colors duration-150;
-}
-
-.cta {
-  @apply text-white dark:text-gray-900;
-
-  h2 {
-    @apply mt-0;
-  }
-
-  .btn {
-    @apply mt-12 mb-0;
-  }
-
-  h2 {
-    @apply text-white dark:text-gray-900;
-  }
-
-  .btn {
-    @apply bg-white dark:bg-gray-900
-          hover:bg-blueGray-200 dark:hover:bg-gray-700
-          focus:bg-blueGray-200 dark:focus:bg-gray-700
-        outline-none
-          focus:ring focus:ring-offset-blueGray-900 dark:focus:ring-offset-gray-50 focus:ring-offset-4 focus:ring-white dark:focus:ring-gray-900
-        text-blueGray-900 dark:text-gray-50
-          hover:text-blueGray-900 dark:hover:text-gray-50
-          focus:text-blueGray-900 dark:focus:text-gray-50;
-  }
-}
-
-#nav__top {
-  .nav__site {
-    a {
-      @apply flex items-center justify-center
-        w-25 h-full px-6 pt-0 md:pb-4
-        relative
-        hover:bg-blueGray-200 dark:hover:bg-gray-700
-        font-display font-semibold text-base text-center text-blueGray-600 dark:text-gray-400 no-underline
-          hover:text-blueGray-900 dark:hover:text-gray-50
-        transition-colors duration-150
-        after:inline-block
-        after:w-2 after:h-1
-        after:absolute after:bottom-8 after:left-1/2 after:-translate-x-1/2
-          hover:after:bottom-6
-          focus:after:bottom-6
-        after:bg-blueGray-600 dark:after:bg-gray-400 after:opacity-0 after:rounded
-          hover:after:bg-blueGray-900 dark:hover:after:bg-gray-50 hover:after:opacity-100
-          focus:after:bg-blueGray-900 dark:focus:after:bg-gray-50 focus:after:opacity-100
-        after:transition-all after:duration-150;
-
-      &[aria-current="page"],
-      &[data-state="active"] {
-        @apply bg-white dark:bg-gray-900 text-blueGray-900 dark:text-gray-50 after:bottom-6 after:opacity-100;
-      }
-    }
-  }
-}
-
-#nav__mobile {
-  a {
-    &[aria-current="page"],
-    &[data-state="active"] {
-      @apply text-blueGray-900 dark:text-gray-50;
-    }
-  }
-}
-
-#intro {
-  @apply py-12 md:py-32;
-
-  h1 {
-    em {
-      @apply block mt-3 font-normal not-italic text-blueGray-700 dark:text-gray-400;
-    }
-  }
-}
-
-#hero {
-  @apply py-8 md:py-28;
-}
-
-.work__content {
-  .work__content__item:nth-child(4n + 1),
-  .work__content__item:nth-child(4n + 4) {
-    @apply lg:col-span-2;
-  }
-  .work__content__item:nth-child(4n + 2),
-  .work__content__item:nth-child(4n + 3) {
-    @apply lg:col-span-1;
-  }
-  .work__content__item:nth-child(odd):last-child {
-    @apply lg:col-span-3;
-  }
-}
-
-.gallery__item {
-  .gallery__item__imgCont {
-    &:before {
-      content: "";
-      @apply block
-        absolute left-0 top-0 z-10
-        w-full h-full
-        bg-blueGray-900 dark:bg-gray-900 bg-opacity-40 dark:bg-opacity-40
-        opacity-0 transition-opacity;
-    }
-
-    &:hover {
-      &:before {
-        @apply opacity-100;
-      }
-      .expand {
-        @apply opacity-100;
-      }
-    }
-  }
-}
-
-#lightbox {
-  .lightbox__item {
-    &.active {
-      @apply flex flex-col;
+    p {
+      @apply leading-relaxed my-4;
     }
 
     img {
-      height: calc(100% - 2rem);
+      @apply mx-auto;
     }
   }
 }
 
-.profile {
-  @apply max-w-prose;
-
-  p {
-    @apply leading-relaxed my-4;
+@layer components {
+  .btn {
+    @apply inline-block
+      mt-3 mb-5 px-8 py-4
+      bg-blueGray-900
+        hover:bg-orange-600
+        focus:bg-orange-600
+      outline-none
+        focus:ring focus:ring-offset-4 focus:ring-blueGray-600
+      font-display font-semibold text-xl leading-none text-white
+        hover:text-white hover:no-underline
+        focus:text-white focus:no-underline
+      transition-colors duration-150;
   }
-}
 
-.resume__skills {
-  svg {
-    @apply h-full w-full;
+  .cta {
+    @apply text-white dark:text-gray-900;
+
+    h2 {
+      @apply mt-0;
+    }
+
+    .btn {
+      @apply mt-12 mb-0;
+    }
+
+    h2 {
+      @apply text-white dark:text-gray-900;
+    }
+
+    .btn {
+      @apply bg-white dark:bg-gray-900
+            hover:bg-blueGray-200 dark:hover:bg-gray-700
+            focus:bg-blueGray-200 dark:focus:bg-gray-700
+          outline-none
+            focus:ring focus:ring-offset-blueGray-900 dark:focus:ring-offset-gray-50 focus:ring-offset-4 focus:ring-white dark:focus:ring-gray-900
+          text-blueGray-900 dark:text-gray-50
+            hover:text-blueGray-900 dark:hover:text-gray-50
+            focus:text-blueGray-900 dark:focus:text-gray-50;
+    }
+  }
+
+  #nav__top {
+    .nav__site {
+      a {
+        @apply flex items-center justify-center
+          w-25 h-full px-6 pt-0 md:pb-4
+          relative
+          hover:bg-blueGray-200 dark:hover:bg-gray-700
+          font-display font-semibold text-base text-center text-blueGray-600 dark:text-gray-400 no-underline
+            hover:text-blueGray-900 dark:hover:text-gray-50
+          transition duration-150
+          after:inline-block
+          after:w-2 after:h-1
+          after:absolute after:bottom-8 after:left-1/2 after:-translate-x-1/2
+            hover:after:bottom-6
+            focus:after:bottom-6
+          after:bg-blueGray-600 dark:after:bg-gray-400 after:opacity-0 after:rounded
+            hover:after:bg-blueGray-900 dark:hover:after:bg-gray-50 hover:after:opacity-100
+            focus:after:bg-blueGray-900 dark:focus:after:bg-gray-50 focus:after:opacity-100
+          after:transition-all after:duration-150;
+
+        &[aria-current="page"],
+        &[data-state="active"] {
+          @apply transition bg-white dark:bg-gray-900 text-blueGray-900 dark:text-gray-50 after:bottom-6 after:opacity-100;
+        }
+      }
+    }
+  }
+
+  #nav__mobile {
+    a {
+      &[aria-current="page"],
+      &[data-state="active"] {
+        @apply text-blueGray-900 dark:text-gray-50;
+      }
+    }
+  }
+
+  #intro {
+    @apply py-12 md:py-32;
+
+    h1 {
+      em {
+        @apply block mt-3 font-normal not-italic;
+        @apply text-blueGray-700;
+        @apply dark:!text-gray-400;
+      }
+    }
+  }
+
+  #hero {
+    @apply py-8 md:py-28;
+  }
+
+  .work__content {
+    .work__content__item:nth-child(4n + 1),
+    .work__content__item:nth-child(4n + 4) {
+      @apply lg:col-span-2;
+    }
+    .work__content__item:nth-child(4n + 2),
+    .work__content__item:nth-child(4n + 3) {
+      @apply lg:col-span-1;
+    }
+    .work__content__item:nth-child(odd):last-child {
+      @apply lg:col-span-3;
+    }
+  }
+
+  .gallery__item {
+    .gallery__item__imgCont {
+      &:before {
+        content: "";
+        @apply block
+          absolute left-0 top-0 z-10
+          w-full h-full
+          bg-blueGray-900 dark:bg-gray-900 bg-opacity-40 dark:bg-opacity-40
+          opacity-0 transition-opacity;
+      }
+
+      &:hover {
+        &:before {
+          @apply opacity-100;
+        }
+        .expand {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
+
+  #lightbox {
+    .lightbox__item {
+      &.active {
+        @apply flex flex-col;
+      }
+
+      img {
+        height: calc(100% - 2rem);
+      }
+    }
+  }
+
+  .profile {
+    @apply max-w-prose;
+
+    p {
+      @apply leading-relaxed my-4;
+    }
+  }
+
+  .resume__skills {
+    svg {
+      @apply h-full w-full;
+    }
   }
 }

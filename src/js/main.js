@@ -1,6 +1,5 @@
 import "../css/main.css";
 import $ from "jquery";
-
 $(function () {
   // Execute on page load
   // Prevent flash of nav on page load
@@ -69,3 +68,18 @@ $("#lightbox__next").on("click", function () {
   }
 });
 // ------------------------------------------------------------------
+
+// Mode toggle ------------------------------------------------------
+const modeButtons = document.querySelectorAll(".mode-switch");
+
+modeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
+    }
+  });
+});

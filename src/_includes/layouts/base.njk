@@ -9,6 +9,20 @@
 
     {% include "partials/favicon.njk" %}
 
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document
+          .documentElement
+          .classList
+          .add('dark')
+      } else {
+        document
+          .documentElement
+          .classList
+          .remove('dark')
+      }
+    </script>
+
     <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all'">
   </head>
   <body class="box-border relative overflow-x-hidden min-h-screen font-body dark:text-gray-50 bg-blueGray-100 dark:bg-gray-800">

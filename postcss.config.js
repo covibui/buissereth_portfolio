@@ -3,7 +3,7 @@ module.exports = {
     require("postcss-import")({
       path: ["src/css"],
     }),
-    require("postcss-nested"),
+    require("tailwindcss/nesting"),
     require("tailwindcss"),
     require("autoprefixer"),
   ],

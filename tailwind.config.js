@@ -15,7 +15,7 @@ module.exports = {
       "bg-orange-500",
     ],
   },
-  darkMode: "media",
+  darkMode: "class",
   theme: {
     extend: {
       colors: {

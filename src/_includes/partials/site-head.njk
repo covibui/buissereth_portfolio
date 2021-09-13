@@ -5,7 +5,7 @@
   <div class="wrapper flex justify-between items-center h-24 relative">
     <a href="/" aria-label="{{ site.name }} - Home" class="inline-block relative z-20 hover:no-underline rounded focus:outline-none focus:ring focus:ring-offset-8 focus:ring-blueGray-900 dark:focus:ring-white dark:focus:ring-offset-gray-800">
       <div class="logo flex flex-col md:flex-row items-center md:gap-4 text-orange-600 dark:text-orange-500">
-        {% include "partials/brand.svg" %}
+        <span class="w-12 h-12">{% include "partials/brand.svg" %}</span>
         <p class="hidden md:block font-display md:text-xl font-semibold text-blueGray-900 dark:text-blueGray-50">Brianna Buissereth</p>
       </div>
     </a>
@@ -28,6 +28,14 @@
           </li>
         {% endfor %}
       </ul>
+      <div class="mode-switch cursor-pointer mt-8 ml-6 h-8 text-blueGray-600 dark:text-gray-400 hover:text-blueGray-900 dark:hover:text-gray-50 transition-colors" tabindex="0">
+        <div class="block dark:hidden h-full">
+          {% include "icons/sun.svg" %}
+        </div>
+        <div class="hidden dark:block h-full">
+          {% include "icons/moon.svg" %}
+        </div>
+      </div>
     </nav>
     <div id="hamburger" class="flex items-center relative md:hidden w-12 h-full text-blueGray-900 dark:text-gray-50 cursor-pointer z-20">
       <div class="block">
@@ -61,5 +69,13 @@
         </li>
       {% endfor %}
     </ul>
+    <div class="mode-switch cursor-pointer h-12 w-12 text-blueGray-600 dark:text-gray-400 hover:text-blue-gray-900 dark:hover:text-gray-50 transition-colors" tabindex="0">
+      <div class="block dark:hidden h-full">
+        {% include "icons/sun.svg" %}
+      </div>
+      <div class="hidden dark:block h-full">
+        {% include "icons/moon.svg" %}
+      </div>
+    </div>
   </div>
 </nav>
