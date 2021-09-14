@@ -94,7 +94,7 @@
       <div id="lightbox__prev" class="w-12 h-12 flex-shrink-0 text-blueGray-100 dark:text-gray-50 cursor-pointer">
         {% include "icons/chevron-left.svg" %}
       </div>
-      <div class="lightbox__media flex max-h-3/4 flex-shrink">
+      <div id="lightbox__media" class="flex max-h-3/4 flex-shrink">
         {% for item in gallery %}
           <figure id="lightbox__item-{{ loop.index }}" class="lightbox__item hidden max-h-full" data-lightboxID="{{ loop.index }}">
             <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain">
