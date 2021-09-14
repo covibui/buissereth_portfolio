@@ -1,5 +1,4 @@
 import "../css/main.css";
-import $ from "jquery";
 
 // Prevent scrolling and maintain scroll position. Use for open modals.
 const body = document.body;
@@ -18,65 +17,103 @@ const noScroll = () => {
 };
 
 // Menu controls ----------------------------------------------------
-$("#hamburger").on("click", function () {
-  $(this).children().toggleClass("block").toggleClass("hidden");
-  $("#nav__mobile").toggleClass("left-full").toggleClass("left-0");
-  $("body").toggleClass("overflow-y-hidden");
+let hamburger = document.getElementById("hamburger");
+let navMobile = document.getElementById("nav__mobile");
+hamburger.addEventListener("click", () => {
+  for (let i = 0; i < hamburger.children.length; i++) {
+    hamburger.children[i].classList.toggle("block");
+    hamburger.children[i].classList.toggle("hidden");
+  }
+
+  navMobile.classList.toggle("left-full");
+  navMobile.classList.toggle("left-0");
+
   noScroll();
 });
 
-$(window).on("resize", function () {
-  if ($(this).width() > 767) {
-    $("#hamburger div:first-child").removeClass("hidden").addClass("block");
-    $("#hamburger div:last-child").removeClass("block").addClass("hidden");
-    $("#nav__mobile").addClass("left-full");
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 767) {
+    hamburger.children[0].classList.remove("hidden");
+    hamburger.children[0].classList.add("block");
+    hamburger.children[1].classList.remove("block");
+    hamburger.children[1].classList.add("hidden");
+    navMobile.classList.add("left-full");
+
+    if (body.classList.contains("noScroll")) {
+      noScroll();
+    }
   }
 });
 // ------------------------------------------------------------------
 
 // Modal controls ---------------------------------------------------
-$(".close").on("click", function () {
-  $(this).parent().toggleClass("hidden").toggleClass("flex");
-  $("body").toggleClass("overflow-y-hidden");
+let closeButtons = document.querySelectorAll(".close");
+
+closeButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    this.parentElement.classList.toggle("hidden");
+    this.parentElement.classList.toggle("flex");
+  });
 });
 
-$(".gallery__item").on("click", function () {
-  let itemIndex = $(this).attr("data-galleryID");
-  let lightboxItem = $(`[data-lightboxID='${itemIndex}']`);
+let galleryItems = document.querySelectorAll(".gallery__item");
+let lightbox = document.getElementById("lightbox");
+let lightboxMediaContainer = document.getElementById("lightbox__media");
 
-  $("#lightbox").removeClass("hidden").addClass("flex");
-  $("body").toggleClass("overflow-y-hidden");
-  lightboxItem.removeClass("hidden").addClass("active");
-  lightboxItem.siblings().removeClass("active").addClass("hidden");
+galleryItems.forEach((item) => {
+  item.addEventListener("click", function () {
+    let itemIndex = this.getAttribute("data-galleryID");
+    let lightboxItem = document.querySelector(
+      `[data-lightboxID='${itemIndex}']`
+    );
+
+    lightbox.classList.remove("hidden");
+    lightbox.classList.add("flex");
+    for (let i = 0; i < lightboxMediaContainer.children.length; i++) {
+      lightboxMediaContainer.children[i].classList.remove("active");
+      lightboxMediaContainer.children[i].classList.add("hidden");
+    }
+    lightboxItem.classList.remove("hidden");
+    lightboxItem.classList.add("active");
+  });
 });
 
-$("#lightbox__prev").on("click", function () {
-  let itemIndex = $(".lightbox__item.active").attr("data-lightboxID");
-  let activeItem = $(`[data-lightboxID='${itemIndex}']`);
+let lightboxPrev = document.getElementById("lightbox__prev");
+let lightboxNext = document.getElementById("lightbox__next");
 
-  activeItem.toggleClass("hidden").toggleClass("active");
-  if (activeItem.prev().length !== 0) {
-    activeItem.prev().toggleClass("hidden").toggleClass("active");
-  } else {
-    $(".lightbox__item:last-of-type()")
-      .toggleClass("hidden")
-      .toggleClass("active");
-  }
-});
+if (lightboxPrev) {
+  lightboxPrev.addEventListener("click", () => {
+    let activeItem = document.querySelector(".lightbox__item.active");
 
-$("#lightbox__next").on("click", function () {
-  let itemIndex = $(".lightbox__item.active").attr("data-lightboxID");
-  let activeItem = $(`[data-lightboxID='${itemIndex}']`);
+    activeItem.classList.remove("active");
+    activeItem.classList.add("hidden");
 
-  activeItem.toggleClass("hidden").toggleClass("active");
-  if (activeItem.next().length !== 0) {
-    activeItem.next().toggleClass("hidden").toggleClass("active");
-  } else {
-    $(".lightbox__item:first-of-type()")
-      .toggleClass("hidden")
-      .toggleClass("active");
-  }
-});
+    if (activeItem.previousElementSibling) {
+      activeItem.previousElementSibling.classList.remove("hidden");
+      activeItem.previousElementSibling.classList.add("active");
+    } else {
+      lightboxMediaContainer.lastElementChild.classList.remove("hidden");
+      lightboxMediaContainer.lastElementChild.classList.add("active");
+    }
+  });
+}
+
+if (lightboxNext) {
+  lightboxNext.addEventListener("click", () => {
+    let activeItem = document.querySelector(".lightbox__item.active");
+
+    activeItem.classList.remove("active");
+    activeItem.classList.add("hidden");
+
+    if (activeItem.nextElementSibling) {
+      activeItem.nextElementSibling.classList.remove("hidden");
+      activeItem.nextElementSibling.classList.add("active");
+    } else {
+      lightboxMediaContainer.firstElementChild.classList.remove("hidden");
+      lightboxMediaContainer.firstElementChild.classList.add("active");
+    }
+  });
+}
 // ------------------------------------------------------------------
 
 // Mode toggle ------------------------------------------------------
