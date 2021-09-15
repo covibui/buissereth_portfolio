@@ -1,5 +1,5 @@
 const htmlmin = require("html-minifier");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+// const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 // Utilities
 
@@ -18,7 +18,7 @@ const sortByDisplayOrder = (collection) => {
 };
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.addPlugin(syntaxHighlight);
+  // eleventyConfig.addPlugin(syntaxHighlight);
 
   const md = require("markdown-it")();
   const markdownItAttrs = require("markdown-it-attrs");

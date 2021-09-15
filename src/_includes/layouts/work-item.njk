@@ -1,7 +1,7 @@
 {% extends "layouts/base.njk" %}
 {% block content %}
-  <div class="wrapper py-4">
-    <div id="hero" class="grid gap-6 md:grid-cols-2 -mx-5 px-5 bg-{{ color }}-500 bg-opacity-20 dark:bg-opacity-70">
+  <div class="container">
+    <div id="hero" class="grid gap-6 md:grid-cols-2">
       <div class="flex flex-col justify-center">
         <h1>{{ title }}</h1>
         <p class="font-display text-2xl text-blueGray-700 dark:text-gray-300 mb-5">{{ summary }}</p>
@@ -25,58 +25,92 @@
       <img src="{{ hero.image }}" alt="{{ hero.imageAlt }}">
     </div>
   </div>
-  <div class="wrapper">
+  <div class="container">
     <div class="keyFeatures my-8 md:my-28">
       <h2>Key Features</h2>
-      {% set orderImg = cycler("md:order-1", "md:order-2") %}
-      {% set orderCapt = cycler("md:order-2", "md:order-1") %}
-      {% for feature in keyFeatures %}
-        <div class="keyFeatures__item mb-6 md:mb-16">
-          <figure class="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-            <img src="{{ feature.image }}" alt="{{ feature.imageAlt }}" loading="lazy" class="{{ orderImg.next() }} lg:col-span-3">
-            <figcaption class="{{ orderCapt.next() }} lg:col-span-2">
-              <h3 class="text-4xl md:text-6xl leading-snug md:leading-snug">{{ feature.title }}</h3>
-              <p class="text-xl text-blueGray-700 dark:text-gray-400">{{ feature.summary }}</p>
-            </figcaption>
-          </figure>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-  {% if stats %}
-    <div class="wrapper">
-      <div class="grid md:grid-cols-3 my-8 md:my-28 divide-y-2 md:divide-y-0 md:divide-x-2 divide-blueGray-600 dark:divide-gray-400">
-        {% for stat in stats %}
-          <div class="px-16 py-12">
-            <p class="text-8xl font-display text-blueGray-900 dark:text-gray-50">
-              <strong>{{ stat.main }}</strong>
-            </p>
-            <p class="text-2xl text-blueGray-700 dark:text-gray-400">{{ stat.sub }}</p>
+      <div class="grid gap-4 grid-cols-feature">
+        {% for feature in keyFeatures %}
+          <div class="keyFeatures__item md:mb-16">
+            <figure class="">
+              <div class="bg-blueGray-100 dark:bg-gray-800 sm:h-64 md:h-80 lg:h-80 xl:h-96 p-6">
+                <img src="{{ feature.image }}" alt="{{ feature.imageAlt }}" loading="lazy" class="object-contain w-full h-full">
+              </div>
+              <figcaption class="">
+                <h3>{{ feature.title }}</h3>
+                <p class="text-xl text-blueGray-700 dark:text-gray-400">{{ feature.summary }}</p>
+              </figcaption>
+            </figure>
           </div>
         {% endfor %}
       </div>
     </div>
-  {% endif %}
-  {% if gallery %}
-    <div class="wrapper">
-      <div class="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3 my-8 md:my-28">
-        {% for item in gallery %}
-          <figure id="gallery__item-{{ loop.index }}" class="gallery__item cursor-pointer" data-galleryID="{{ loop.index }}">
-            <div class="gallery__item__imgCont aspect-w-1 aspect-h-1 w-full h-0">
-              <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-cover bg-blueGray-100 dark:bg-gray-800">
-              <div class="expand w-20 h-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-blueGray-100 dark:text-gray-50 z-20 opacity-0 transition-opacity">
-                {% include "icons/expand.svg" %}
-              </div>
+  </div>
+  {% if stats %}
+    <div class="container">
+      <div class="my-8 md:my-28">
+        <h2>
+          {% if statsHeading %}
+            {{ statsHeading }}
+          {% else %}
+          Project Statistics
+        {% endif %}
+        </h2>
+        <div class="grid md:grid-cols-3 divide-y-2 md:divide-y-0 md:divide-x-2 divide-blueGray-600 dark:divide-gray-400">
+          {% for stat in stats %}
+            <div class="px-16 py-12">
+              <p class="text-8xl font-display text-blueGray-900 dark:text-gray-50">
+                <strong>{{ stat.main }}</strong>
+              </p>
+              <p class="text-2xl text-blueGray-700 dark:text-gray-400">{{ stat.sub }}</p>
             </div>
-            <figcaption class="mt-3">
-              <p>{{ item.summary }}</p>
-            </figcaption>
-          </figure>
-        {% endfor %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   {% endif %}
-  <div class="wrapper">
+  {% if promoVid %}
+    <div class="container">
+      <div class="my-8 md:my-28">
+        <h2>
+          {% if promoVidHeading %}
+            {{ promoVidHeading }}
+          {% else %}
+          Promotional Video
+        {% endif %}
+        </h2>
+        {% include "partials/" + promoVid %}
+      </div>
+    </div>
+  {% endif %}
+  {% if gallery %}
+    <div class="container">
+      <div class="my-8 md:my-28">
+        <h2>
+          {% if galleryHeading %}
+            {{ galleryHeading }}
+          {% else %}
+            Gallery
+          {% endif %}
+        </h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {% for item in gallery %}
+            <figure id="gallery__item-{{ loop.index }}" class="gallery__item relative cursor-pointer p-6 bg-blueGray-100 dark:bg-gray-800" data-galleryID="{{ loop.index }}">
+              <div class="gallery__item__imgCont sm:h-64 md:h-80 lg:h-64 xl:h-96">
+                <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain w-full h-full">
+              </div>
+              <div class="expand w-20 h-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-blueGray-100 dark:text-gray-50 z-20 opacity-0 transition-opacity">
+                {% include "icons/expand.svg" %}
+              </div>
+              <figcaption class="sr-only">
+                <p>{{ item.summary }}</p>
+              </figcaption>
+            </figure>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="container">
     <div class="content">
       {% set contentHeading = 'Case Study' %}
       {% if contentTitle %}

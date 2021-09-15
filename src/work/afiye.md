@@ -1,7 +1,7 @@
 ---
 title: "afiye"
 summary: "afiye is a digital home for families to stay connected by sharing media of cherished events"
-thumb: "/assets/images/afiye-hero.png"
+thumb: "/assets/images/afiye-logo.svg"
 displayOrder: 1
 roles: ["UI Designer", "UX Researcher"]
 hero:
@@ -21,6 +21,7 @@ keyFeatures:
     summary: "Ensure your invited family can view your memories"
     image: "/assets/images/afiye-feature03.svg"
     imageAlt: "An elderly man sitting in a chair reading to his grandson."
+promoVid: "afiye-promo-vid.njk"
 gallery:
   - image: "/assets/images/afiye-desktop-group01.png"
     imageAlt: "Three desktop screens displaying pages on afiye."
@@ -64,6 +65,7 @@ gallery:
   - image: "/assets/images/afiye-tablet-mockup02.png"
     imageAlt: "Personal memories displayed on an iPad."
     summary: "Easily access all of your memories."
+statsHeading: "Remote Teamwork"
 stats:
   - main: "40"
     sub: "Users interviewed"
@@ -71,7 +73,7 @@ stats:
     sub: "Workshops lead"
   - main: "50"
     sub: "Survey responses"
-color: "purple"
+color: "afiye"
 ---
 
 > This project was conducted eniterly during quarantine during the COVID-19 pandemic, as a result reaching a wider user audience was challenging with the given student resources available to the team.

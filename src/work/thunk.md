@@ -1,7 +1,7 @@
 ---
 title: "Thunk"
 summary: "Thunk is a party game centered around creativity through divergent thinking"
-thumb: "/assets/images/thunk-thumb.png"
+thumb: "/assets/images/thunk-logo.svg"
 displayOrder: 2
 roles: ["UI Designer"]
 hero:
@@ -17,6 +17,7 @@ keyFeatures:
     summary: "Creative prompts from the ordinary to out of left field to get you thinking."
     image: "/assets/images/thunk-feature02.png"
     imageAlt: 'A sample game prompt "If there''s a fire I [blank] but Every answer must include the word "cow""'
+promoVid: "thunk-promo-vid.njk"
 gallery:
   - image: "/assets/images/thunk-judging01.png"
     imageAlt: "Screen displaying submitted player responses and voting results."
@@ -27,7 +28,7 @@ gallery:
   - image: "/assets/images/thunk-winner-screen.png"
     imageAlt: 'Screen displaying that a player named "Fiddy" has won a game of Thunk.'
     summary: "Play to be crowned the victor!"
-color: "red"
+color: "thunk"
 ---
 
 ### What is Thunk?

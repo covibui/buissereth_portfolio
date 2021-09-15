@@ -4,18 +4,24 @@
   {% set ctaPrefix = ctaContent %}
 {% endif %}
 
-<div class="wrapper">
+<div class="container">
   <article class="cta mt-8 px-5 md:px-12 lg:px-20 py-12 md:py-24 bg-blueGray-900 dark:bg-gray-50">
     <div class="md:col-span-5 lg:col-span-4">
       <h2>{{ ctaPrefix.title }}</h2>
     </div>
     <p class="text-xl">{{ ctaPrefix.summary }}</p>
     <div class="">
-      <a href="{{ ctaPrefix.button.url }}" class="btn" {% if ctaPrefix.button.type === 'document' %}
+      {% if ctaPrefix === cta %}
+        <button id="contact__btn" class="btn group relative">
+          <span class="tooltip">Copy to clipboard</span>
+          {{ ctaPrefix.button.text }}</button>
+      {% else %}
+        <a href="{{ ctaPrefix.button.url }}" class="btn" {% if ctaPrefix.button.type === 'document' %}
         target="_blank"
-      {% elif ctaPrefix.button.type === 'external' %}
-        target="_blank" rel="nofollow"
-      {% endif %}>{{ ctaPrefix.button.text }}</a>
+        {% elif ctaPrefix.button.type === 'external' %}
+          target="_blank" rel="nofollow"
+        {% endif %}>{{ ctaPrefix.button.text }}</a>
+      {% endif %}
     </div>
   </article>
 </div>

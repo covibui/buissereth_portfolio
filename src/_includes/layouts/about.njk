@@ -1,19 +1,26 @@
 {% extends "layouts/base.njk" %}
 {% block content %}
-  <div class="wrapper">
-    <article id="intro" class="!pb-6">
+  <div class="container">
+    <article id="intro" class="!pb-6 content">
       <h1>{{ intro.eyebrow }}
         <em>{{ intro.main }}</em>
       </h1>
     </article>
   </div>
-  <div class="wrapper">
-    <article class="profile text-lg">{{ content | safe }}</article>
+  <div class="container">
+    <article class="profile content">{{ content | safe }}</article>
   </div>
-  <div class="wrapper">
-    <div id="resume">
+  <div class="container">
+    <div id="resume" class="content">
       <div class="resume__header">
         <h2>{{ resume.title }}</h2>
+      </div>
+      <div>
+        <a href="{{ primaryCTA.button.url }}" class="btn" {% if primaryCTA.button.type === 'document' %}
+        target="_blank"
+        {% elif primaryCTA.button.type === 'external' %}
+          target="_blank" rel="nofollow"
+        {% endif %}>Download PDF</a>
       </div>
       <div id="resume__content">
         <div class="resume__experience">
@@ -41,7 +48,7 @@
           <h3>Education</h3>
           <ul>
             {% for item in resume.education %}
-              <li class="grid md:grid-cols-2 my-4 p-5 border-l-4 border-blueGray-600 before:hidden">
+              <li class="grid md:grid-cols-2 my-4 p-5 border-l-4 border-blueGray-600 dark:border-gray-400 before:hidden">
                 <h4 class="md:col-span-full">{{ item.school }}</h4>
                 <p class="mb-4">
                   <strong>{{ item.degree }}</strong>

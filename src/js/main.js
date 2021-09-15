@@ -1,4 +1,5 @@
 import "../css/main.css";
+import site from "../_data/site.json";
 
 // Prevent scrolling and maintain scroll position. Use for open modals.
 const body = document.body;
@@ -130,3 +131,20 @@ modeButtons.forEach((button) => {
     }
   });
 });
+// ------------------------------------------------------------------
+
+// Contact cta action -----------------------------------------------
+const contactButton = document.getElementById("contact__btn");
+
+contactButton.addEventListener("click", () => {
+  navigator.clipboard.writeText(site.authorEmail);
+
+  let tooltip = document.querySelector("#contact__btn .tooltip");
+  tooltip.innerHTML = "Copied!";
+});
+
+contactButton.addEventListener("mouseout", () => {
+  let tooltip = document.querySelector("#contact__btn .tooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+});
+// ------------------------------------------------------------------

@@ -5,27 +5,33 @@ module.exports = {
   purge: {
     content: ["./src/**/*.{html,njk,svg,md}", "./src/js/**/*.js"],
     safelist: [
-      "bg-red-500",
-      "bg-yellow-500",
-      "bg-green-500",
-      "bg-blue-500",
-      "bg-indigo-500",
-      "bg-purple-500",
-      "bg-pink-500",
-      "bg-orange-500",
+      "bg-projects-afiye",
+      "bg-projects-apartmentor",
+      "bg-projects-thunk",
     ],
   },
   darkMode: "class",
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       colors: {
         blueGray: colors.blueGray,
         gray: colors.trueGray,
         orange: colors.orange,
+        projects: {
+          afiye: "#922AFF",
+          apartmentor: "#FF7E00",
+          thunk: "#ED1B69",
+        },
       },
       fontFamily: {
         display: ["Poppins", "Robooto", "Helvetica", "Arial", "sans-serif"],
         body: ["Roboto", "Helvetica", "Arial", "sans-serif"],
+      },
+      gridTemplateColumns: {
+        feature: "repeat(auto-fit, minmax(300px, 1fr))",
       },
       maxHeight: {
         "3/4": "75%",

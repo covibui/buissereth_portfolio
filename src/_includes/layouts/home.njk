@@ -1,6 +1,6 @@
 {% extends "layouts/base.njk" %}
 {% block content %}
-  <div class="wrapper">
+  <div class="container">
     <article id="intro">
       <h1>
         {{ intro.eybrow }}
@@ -8,18 +8,15 @@
       </h1>
     </article>
   </div>
-  <div class="wrapper">
+  <div class="container">
     <article class="work">
       <div class="work__header">
         <h2>{{ work.title }}</h2>
       </div>
       <div class="work__content grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
         {% for item in collections.work %}
-          <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work__content__item block text-blueGray-900 hover:text-blueGray-900 dark:text-gray-50 dark:hover:text-gray-50 hover:no-underline bg-{{ item.data.color }}-500 bg-opacity-20 dark:bg-opacity-70 hover:bg-opacity-50 dark:hover:bg-opacity-90">
-            <div class="flex justify-center items-center py-10">
-              <img src="{{ item.data.thumb }}" alt="" loading="lazy" class="h-48">
-            </div>
-            <p class="py-2 bg-white dark:bg-gray-900 font-display font-semibold text-center">{{ item.data.title }}</p>
+          <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work__content__item flex justify-center items-center h-64 p-10 text-blueGray-900 hover:text-blueGray-900 dark:text-gray-50 dark:hover:text-gray-50 hover:no-underline bg-projects-{{ item.data.color }} bg-opacity-80 hover:bg-opacity-100">
+            <img src="{{ item.data.thumb }}" alt="" loading="lazy" class="max-h-20">
           </a>
         {% endfor %}
       </div>

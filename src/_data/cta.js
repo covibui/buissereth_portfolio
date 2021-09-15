@@ -6,6 +6,6 @@ module.exports = {
     "My inbox is always open if you have something you would like to discuss or just feel like saying hello.",
   button: {
     url: "mailto:" + site.authorEmail + "?subject=Project Interest",
-    text: "Message me",
+    text: site.authorEmail,
   },
 };

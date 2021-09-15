@@ -1,7 +1,7 @@
 ---
 title: "ApartMentor"
 summary: "ApartMentor is a real estate application targeted towards college students looking for safe and affordable housing during their academic year"
-thumb: "/assets/images/apartmentor-thumb.png"
+thumb: "/assets/images/apartmentor-logo.png"
 displayOrder: 3
 roles: ["UI Designer", "UX Researcher"]
 hero:
@@ -11,17 +11,17 @@ purpose: "ApartMentor is meant to alleviate the strain and stress that college s
 keyFeatures:
   - title: "Search for apartments alone or as a group"
     summary: "Find an apartment that fits your and your roommates' needs all within the app."
-    image: "/assets/images/apartmentor-feature01.png"
-    imageAlt: "A description of the feature image"
-  - title: "Search and find based on your needs"
-    summary: "An intuitive color coding system for map makers makes it easy for users to quickly see what properties would be a good fit for them without having to read all the details."
-    image: "/assets/images/apartmentor-feature02.png"
-    imageAlt: "A description of the feature image"
-  - title: "Learning modules for budgeting and renting education"
-    summary: "Easy to follow, bite size lessons to demystify lifestyle budgeting and renting your first apartment."
-    image: "/assets/images/apartmentor-feature03.png"
-    imageAlt: "A description of the feature image"
-color: "orange"
+    image: "/assets/images/apartmentor-feature01.gif"
+    imageAlt: "A screen recording of a user filtering properties."
+  - title: "Engaging learning modules"
+    summary: "Bite size lessons designed to ensure you make the right decisions and know all the details about first time renting."
+    image: "/assets/images/apartmentor-feature02.gif"
+    imageAlt: 'A screen recording of a user starting the "Renting an Apartment" learning module.'
+  - title: "Budget together or on your own"
+    summary: "Budget with your roommates or on your own to ensure all your expenses are clearly and thoughtfully managed."
+    image: "/assets/images/apartmentor-feature03.gif"
+    imageAlt: "A screen recording of a user reviewing their monthly budget status."
+color: "apartmentor"
 ---
 
 ### The Case at Hand

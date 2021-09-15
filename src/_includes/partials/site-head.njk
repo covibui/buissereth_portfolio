@@ -1,9 +1,9 @@
-<div class="wrapper">
+<div class="container">
   <a href="#main-content" class="btn sr-only focus:not-sr-only focus:mt-3 focus:mb-5 focus:px-5 focus:py-4">Skip to content</a>
 </div>
 <header class="relative z-20">
-  <div class="wrapper flex justify-between items-center h-24 relative">
-    <a href="/" aria-label="{{ site.name }} - Home" class="inline-block relative z-20 hover:no-underline rounded focus:outline-none focus:ring focus:ring-offset-8 focus:ring-blueGray-900 dark:focus:ring-white dark:focus:ring-offset-gray-800">
+  <div class="container flex justify-between items-center h-24 relative">
+    <a href="/" aria-label="{{ site.name }} - Home" class="inline-block relative z-20 hover:no-underline">
       <div class="logo flex flex-col md:flex-row items-center md:gap-4 text-orange-600 dark:text-orange-500">
         <span class="w-12 h-12">{% include "partials/brand.svg" %}</span>
         <p class="hidden md:block font-display md:text-xl font-semibold text-blueGray-900 dark:text-blueGray-50">Brianna Buissereth</p>
@@ -19,7 +19,7 @@
           </li>
         {% endfor %}
       </ul>
-      <ul class="nav__social flex items-center gap-5 w-auto my-0 ml-6 z-10">
+      <ul class="nav__social flex items-center gap-5 w-auto my-0 ml-10 z-10">
         {% for item in social.items %}
           <li class="before:hidden m-0 p-0">
             <a href="{{ item.url }}" target="_blank" rel="nofollow" class="block w-8 h-8 text-blueGray-600 dark:text-gray-400 hover:text-blueGray-900 dark:hover:text-gray-50">
@@ -28,7 +28,7 @@
           </li>
         {% endfor %}
       </ul>
-      <div class="mode-switch cursor-pointer mt-8 ml-6 h-8 text-blueGray-600 dark:text-gray-400 hover:text-blueGray-900 dark:hover:text-gray-50 transition-colors" tabindex="0">
+      <div class="mode-switch cursor-pointer mt-8 ml-10 h-8 text-blueGray-600 dark:text-gray-400 hover:text-blueGray-900 dark:hover:text-gray-50 transition-colors" tabindex="0">
         <div class="block dark:hidden h-full">
           {% include "icons/sun.svg" %}
         </div>
@@ -48,7 +48,7 @@
   </div>
 </header>
 <nav id="nav__mobile" class="absolute top-0 left-full pt-24 w-screen h-screen bg-blueGray-100 dark:bg-gray-800 z-10 transition-position">
-  <div class="wrapper">
+  <div class="container">
     <ul>
       {% for item in navigation.items %}
         <li class="before:hidden mb-4 py-4 pl-0">
