@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="container">
-    <div class="keyFeatures my-8 md:my-28">
+    <div class="keyFeatures my-8">
       <h2>Key Features</h2>
       <div class="grid gap-4 grid-cols-feature">
         {% for feature in keyFeatures %}
@@ -143,4 +143,60 @@
       </div>
     </div>
   {% endif %}
+{% endblock %}
+{% block scripts %}
+  <script>
+    const mainContent = document.getElementById('main-content');
+
+    mainContent
+      .classList
+      .remove('bg-white');
+    mainContent
+      .classList
+      .remove('dark:bg-gray-900');
+    mainContent
+      .classList
+      .add('bg-projects-{{ color }}');
+
+    const colorChange = (pos) => {
+      console.log('start color change', window.scrollY);
+      if (window.scrollY > pos) {
+        mainContent
+          .classList
+          .remove('bg-projects-{{ color }}');
+        mainContent
+          .classList
+          .add('bg-white');
+        mainContent
+          .classList
+          .add('dark:bg-gray-900');
+      } else {
+        mainContent
+          .classList
+          .remove('bg-white');
+        mainContent
+          .classList
+          .remove('dark:bg-gray-900');
+        mainContent
+          .classList
+          .add('bg-projects-{{ color }}');
+      }
+    }
+
+    document.addEventListener('scroll', () => {
+      if (window.innerWidth >= 1536) {
+        colorChange(800);
+      } else if (window.innerWidth >= 1280) {
+        colorChange(750);
+      } else if (window.innerWidth >= 1024) {
+        colorChange(600);
+      } else if (window.innerWidth >= 768) {
+        colorChange(500);
+      } else if (window.innerWidth >= 640) {
+        colorChange(700);
+      } else {
+        colorChange(600);
+      }
+    });
+  </script>
 {% endblock %}
