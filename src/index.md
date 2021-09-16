@@ -7,4 +7,6 @@ intro:
   main: "A UI and UX designer"
 work:
   title: "Projects"
+relatedWork:
+  title: "Related Work"
 ---

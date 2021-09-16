@@ -66,6 +66,13 @@ module.exports = (eleventyConfig) => {
     return sortByDisplayOrder(collection.getFilteredByGlob("./src/work/*.md"));
   });
 
+  // Related work items, sorted by display order key
+  eleventyConfig.addCollection("relatedWork", (collection) => {
+    return sortByDisplayOrder(
+      collection.getFilteredByGlob("./src/related-work/*.md")
+    );
+  });
+
   // * Add shortcodes
   // Return current year
   eleventyConfig.addShortcode("currentYear", () => {

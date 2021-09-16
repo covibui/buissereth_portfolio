@@ -1,0 +1,103 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="container pt-6">
+    <div id="hero" class="grid gap-6 md:grid-cols-2 -mx-6 px-6 bg-blueGray-200 dark:bg-gray-800">
+      <div class="flex flex-col justify-center">
+        <h1>{{ title }}</h1>
+        <p class="font-display text-2xl mb-5">{{ summary }}</p>
+        {% if roles %}
+          {% if roles.length > 1 %}
+            {% set text = "Roles" %}
+          {% else %}
+            {% set text = "Role" %}
+          {% endif %}
+          <p class="text-lg">
+            <strong class="inline-block px-2 py-1 me-2 bg-blueGray-900 dark:bg-gray-50 text-white dark:text-gray-900">{{ text }}</strong>
+            {% for item in roles %}
+              <span>{{ item }}</span>
+              {% if not loop.last %}
+                |
+              {% endif %}
+            {% endfor %}
+          </p>
+        {% endif %}
+      </div>
+      <img src="{{ hero.image }}" alt="{{ hero.imageAlt }}">
+    </div>
+  </div>
+  <div class="container">
+    <div class="content my-8 md:my-28">
+      {% set contentHeading = 'Project Background' %}
+      {% if contentTitle %}
+        {% set contentHeading = contentTitle %}
+      {% endif %}
+      <h2>{{ contentHeading }}</h2>
+      {{ content | safe }}
+    </div>
+  </div>
+  {% if promoVid %}
+    <div class="container">
+      <div class="my-8 md:my-28">
+        <h2>
+          {% if promoVidHeading %}
+            {{ promoVidHeading }}
+          {% else %}
+          Promotional Video
+        {% endif %}
+        </h2>
+        {% include "partials/" + promoVid %}
+      </div>
+    </div>
+  {% endif %}
+  {% if gallery %}
+    <div class="container">
+      <div class="my-8 md:my-28">
+        <h2>
+          {% if galleryHeading %}
+            {{ galleryHeading }}
+          {% else %}
+            Gallery
+          {% endif %}
+        </h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {% for item in gallery %}
+            <figure id="gallery__item-{{ loop.index }}" class="gallery__item relative cursor-pointer p-6 bg-blueGray-100 dark:bg-gray-800" data-galleryID="{{ loop.index }}">
+              <div class="gallery__item__imgCont sm:h-64 md:h-80 lg:h-64 xl:h-96">
+                <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain w-full h-full">
+              </div>
+              <div class="expand w-20 h-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-blueGray-100 dark:text-gray-50 z-20 opacity-0 transition-opacity">
+                {% include "icons/expand.svg" %}
+              </div>
+              <figcaption class="sr-only">
+                <p>{{ item.summary }}</p>
+              </figcaption>
+            </figure>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if gallery %}
+    <div id="lightbox" class="hidden items-center justify-center fixed top-0 left-0 h-screen w-screen px-5 bg-blueGray-900 dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 z-40">
+      <div class="close w-12 h-12 absolute top-8 right-8 text-blueGray-100 z-20 cursor-pointer">
+        {% include "icons/close.svg" %}
+      </div>
+      <div id="lightbox__prev" class="w-12 h-12 flex-shrink-0 text-blueGray-100 dark:text-gray-50 cursor-pointer">
+        {% include "icons/chevron-left.svg" %}
+      </div>
+      <div id="lightbox__media" class="flex max-h-3/4 flex-shrink">
+        {% for item in gallery %}
+          <figure id="lightbox__item-{{ loop.index }}" class="lightbox__item hidden max-h-full" data-lightboxID="{{ loop.index }}">
+            <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain">
+            <figcaption class="text-xl text-center text-white dark:text-gray-50 mt-3">
+              <p>{{ item.summary }}</p>
+            </figcaption>
+          </figure>
+        {% endfor %}
+      </div>
+      <div id="lightbox__next" class="w-12 h-12 flex-shrink-0 text-blueGray-100 dark:text-gray-50 cursor-pointer">
+        {% include "icons/chevron-right.svg" %}
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
