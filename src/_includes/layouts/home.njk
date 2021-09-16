@@ -15,7 +15,7 @@
       </div>
       <div class="work__content grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
         {% for item in collections.work %}
-          <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work__content__item flex justify-center items-center h-64 p-10 text-blueGray-900 hover:text-blueGray-900 dark:text-gray-50 dark:hover:text-gray-50 hover:no-underline bg-projects-{{ item.data.color }} bg-opacity-80 hover:bg-opacity-100">
+          <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work__content__item flex justify-center items-center h-96 p-10 text-blueGray-900 hover:text-blueGray-900 dark:text-gray-50 dark:hover:text-gray-50 hover:no-underline bg-projects-{{ item.data.color }} bg-opacity-80 hover:bg-opacity-100">
             <img src="{{ item.data.thumb }}" alt="" loading="lazy" class="max-h-20">
           </a>
         {% endfor %}
