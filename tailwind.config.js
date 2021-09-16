@@ -5,9 +5,12 @@ module.exports = {
   purge: {
     content: ["./src/**/*.{html,njk,svg,md}", "./src/js/**/*.js"],
     safelist: [
-      "bg-projects-afiye",
-      "bg-projects-apartmentor",
-      "bg-projects-thunk",
+      "bg-projects-afiye-light",
+      "bg-projects-afiye-dark",
+      "bg-projects-apartmentor-light",
+      "bg-projects-apartmentor-dark",
+      "bg-projects-thunk-light",
+      "bg-projects-thunk-dark",
     ],
   },
   darkMode: "class",
@@ -22,9 +25,9 @@ module.exports = {
         gray: colors.trueGray,
         orange: colors.orange,
         projects: {
-          afiye: "#922AFF",
-          apartmentor: "#FF7E00",
-          thunk: "#ED1B69",
+          afiye: { light: "#922AFF", dark: "#B166FF" },
+          apartmentor: { light: "#FF7E00", dark: "#FF9933" },
+          thunk: { light: "#ED1B69", dark: "#F83A74" },
         },
       },
       fontFamily: {
