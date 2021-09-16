@@ -119,13 +119,16 @@ if (lightboxNext) {
 
 // Mode toggle ------------------------------------------------------
 const modeButtons = document.querySelectorAll(".mode-switch");
+const mainContent = document.getElementById("main-content");
 
 modeButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (document.documentElement.classList.contains("dark")) {
+      mainContent.classList.remove("duration-500");
       document.documentElement.classList.remove("dark");
       localStorage.theme = "light";
     } else {
+      mainContent.classList.remove("duration-500");
       document.documentElement.classList.add("dark");
       localStorage.theme = "dark";
     }
