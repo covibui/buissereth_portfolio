@@ -7,21 +7,22 @@
       </h1>
     </article>
   </div>
-  <div class="container">
-    <article class="profile content">{{ content | safe }}</article>
-  </div>
+
   <div class="container">
     <div id="resume" class="content">
-      <div class="resume__header">
+      <div class="sm:flex sm:justify-between sm:items-center">
         <h2>{{ resume.title }}</h2>
+        <div>
+          <a href="{{ primaryCTA.button.url }}" class="btn" {% if primaryCTA.button.type === 'document' %}
+            target="_blank"
+            {% elif primaryCTA.button.type === 'external' %}
+              target="_blank" rel="nofollow"
+            {% endif %}>
+            Download PDF
+          </a>
+        </div>
       </div>
-      <div>
-        <a href="{{ primaryCTA.button.url }}" class="btn" {% if primaryCTA.button.type === 'document' %}
-        target="_blank"
-        {% elif primaryCTA.button.type === 'external' %}
-          target="_blank" rel="nofollow"
-        {% endif %}>Download PDF</a>
-      </div>
+      <article class="profile content">{{ content | safe }}</article>
       <div id="resume__content">
         <div class="resume__experience">
           <h3>Experience</h3>
