@@ -159,7 +159,6 @@
       .add('bg-projects-{{ color }}');
 
     const colorChange = (pos) => {
-      console.log('start color change', window.scrollY);
       if (window.scrollY > pos) {
         mainContent
           .classList
@@ -195,7 +194,7 @@
       } else if (window.innerWidth >= 640) {
         colorChange(700);
       } else {
-        colorChange(600);
+        colorChange(500);
       }
     });
   </script>
