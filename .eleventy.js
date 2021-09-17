@@ -80,8 +80,6 @@ module.exports = (eleventyConfig) => {
     return year;
   });
 
-  eleventyConfig.addPassthroughCopy("zohoverify/verifyforzoho.html");
-
   return {
     markdownTemplateEngine: "njk",
     dataTemplateEngine: "njk",
