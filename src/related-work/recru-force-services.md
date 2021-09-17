@@ -2,7 +2,7 @@
 title: "Recru Force Services Logo Identity Process Proposal"
 summary: "Personal project to redesign logo for a small business"
 thumb: "/assets/images/rfs-logo.svg"
-displayOrder: 4
+displayOrder: 6
 roles: ["Graphic Designer"]
 hero:
   image: "/assets/images/rfs-logo.svg"

@@ -1,9 +1,9 @@
 ---
-title: "Logo Design and Brand Identity"
-summary: "College class project to redesign a logo and brand identity for an existing comapny"
+title: "Black and Mobile Logo Design and Brand Identity"
+summary: "College class project to redesign a logo and brand identity for an existing company"
 thumb: "/assets/images/bm-logo.svg"
-displayOrder: 5
-roles: ["Graphic Designer"]
+displayOrder: 4
+roles: ["Graphic Designr"]
 hero:
   image: "/assets/images/bm-logo.svg"
   imageAlt: "Redesigned logo for Black and Mobile."
