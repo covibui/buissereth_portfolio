@@ -22,7 +22,7 @@
           </p>
         {% endif %}
       </div>
-      <img src="{{ hero.image }}" alt="{{ hero.imageAlt }}" class="place-self-center">
+      <img src="/assets/images/{{ hero.image }}" alt="{{ hero.imageAlt }}" class="place-self-center">
     </div>
   </div>
   <div class="container">
@@ -63,7 +63,7 @@
           {% for item in gallery %}
             <figure id="gallery__item-{{ loop.index }}" class="gallery__item relative cursor-pointer p-6 bg-blueGray-100 dark:bg-gray-800" data-galleryID="{{ loop.index }}">
               <div class="gallery__item__imgCont sm:h-64 md:h-80 lg:h-64 xl:h-96">
-                <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain w-full h-full">
+                <img src="/assets/images/{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain w-full h-full">
               </div>
               <div class="expand w-20 h-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-blueGray-100 dark:text-gray-50 z-20 opacity-0 transition-opacity">
                 {% include "icons/expand.svg" %}
@@ -88,7 +88,7 @@
       <div id="lightbox__media" class="flex max-h-3/4 flex-shrink">
         {% for item in gallery %}
           <figure id="lightbox__item-{{ loop.index }}" class="lightbox__item hidden max-h-full" data-lightboxID="{{ loop.index }}">
-            <img src="{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain">
+            <img src="/assets/images/{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain">
             <figcaption class="text-xl text-center text-white dark:text-gray-50 mt-3">
               <p>{{ item.summary }}</p>
             </figcaption>

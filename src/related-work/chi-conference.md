@@ -1,26 +1,26 @@
 ---
 title: "CHI 2020 Conference Website Redesign"
 summary: "College class project redesigning an existing event website"
-thumb: "/assets/images/chi-logo.png"
+thumb: "chi-logo.png"
 displayOrder: 2
 roles: ["UI Designer"]
 hero:
-  image: "/assets/images/chi-hero.png"
+  image: "chi-hero.png"
   imageAlt: "Mockup of redesigned CHI Conference home page."
 gallery:
-  - image: "/assets/images/chi-style-tile.png"
+  - image: "chi-style-tile.png"
     imageAlt: "CHI 2020 Conference style tile."
     summary: "Text, colors, and imagery inspired by the existing site and conference location."
-  - image: "/assets/images/chi-mobile-menu-open.png"
+  - image: "chi-mobile-menu-open.png"
     imageAlt: "Mockup of the CHI 2020 Conference home page with a slideout site navigation open."
     summary: "Introduce flowing characteristics to all page elements."
-  - image: "/assets/images/chi-desktop-home01.png"
+  - image: "chi-desktop-home01.png"
     imageAlt: "Screenshot of the home screen featuring the site's welcome message as well as recent updates and registration form."
     summary: "Visually exciting sections with vibrant colors to breakup the spacing throughout the site."
-  - image: "/assets/images/chi-tablet-program.png"
+  - image: "chi-tablet-program.png"
     imageAlt: "Layout of key categories of events and programing from the conference."
     summary: "Quicly find and navigate to key programming aspects of the conference."
-  - image: "/assets/images/chi-mobile-registration.png"
+  - image: "chi-mobile-registration.png"
     imageAlt: "CHI 2020 Conference registration form."
     summary: "Register to attend the conference right from the home page on any device."
 ---

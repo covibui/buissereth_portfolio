@@ -1,31 +1,31 @@
 ---
 title: "Thunk"
 summary: "Thunk is a party game centered around creativity through divergent thinking"
-thumb: "/assets/images/thunk-logo.svg"
+thumb: "thunk-logo.svg"
 displayOrder: 2
 roles: ["UI Designer"]
 hero:
-  image: "/assets/images/thunk-hero.png"
+  image: "thunk-hero.png"
   imageAlt: "A desktop computer displaying the Thunk start screen and a mobile phone displaying the avatar selection screen."
 purpose: "Thunk is a game meant to get creativity flowing by encouraging users to think further than their initial gut instincts and explore additional ideas."
 keyFeatures:
   - title: "Fun and Engaging Gameplay"
     summary: "Gather groups of friends or colleagues. Thunk is a perfect game for having fun or getting creative ideas flowing."
-    image: "/assets/images/thunk-feature01.png"
+    image: "thunk-feature01.png"
     imageAlt: "Six mobile screens displaying the core gameplay loop."
   - title: "Variety of Thought Provocing Prompts"
     summary: "Creative prompts from the ordinary to out of left field to get you thinking."
-    image: "/assets/images/thunk-feature02.png"
+    image: "thunk-feature02.png"
     imageAlt: 'A sample game prompt "If there''s a fire I [blank] but Every answer must include the word "cow""'
 promoVid: "thunk-promo-vid.njk"
 gallery:
-  - image: "/assets/images/thunk-judging01.png"
+  - image: "thunk-judging01.png"
     imageAlt: "Screen displaying submitted player responses and voting results."
     summary: "Players vote for their favorite response."
-  - image: "/assets/images/thunk-round-scores01.png"
+  - image: "thunk-round-scores01.png"
     imageAlt: "Screen displaying current player standings based on their scores."
     summary: "Scores are tallied after each round."
-  - image: "/assets/images/thunk-winner-screen.png"
+  - image: "thunk-winner-screen.png"
     imageAlt: 'Screen displaying that a player named "Fiddy" has won a game of Thunk.'
     summary: "Play to be crowned the victor!"
 color: "thunk"

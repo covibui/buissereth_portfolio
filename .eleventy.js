@@ -24,12 +24,36 @@ module.exports = (eleventyConfig) => {
 
   const md = require("markdown-it")();
   const markdownItAttrs = require("markdown-it-attrs");
+  const lazy_loading = require("markdown-it-image-lazy-loading");
 
   md.use(markdownItAttrs, {
     leftDelimiter: "{",
     rightDelimiter: "}",
     allowedAttributes: ["id", "class", /^regex.*$/],
   });
+  md.use(lazy_loading);
+
+  // md.renderer.rules.image = (tokens, idx) => {
+  //   let token = tokens[idx];
+  //   token.attrs.forEach((attr) => {
+  //     if (attr[0] === "src") {
+  //       attr[1] = "/assets/images/" + attr[1];
+  //     }
+  //   });
+  //   console.log(token.attrs);
+  // };
+
+  let img_renderer =
+    md.renderer.rules.image ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
+
+  md.renderer.rules.image = (tokens, idx, options, env, self) => {
+    tokens[idx].attrs[0][1] = "/assets/images/" + tokens[idx].attrs[0][1];
+
+    return img_renderer(tokens, idx, options, env, self);
+  };
 
   eleventyConfig.setLibrary("md", md);
 

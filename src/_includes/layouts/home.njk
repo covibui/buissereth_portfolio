@@ -16,7 +16,7 @@
       <div class="work__content">
         {% for item in collections.work %}
           <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work__content__item  bg-projects-{{ item.data.color }}-light dark:bg-projects-{{ item.data.color }}-dark">
-            <img src="{{ item.data.thumb }}" alt="" loading="lazy" class="max-h-28">
+            <img src="/assets/images/{{ item.data.thumb }}" alt="" loading="lazy" class="max-h-28">
           </a>
         {% endfor %}
       </div>
@@ -28,7 +28,7 @@
       <div class="work__content">
         {% for item in collections.relatedWork %}
           <a href="{{ item.url }}" aria-label="See {{ item.data.title }})" class="work__content__item bg-blueGray-100 dark:bg-gray-800">
-            <img src="{{ item.data.thumb }}" alt="" loading="lazy" class="max-h-28">
+            <img src="/assets/images/{{ item.data.thumb }}" alt="" loading="lazy" class="max-h-28">
           </a>
         {% endfor %}
       </div>
