@@ -38,29 +38,25 @@
   {% if promoVid %}
     <div class="container">
       <div class="my-8 md:my-28">
-        <h2>
-          {% if promoVidHeading %}
-            {{ promoVidHeading }}
-          {% else %}
-          Promotional Video
+        {% set promoVidHeading = "Promotional Video" %}
+        {% if promoVid.heading %}
+          {% set promoVidHeading = promoVid.heading %}
         {% endif %}
-        </h2>
-        {% include "partials/" + promoVid %}
+        <h2>{{ promoVidHeading }}</h2>
+        {% include "partials/" + promoVid.item %}
       </div>
     </div>
   {% endif %}
   {% if gallery %}
     <div class="container">
       <div class="my-8 md:my-28">
-        <h2>
-          {% if galleryHeading %}
-            {{ galleryHeading }}
-          {% else %}
-            Gallery
-          {% endif %}
-        </h2>
+        {% set galleryHeading = 'Gallery' %}
+        {% if gallery.heading %}
+          {% set galleryHeading = gallery.heading %}
+        {% endif %}
+        <h2>{{ galleryHeading }}</h2>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {% for item in gallery %}
+          {% for item in gallery.items %}
             <figure id="gallery__item-{{ loop.index }}" class="gallery__item relative cursor-pointer p-6 bg-blueGray-100 dark:bg-gray-800" data-galleryID="{{ loop.index }}">
               <div class="gallery__item__imgCont sm:h-64 md:h-80 lg:h-64 xl:h-96">
                 <img src="/assets/images/{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain w-full h-full">
@@ -86,7 +82,7 @@
         {% include "icons/chevron-left.svg" %}
       </div>
       <div id="lightbox__media" class="flex max-h-3/4 flex-shrink">
-        {% for item in gallery %}
+        {% for item in gallery.items %}
           <figure id="lightbox__item-{{ loop.index }}" class="lightbox__item hidden max-h-full" data-lightboxID="{{ loop.index }}">
             <img src="/assets/images/{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain">
             <figcaption class="text-xl text-center text-white dark:text-gray-50 mt-3">

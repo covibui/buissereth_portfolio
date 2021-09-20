@@ -27,9 +27,13 @@
   </div>
   <div class="container">
     <div class="keyFeatures my-8">
-      <h2>Key Features</h2>
+      {% set keyFeaturesHeading = "Key Features" %}
+      {% if keyFeatures.heading %}
+        {% set keyFeaturesHeading = keyFeatures.headgin %}
+      {% endif %}
+      <h2>{{ keyFeaturesHeading }}</h2>
       <div class="grid gap-4 grid-cols-feature">
-        {% for feature in keyFeatures %}
+        {% for feature in keyFeatures.items %}
           <div class="keyFeatures__item md:mb-16">
             <figure class="">
               <div class="bg-blueGray-100 dark:bg-gray-800 sm:h-64 md:h-80 lg:h-80 xl:h-96 p-6">
@@ -48,15 +52,13 @@
   {% if stats %}
     <div class="container">
       <div class="my-8 md:my-28">
-        <h2>
-          {% if statsHeading %}
-            {{ statsHeading }}
-          {% else %}
-          Project Statistics
+        {% set statsHeading = "Project Statistics" %}
+        {% if stats.heading %}
+          {% set statsHeading = stats.heading %}
         {% endif %}
-        </h2>
+        <h2>{{ statsHeading }}</h2>
         <div class="grid md:grid-cols-3 divide-y-2 md:divide-y-0 md:divide-x-2 divide-blueGray-600 dark:divide-gray-400">
-          {% for stat in stats %}
+          {% for stat in stats.items %}
             <div class="px-16 py-12">
               <p class="text-8xl font-display text-blueGray-900 dark:text-gray-50">
                 <strong>{{ stat.main }}</strong>
@@ -71,29 +73,25 @@
   {% if promoVid %}
     <div class="container">
       <div class="my-8 md:my-28">
-        <h2>
-          {% if promoVidHeading %}
-            {{ promoVidHeading }}
-          {% else %}
-          Promotional Video
+        {% set promoVidHeading = "Promotional Video" %}
+        {% if promoVid.heading %}
+          {% set promoVidHeading = promoVid.heading %}
         {% endif %}
-        </h2>
-        {% include "partials/" + promoVid %}
+        <h2>{{ promoVidHeading }}</h2>
+        {% include "partials/" + promoVid.item %}
       </div>
     </div>
   {% endif %}
   {% if gallery %}
     <div class="container">
       <div class="my-8 md:my-28">
-        <h2>
-          {% if galleryHeading %}
-            {{ galleryHeading }}
-          {% else %}
-            Gallery
-          {% endif %}
-        </h2>
+        {% set galleryHeading = 'Gallery' %}
+        {% if gallery.heading %}
+          {% set galleryHeading = gallery.heading %}
+        {% endif %}
+        <h2>{{ galleryHeading }}</h2>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {% for item in gallery %}
+          {% for item in gallery.items %}
             <figure id="gallery__item-{{ loop.index }}" class="gallery__item relative cursor-pointer p-6 bg-blueGray-100 dark:bg-gray-800" data-galleryID="{{ loop.index }}">
               <div class="gallery__item__imgCont sm:h-64 md:h-80 lg:h-64 xl:h-96">
                 <img src="/assets/images/{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain w-full h-full">
@@ -129,7 +127,7 @@
         {% include "icons/chevron-left.svg" %}
       </div>
       <div id="lightbox__media" class="flex max-h-3/4 flex-shrink">
-        {% for item in gallery %}
+        {% for item in gallery.items %}
           <figure id="lightbox__item-{{ loop.index }}" class="lightbox__item hidden max-h-full" data-lightboxID="{{ loop.index }}">
             <img src="/assets/images/{{ item.image }}" alt="{{ item.imageAlt }}" loading="lazy" class="object-contain">
             <figcaption class="text-xl text-center text-white dark:text-gray-50 mt-3">

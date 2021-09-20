@@ -9,18 +9,19 @@ hero:
   imageAlt: "Description of hero image"
 purpose: "ApartMentor is meant to alleviate the strain and stress that college students can experience while searching for off campus housing by only showing listings for college friendly housing and providing additional educational resources for first time renters to ensure that our users are well educated in how to search for and maintain their own apartments."
 keyFeatures:
-  - title: "Search for apartments alone or as a group"
-    summary: "Find an apartment that fits your and your roommates' needs all within the app."
-    image: "apartmentor-feature01.gif"
-    imageAlt: "A screen recording of a user filtering properties."
-  - title: "Engaging learning modules"
-    summary: "Bite size lessons designed to ensure you make the right decisions and know all the details about first time renting."
-    image: "apartmentor-feature02.gif"
-    imageAlt: 'A screen recording of a user starting the "Renting an Apartment" learning module.'
-  - title: "Budget together or on your own"
-    summary: "Budget with your roommates or on your own to ensure all your expenses are clearly and thoughtfully managed."
-    image: "apartmentor-feature03.gif"
-    imageAlt: "A screen recording of a user reviewing their monthly budget status."
+  items:
+    - title: "Search for apartments alone or as a group"
+      summary: "Find an apartment that fits your and your roommates' needs all within the app."
+      image: "apartmentor-feature01.gif"
+      imageAlt: "A screen recording of a user filtering properties."
+    - title: "Engaging learning modules"
+      summary: "Bite size lessons designed to ensure you make the right decisions and know all the details about first time renting."
+      image: "apartmentor-feature02.gif"
+      imageAlt: 'A screen recording of a user starting the "Renting an Apartment" learning module.'
+    - title: "Budget together or on your own"
+      summary: "Budget with your roommates or on your own to ensure all your expenses are clearly and thoughtfully managed."
+      image: "apartmentor-feature03.gif"
+      imageAlt: "A screen recording of a user reviewing their monthly budget status."
 color: "apartmentor"
 ---
 
