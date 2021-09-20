@@ -1,5 +1,6 @@
 const htmlmin = require("html-minifier");
-// const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+require("dotenv").config();
 
 // Utilities
 
@@ -18,16 +19,16 @@ const sortByDisplayOrder = (collection) => {
 };
 
 module.exports = (eleventyConfig) => {
+  // Uncomment following line to include code highlighting css
   // eleventyConfig.addPlugin(syntaxHighlight);
 
   const md = require("markdown-it")();
   const markdownItAttrs = require("markdown-it-attrs");
 
   md.use(markdownItAttrs, {
-    // optional, these are default options
     leftDelimiter: "{",
     rightDelimiter: "}",
-    allowedAttributes: [], // empty array = all attributes are allowed
+    allowedAttributes: ["id", "class", /^regex.*$/],
   });
 
   eleventyConfig.setLibrary("md", md);
@@ -39,7 +40,7 @@ module.exports = (eleventyConfig) => {
    */
   eleventyConfig.setBrowserSyncConfig({
     files: ["dist/css/styles.css", "dist/js/*.js"],
-    port: process.env.PORT ? process.env.PORT : 8080,
+    port: process.env.PORT || 8080,
   });
 
   // * Add transforms
@@ -63,13 +64,15 @@ module.exports = (eleventyConfig) => {
   // * Add collections
   // Work items, sorted by display order key
   eleventyConfig.addCollection("work", (collection) => {
-    return sortByDisplayOrder(collection.getFilteredByGlob("./src/work/*.md"));
+    return sortByDisplayOrder(
+      collection.getFilteredByGlob("./src/work/**/*.md")
+    );
   });
 
   // Related work items, sorted by display order key
   eleventyConfig.addCollection("relatedWork", (collection) => {
     return sortByDisplayOrder(
-      collection.getFilteredByGlob("./src/related-work/*.md")
+      collection.getFilteredByGlob("./src/related-work/**/*.md")
     );
   });
 
