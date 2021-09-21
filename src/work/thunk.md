@@ -14,7 +14,7 @@ keyFeatures:
       summary: "Gather groups of friends or colleagues. Thunk is a perfect game for having fun or getting creative ideas flowing."
       image: "thunk-feature01.png"
       imageAlt: "Six mobile screens displaying the core gameplay loop."
-    - title: "Variety of Thought Provocing Prompts"
+    - title: "Variety of Thought Provoking Prompts"
       summary: "Creative prompts from the ordinary to out of left field to get you thinking."
       image: "thunk-feature02.png"
       imageAlt: 'A sample game prompt "If there''s a fire I [blank] but Every answer must include the word "cow""'
