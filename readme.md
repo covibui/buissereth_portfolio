@@ -34,6 +34,7 @@ npm run serve
 - Site is served at [https://localhost:8080](https://localhost:8080) by default
   - Configure using `PORT` in `.env`
 - **Note:** `clean` will be run prior to build sequence
+- **Note:** `export SET NODE_OPTIONS=--openssl-legacy-provider` has been added to the serve and build commands to resolve an issue with the used version of webpack and node v18
 
 ### Build
 
