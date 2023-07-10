@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Erik-Martus/buissereth_portfolio.git"
+    "url": "git+https://github.com/covibui/buissereth_portfolio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Erik-Martus/buissereth_portfolio/issues"
+    "url": "https://github.com/covibui/buissereth_portfolio/issues"
   },
-  "homepage": "https://github.com/Erik-Martus/buissereth_portfolio#readme",
+  "homepage": "https://github.com/covibui/buissereth_portfolio#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.2",
