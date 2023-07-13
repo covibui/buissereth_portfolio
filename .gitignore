@@ -12,3 +12,5 @@ Thumbs.db
 # Node modules and output
 node_modules
 dist
+# Local Netlify folder
+.netlify
