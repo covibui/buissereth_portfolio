@@ -12,7 +12,7 @@ export default function Layout({
     home,
 }: {
     children: React.ReactNode;
-    home: any;
+    home: boolean;
 }) {
     return (
         <div className={styles.container}>
@@ -61,6 +61,12 @@ export default function Layout({
                     </>
                 )}
             </header>
+            <main>{children}</main>
+            {!home && (
+                <div className={styles.backToHome}>
+                    <Link href="/">← Back to home</Link>
+                </div>
+            )}
         </div>
     );
 }
