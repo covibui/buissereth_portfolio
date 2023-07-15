@@ -5,7 +5,8 @@ import { remark } from "remark";
 import html from "remark-html";
 import { PostData } from "@/types";
 
-const postsDirectory = path.join(process.cwd(), "src/posts");
+const root = path.join(process.cwd(), "src");
+const postsDirectory = path.join(root, "posts");
 
 export function getSortedPosts() {
     const fileNames = fs.readdirSync(postsDirectory);

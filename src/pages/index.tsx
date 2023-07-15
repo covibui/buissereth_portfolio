@@ -3,11 +3,18 @@ import utilStyles from "@/styles/utils.module.css";
 import Layout, { siteTitle } from "@/components/Layout";
 import { getSortedPosts } from "@/lib/posts";
 import { GetStaticProps } from "next";
-import { PostData } from "@/types";
+import { PostData, ProjectData, ProjectType } from "@/types";
 import Link from "next/link";
 import Date from "@/components/Date";
+import { getSortedProjects } from "@/lib/projects";
 
-export default function Home({ allPostsData }: { allPostsData: PostData[] }) {
+export default function Home({
+    allPostsData,
+    allProjects,
+}: {
+    allPostsData: PostData[];
+    allProjects: Record<ProjectType, ProjectData[]>;
+}) {
     return (
         <>
             <Layout home>
@@ -39,6 +46,18 @@ export default function Home({ allPostsData }: { allPostsData: PostData[] }) {
                                 </small>
                             </li>
                         ))}
+                        {allProjects.college.length > 0 &&
+                            allProjects.college.map(({ title, type }, idx) => (
+                                <li key={idx}>
+                                    {title} - {type}
+                                </li>
+                            ))}
+                        {allProjects.work.length > 0 &&
+                            allProjects.work.map(({ title, type }, idx) => (
+                                <li key={idx}>
+                                    {title} - {type}
+                                </li>
+                            ))}
                     </ul>
                 </section>
             </Layout>
@@ -48,9 +67,11 @@ export default function Home({ allPostsData }: { allPostsData: PostData[] }) {
 
 export const getStaticProps: GetStaticProps = async () => {
     const allPostsData = getSortedPosts();
+    const allProjects = getSortedProjects();
     return {
         props: {
             allPostsData,
+            allProjects,
         },
     };
 };

@@ -2,6 +2,7 @@
 title: "afiye"
 summary: "afiye is a digital home for families to stay connected by sharing media of cherished events"
 thumb: "afiye-logo.svg"
+type: "college"
 displayOrder: 1
 roles: ["UI Designer", "UX Researcher"]
 hero:
