@@ -12,7 +12,7 @@ export default function Layout({
     home,
 }: {
     children: React.ReactNode;
-    home: boolean;
+    home?: boolean;
 }) {
     return (
         <div className={styles.container}>
@@ -44,7 +44,7 @@ export default function Layout({
                             width={144}
                             alt={name}
                         />
-                        <h1 className={utilStyles.heading2XL}>{name}</h1>
+                        <h1 className={utilStyles.heading2Xl}>{name}</h1>
                     </>
                 ) : (
                     <>
