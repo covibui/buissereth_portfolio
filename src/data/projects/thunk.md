@@ -2,6 +2,7 @@
 title: "Thunk"
 summary: "Thunk is a party game centered around creativity through divergent thinking"
 thumb: "thunk-logo.svg"
+type: "college"
 displayOrder: 2
 roles: ["UI Designer"]
 hero:

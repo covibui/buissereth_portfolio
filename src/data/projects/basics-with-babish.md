@@ -2,6 +2,7 @@
 title: "Basics with Babish Blog Redesign"
 summary: "College class project redesigning an existing website"
 thumb: "bwb-logo.png"
+type: "work"
 displayOrder: 1
 roles: ["UI Designer"]
 hero:

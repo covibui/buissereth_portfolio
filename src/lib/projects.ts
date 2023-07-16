@@ -3,26 +3,17 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
-import { ProjectData } from "@/types";
+import { ProjectData, ProjectFrontMatter, ProjectType } from "@/types";
+import groupBy from "lodash/groupBy";
 
 const root = path.join(process.cwd(), "src");
 const projectsDirectory = path.join(root, "data/projects");
 
-const sortByDisplayOrder = (projects: ProjectData[]) => {
-    return projects.sort((a, b) => {
-        if (a.displayOrder < b.displayOrder) {
-            return 1;
-        } else {
-            return -1;
-        }
-    });
-};
-
-export function getSortedProjects() {
+export function getSortedProjects(projectType?: ProjectType) {
     const filesNames = fs.readdirSync(projectsDirectory);
 
     // @ts-ignore
-    const allProjects: ProjectData[] = filesNames.map((fileName) => {
+    const allProjects: ProjectFrontMatter[] = filesNames.map((fileName) => {
         const slug = fileName.replace(/\.md$/, "");
 
         const fullPath = path.join(projectsDirectory, fileName);
@@ -36,27 +27,41 @@ export function getSortedProjects() {
         };
     });
 
-    const collegeProjects = allProjects.filter(
-        ({ type }) => type === "college"
-    );
-    const workProjects = allProjects.filter(({ type }) => type === "work");
+    const sortedProjects = allProjects.sort((a, b) => {
+        if (a.displayOrder < b.displayOrder) {
+            return -1;
+        } else {
+            return 1;
+        }
+    });
 
-    return {
-        college: sortByDisplayOrder(collegeProjects),
-        work: sortByDisplayOrder(workProjects),
-    };
+    return groupBy(sortedProjects, "type");
 }
 
-export async function getProjectBySlug(projectType: string, slug: string) {
+export async function getProjectBySlug(slug: string) {
     const source = fs.readFileSync(
-        path.join(root, "data/projects", projectType, `${slug}.md`),
+        path.join(root, "data/projects", `${slug}.md`),
         "utf8"
     );
 
     const { data, content } = matter(source);
 
     return {
-        frontMatter: data,
-        markdownBody: content,
+        frontMatter: {
+            slug,
+            ...data,
+        },
+        content,
     };
+}
+
+export function getAllProjectSlugs() {
+    const fileNames = fs.readdirSync(projectsDirectory);
+    return fileNames.map((fileName) => {
+        return {
+            params: {
+                slug: fileName.replace(/\.md$/, ""),
+            },
+        };
+    });
 }
