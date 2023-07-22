@@ -1,11 +1,9 @@
 import Head from "next/head";
 import utilStyles from "@/styles/utils.module.css";
 import Layout, { siteTitle } from "@/components/Layout";
-import { getSortedPosts } from "@/lib/posts";
 import { GetStaticProps } from "next";
 import { ProjectFrontMatter, ProjectType } from "@/types";
 import Link from "next/link";
-import Date from "@/components/Date";
 import { getSortedProjects } from "@/lib/projects";
 
 export default function Home({
