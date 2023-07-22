@@ -18,6 +18,25 @@ export default createTheme({
             xl: 1536,
         },
     },
+    components: {
+        MuiButton: {
+            defaultProps: {
+                disableRipple: true,
+            },
+        },
+        MuiToolbar: {
+            defaultProps: {
+                sx: {
+                    p: { xs: 0 },
+                    width: 1,
+                    height: {
+                        xs: 80,
+                        md: 134,
+                    },
+                },
+            },
+        },
+    },
     typography: {
         fontFamily: poppins.style.fontFamily,
     },
