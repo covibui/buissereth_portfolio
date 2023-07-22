@@ -120,13 +120,20 @@ export default function AppHeader() {
                                     </Box>
                                     <Typography
                                         component="div"
-                                        sx={{
-                                            color: palette.black,
-                                            fontSize: "1.5rem",
-                                            fontWeight: 600,
-                                            lineHeight: "normal",
-                                            letterSpacing: "0.0975rem",
-                                        }}
+                                        sx={[
+                                            useMediaQuery(
+                                                "(max-width: 400px)"
+                                            ) && {
+                                                display: "none",
+                                            },
+                                            {
+                                                color: palette.black,
+                                                fontSize: "1.5rem",
+                                                fontWeight: 600,
+                                                lineHeight: "normal",
+                                                letterSpacing: "0.0975rem",
+                                            },
+                                        ]}
                                     >
                                         {name}
                                     </Typography>
