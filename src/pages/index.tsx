@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Layout from "@/components/Layout";
+import Layout from "../components/Layout";
 import { GetStaticProps } from "next";
 import { ProjectFrontMatter, ProjectType } from "@/types";
 import Link from "next/link";
