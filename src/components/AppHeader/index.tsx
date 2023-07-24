@@ -10,11 +10,9 @@ import {
     ListItem,
     ListItemButton,
     ListItemText,
-    Slide,
     Toolbar,
     Typography,
     useMediaQuery,
-    useScrollTrigger,
     useTheme,
 } from "@mui/material";
 import { useState } from "react";
@@ -57,8 +55,6 @@ export default function AppHeader() {
         setMobileOpen((prevState) => !prevState);
     };
 
-    const trigger = useScrollTrigger();
-
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
             <Typography variant="h6" sx={{ my: 2 }}>
@@ -79,96 +75,92 @@ export default function AppHeader() {
 
     return (
         <>
-            <Slide appear={false} direction="down" in={!trigger}>
-                <AppBar
-                    component="nav"
+            <AppBar
+                component="nav"
+                sx={{
+                    background: palette.blueGrey[100],
+                    boxShadow: "none",
+                }}
+            >
+                <AppContainer
                     sx={{
-                        background: palette.blueGrey[100],
-                        boxShadow: "none",
+                        display: "flex",
+                        alignItems: "center",
                     }}
                 >
-                    <AppContainer
-                        sx={{
-                            display: "flex",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Toolbar>
-                            <Link
-                                component={RouterLink}
-                                href="/"
-                                underline="none"
-                                sx={{ flexGrow: 1 }}
+                    <Toolbar>
+                        <Link
+                            component={RouterLink}
+                            href="/"
+                            underline="none"
+                            sx={{ flexGrow: 1 }}
+                        >
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                }}
                             >
                                 <Box
                                     sx={{
-                                        display: "flex",
-                                        alignItems: "center",
+                                        width: { xs: 48, md: 70 },
+                                        height: { xs: 48, md: 70 },
+                                        "& svg": {
+                                            fill: palette.orange[600],
+                                        },
+                                        mr: { xs: 2, md: 4 },
                                     }}
                                 >
-                                    <Box
-                                        sx={{
-                                            width: { xs: 48, md: 70 },
-                                            height: { xs: 48, md: 70 },
-                                            "& svg": {
-                                                fill: palette.orange[600],
-                                            },
-                                            mr: { xs: 2, md: 4 },
-                                        }}
-                                    >
-                                        <Logo />
-                                    </Box>
-                                    <Typography
-                                        component="div"
-                                        sx={[
-                                            useMediaQuery(
-                                                "(max-width: 400px)"
-                                            ) && {
-                                                display: "none",
-                                            },
-                                            {
-                                                color: palette.black,
-                                                fontSize: "1.5rem",
-                                                fontWeight: 600,
-                                                lineHeight: "normal",
-                                                letterSpacing: "0.0975rem",
-                                            },
-                                        ]}
-                                    >
-                                        {name}
-                                    </Typography>
+                                    <Logo />
                                 </Box>
-                            </Link>
-                            <Box
-                                sx={{
-                                    display: { xs: "none", md: "flex", gap: 2 },
-                                }}
-                            >
-                                {navItems.map((item, idx) => (
-                                    <HeaderLink
-                                        key={idx}
-                                        text={item.text}
-                                        link={item.link}
-                                        active={router.pathname === item.link}
-                                    />
-                                ))}
+                                <Typography
+                                    component="div"
+                                    sx={[
+                                        useMediaQuery("(max-width: 420px)") && {
+                                            display: "none",
+                                        },
+                                        {
+                                            color: palette.black,
+                                            fontSize: "1.5rem",
+                                            fontWeight: 600,
+                                            lineHeight: "normal",
+                                            letterSpacing: "0.0975rem",
+                                        },
+                                    ]}
+                                >
+                                    {name}
+                                </Typography>
                             </Box>
-                            <IconButton
-                                aria-label="open drawer"
-                                edge="end"
-                                onClick={handleDrawerToggle}
-                                sx={{
-                                    ml: 2,
-                                    display: { md: "none" },
-                                    color: palette.black,
-                                }}
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                        </Toolbar>
-                    </AppContainer>
-                </AppBar>
-            </Slide>
+                        </Link>
+                        <Box
+                            sx={{
+                                display: { xs: "none", md: "flex", gap: 2 },
+                            }}
+                        >
+                            {navItems.map((item, idx) => (
+                                <HeaderLink
+                                    key={idx}
+                                    text={item.text}
+                                    link={item.link}
+                                    active={router.pathname === item.link}
+                                />
+                            ))}
+                        </Box>
+                        <IconButton
+                            aria-label="open drawer"
+                            edge="end"
+                            onClick={handleDrawerToggle}
+                            sx={{
+                                ml: 2,
+                                display: { md: "none" },
+                                color: palette.black,
+                            }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                    </Toolbar>
+                </AppContainer>
+            </AppBar>
             <Box component="nav">
                 <Drawer
                     variant="temporary"
