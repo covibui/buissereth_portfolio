@@ -2,21 +2,17 @@ import { name } from "@/lib/constants";
 import {
     AppBar,
     Box,
-    Divider,
     Drawer,
     IconButton,
     Link,
     List,
     ListItem,
-    ListItemButton,
-    ListItemText,
     Toolbar,
     Typography,
     useMediaQuery,
     useTheme,
 } from "@mui/material";
 import { useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
 import AppContainer from "../AppContainer";
 import Logo from "../../../public/images/logo.svg";
 import palette from "@/theme/palette";
