@@ -138,12 +138,7 @@ export default function AppHeader() {
                     zIndex: (theme) => theme.zIndex.drawer + 1,
                 }}
             >
-                <AppContainer
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                    }}
-                >
+                <AppContainer>
                     <Toolbar>
                         <Box
                             sx={{

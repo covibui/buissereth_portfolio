@@ -1,15 +1,17 @@
-import { Container, SxProps } from "@mui/material";
+import { Box, Container, SxProps } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { ReactNode } from "react";
 
 interface Props {
     children: ReactNode;
-    sx?: SxProps;
 }
 
-export default function AppContainer({ children, ...restProps }: Props) {
+export default function AppContainer({ children }: Props) {
     return (
-        <Container maxWidth="lg" sx={{ px: { md: 2.5 }, ...restProps.sx }}>
-            {children}
-        </Container>
+        <Grid container>
+            <Grid md={10} mdOffset={1}>
+                <Box sx={{ px: { xs: 2 } }}>{children}</Box>
+            </Grid>
+        </Grid>
     );
 }

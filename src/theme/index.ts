@@ -14,8 +14,8 @@ export default createTheme({
             xs: 0,
             sm: 600,
             md: 900,
-            lg: 1236,
-            xl: 1536,
+            lg: 1200,
+            xl: 1440,
         },
     },
     components: {
@@ -41,5 +41,9 @@ export default createTheme({
     },
     typography: {
         fontFamily: poppins.style.fontFamily,
+        h1: {
+            fontSize: "4rem",
+            fontWeight: 700,
+        },
     },
 });
