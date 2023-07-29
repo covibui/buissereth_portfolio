@@ -1,4 +1,4 @@
-import { name } from "@/lib/constants";
+import { NAME } from "@/lib/constants";
 import {
     AppBar,
     Box,
@@ -194,7 +194,7 @@ export default function AppHeader() {
                                             },
                                         ]}
                                     >
-                                        {name}
+                                        {NAME}
                                     </Typography>
                                 </Box>
                             </Link>

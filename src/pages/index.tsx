@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import { ProjectFrontMatter, ProjectType } from "@/types";
 import Link from "next/link";
 import { getSortedProjects } from "@/lib/projects";
-import { siteTitle } from "@/lib/constants";
+import { SITE_DESCRIPTION, SITE_TITLE, SOCIAL_IMAGE } from "@/lib/constants";
 import { Toolbar } from "@mui/material";
 
 interface Props {
@@ -16,7 +16,19 @@ export default function Home({ projects }: Props) {
         <>
             <Layout>
                 <Head>
-                    <title>{siteTitle}</title>
+                    <title>{SITE_TITLE}</title>
+                    <meta name="description" content={SITE_DESCRIPTION} />
+                    <meta
+                        name="twitter:description"
+                        content={SITE_DESCRIPTION}
+                    />
+                    <meta name="og:description" content={SITE_DESCRIPTION} />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    {/* TODO: get actual social image */}
+                    {/* <meta name="og:image" content={SOCIAL_IMAGE} />
+                    <meta name="og:image:alt" content={SITE_DESCRIPTION} />
+                    <meta name="twitter:image" content={SOCIAL_IMAGE} />
+                    <meta name="og:twitter:alt" content={SITE_DESCRIPTION} /> */}
                 </Head>
                 <Toolbar />
                 <section>
