@@ -2,7 +2,6 @@ import Head from "next/head";
 import AppHeader from "./AppHeader";
 import AppContainer from "./AppContainer";
 import { siteTitle } from "@/lib/constants";
-import { Toolbar } from "@mui/material";
 
 export default function Layout({
     children,
@@ -13,7 +12,25 @@ export default function Layout({
     return (
         <>
             <Head>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+                <link rel="alternate icon" href="/favicon.ico" />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href="/favicon-32x32.png"
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href="/favicon-16x16.png"
+                />
+                <link
+                    rel="mask-icon"
+                    href="/safari-pinned-tab.svg"
+                    color="#EA580C"
+                />
                 <meta
                     name="description"
                     content="Learn how to build a personal website using Next.js"
@@ -30,7 +47,6 @@ export default function Layout({
                 {/* <meta name="twitter:card" content="summary_large_image" /> */}
             </Head>
             <AppHeader />
-            <Toolbar />
             <AppContainer>{children}</AppContainer>
         </>
     );
