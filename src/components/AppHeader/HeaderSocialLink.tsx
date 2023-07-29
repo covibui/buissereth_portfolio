@@ -14,7 +14,6 @@ export default function HeaderSocialLink({ link, ...restProps }: Props) {
             <Link
                 component={RouterLink}
                 href={link}
-                underline="none"
                 sx={{
                     color: palette.blueGrey[600],
                     lineHeight: 1,

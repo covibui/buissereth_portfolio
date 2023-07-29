@@ -20,7 +20,6 @@ export default function HeaderLink({ text, link, active }: Props) {
             <Link
                 component={RouterLink}
                 href={link}
-                underline="none"
                 sx={[
                     {
                         display: "flex",

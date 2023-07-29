@@ -24,8 +24,9 @@ import RouterLink from "next/link";
 import HeaderLink from "./HeaderLink";
 import { useRouter } from "next/router";
 import HeaderSocialLink from "./HeaderSocialLink";
+import FAIcon from "../FaIcon";
 
-const drawerWidth = 240;
+const DRAWER_WIDTH = 300;
 interface NavItem {
     text: string;
     link: string;
@@ -51,7 +52,7 @@ const socialNavItems: SocialNavItem[] = [
 export default function AppHeader() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const { breakpoints } = useTheme();
-    const isMobile = useMediaQuery(breakpoints.down("md"));
+    const isMobile = useMediaQuery(breakpoints.down("sm"));
     const router = useRouter();
 
     const handleDrawerToggle = () => {
@@ -59,17 +60,72 @@ export default function AppHeader() {
     };
 
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                {name}
-            </Typography>
-            <Divider />
-            <List>
+        <Box sx={{ textAlign: "center" }}>
+            <Toolbar />
+            <List disablePadding>
                 {navItems.map((item, idx) => (
                     <ListItem key={idx} disablePadding>
-                        <ListItemButton sx={{ textAlign: "center" }}>
-                            <ListItemText primary={item.text} />
-                        </ListItemButton>
+                        <Link
+                            component={RouterLink}
+                            href={item.link}
+                            sx={[
+                                {
+                                    width: 1,
+                                    my: 1,
+                                    px: 2,
+                                    py: 1,
+                                    fontSize: 24,
+                                    fontWeight: 600,
+                                    color: palette.blueGrey[600],
+                                    transition: "color .2s",
+                                    "&:hover": {
+                                        color: palette.blueGrey[900],
+                                    },
+                                },
+                                router.pathname === item.link && {
+                                    color: palette.blueGrey[900],
+                                },
+                            ]}
+                        >
+                            {item.text}
+                        </Link>
+                    </ListItem>
+                ))}
+            </List>
+            <List
+                disablePadding
+                sx={{ display: "flex", justifyContent: "flex-start" }}
+            >
+                {socialNavItems.map((item, idx) => (
+                    <ListItem
+                        key={idx}
+                        disablePadding
+                        sx={{
+                            display: "inline-flex",
+                            width: "unset",
+                            px: 1,
+                        }}
+                    >
+                        <Link
+                            component={RouterLink}
+                            href={item.link}
+                            sx={{
+                                display: "inline-flex",
+                                p: 1,
+                                color: palette.blueGrey[600],
+                                lineHeight: 1,
+                                transition: "color .2s",
+                                "&:hover": {
+                                    color: palette.blueGrey[900],
+                                },
+                            }}
+                        >
+                            <FAIcon
+                                variant="brands"
+                                icon={item.icon}
+                                sx={{ fontSize: "2.25rem" }}
+                            />
+                        </Link>
                     </ListItem>
                 ))}
             </List>
@@ -83,6 +139,7 @@ export default function AppHeader() {
                 sx={{
                     background: palette.blueGrey[100],
                     boxShadow: "none",
+                    zIndex: (theme) => theme.zIndex.drawer + 1,
                 }}
             >
                 <AppContainer
@@ -103,7 +160,6 @@ export default function AppHeader() {
                             <Link
                                 component={RouterLink}
                                 href="/"
-                                underline="none"
                                 sx={{
                                     display: "inline",
                                 }}
@@ -130,7 +186,7 @@ export default function AppHeader() {
                                         component="div"
                                         sx={[
                                             useMediaQuery(
-                                                "(max-width: 420px)"
+                                                "(max-width: 360px)"
                                             ) && {
                                                 display: "none",
                                             },
@@ -149,12 +205,12 @@ export default function AppHeader() {
                         </Box>
                         <Box
                             sx={{
-                                display: { xs: "none", md: "flex" },
+                                display: { xs: "none", sm: "flex" },
                                 gap: 2,
                                 height: 1,
                             }}
                         >
-                            <List sx={{ display: "flex", p: 0 }}>
+                            <List disablePadding sx={{ display: "flex" }}>
                                 {navItems.map((item, idx) => (
                                     <HeaderLink
                                         key={idx}
@@ -164,7 +220,7 @@ export default function AppHeader() {
                                     />
                                 ))}
                             </List>
-                            <List sx={{ display: "flex", p: 0 }}>
+                            <List disablePadding sx={{ display: "flex" }}>
                                 {socialNavItems.map((item, idx) => (
                                     <HeaderSocialLink
                                         key={idx}
@@ -181,11 +237,18 @@ export default function AppHeader() {
                             onClick={handleDrawerToggle}
                             sx={{
                                 ml: 2,
-                                display: { md: "none" },
+                                display: { sm: "none" },
+                                borderRadius: 0,
                                 color: palette.black,
+                                "&:hover": {
+                                    background: palette.blueGrey[200],
+                                },
                             }}
                         >
-                            <MenuIcon />
+                            <FAIcon
+                                icon={mobileOpen ? "xmark" : "bars"}
+                                sx={{ fontSize: "2rem" }}
+                            />
                         </IconButton>
                     </Toolbar>
                 </AppContainer>
@@ -200,10 +263,12 @@ export default function AppHeader() {
                         keepMounted: true,
                     }}
                     sx={{
-                        display: { xs: "block", md: "none" },
+                        display: { xs: "block", sm: "none" },
                         "& .MuiDrawer-paper": {
                             boxSizing: "border-box",
-                            width: drawerWidth,
+                            width: 1,
+                            maxWidth: DRAWER_WIDTH,
+                            background: palette.blueGrey[100],
                         },
                     }}
                 >

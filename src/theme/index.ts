@@ -19,12 +19,14 @@ export default createTheme({
         },
     },
     components: {
-        MuiButton: {
+        MuiButtonBase: {
             defaultProps: {
                 disableRipple: true,
-                sx: {
-                    textTransform: "none",
-                },
+            },
+        },
+        MuiLink: {
+            defaultProps: {
+                underline: "none",
             },
         },
         MuiToolbar: {
