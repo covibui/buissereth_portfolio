@@ -22,6 +22,9 @@ export default createTheme({
         MuiButton: {
             defaultProps: {
                 disableRipple: true,
+                sx: {
+                    textTransform: "none",
+                },
             },
         },
         MuiToolbar: {
@@ -29,10 +32,7 @@ export default createTheme({
                 sx: {
                     p: { xs: 0 },
                     width: 1,
-                    height: {
-                        xs: 80,
-                        md: 134,
-                    },
+                    height: 96,
                 },
             },
         },
