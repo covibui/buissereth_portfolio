@@ -1,5 +1,5 @@
-import { Box, Container, SxProps } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import { Box } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
 import { ReactNode } from "react";
 
 interface Props {
