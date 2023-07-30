@@ -16,6 +16,7 @@ export default function MobileLink({ item }: Props) {
             <Link
                 component={RouterLink}
                 href={item.link}
+                target={item.target}
                 sx={[
                     {
                         width: 1,

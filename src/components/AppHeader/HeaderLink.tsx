@@ -22,6 +22,7 @@ export default function HeaderLink({ item }: Props) {
             <Link
                 component={RouterLink}
                 href={item.link}
+                target={item.target}
                 sx={[
                     {
                         display: "flex",

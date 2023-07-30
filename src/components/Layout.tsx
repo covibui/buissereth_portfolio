@@ -4,6 +4,7 @@ import AppContainer from "./AppContainer";
 import { CONTACT_EMAIL, DOMAIN, SITE_TITLE } from "@/lib/constants";
 import { useRouter } from "next/router";
 import ContactSection from "./ContactSection";
+import AppFooter from "./AppFooter";
 
 export default function Layout({
     children,
@@ -45,6 +46,7 @@ export default function Layout({
                 {children}
                 <ContactSection />
             </AppContainer>
+            <AppFooter />
         </>
     );
 }

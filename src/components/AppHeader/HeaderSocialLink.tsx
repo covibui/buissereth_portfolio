@@ -15,6 +15,7 @@ export default function HeaderSocialLink({ item }: Props) {
                 component={RouterLink}
                 href={item.link}
                 aria-label={item.text}
+                target={item.target}
                 sx={{
                     color: palette.blueGrey[600],
                     lineHeight: 1,

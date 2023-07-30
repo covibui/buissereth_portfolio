@@ -22,6 +22,7 @@ export default function MobileSocialLink({ item }: Props) {
                 component={RouterLink}
                 href={item.link}
                 aria-label={item.text}
+                target={item.target}
                 sx={{
                     display: "inline-flex",
                     p: 1,
