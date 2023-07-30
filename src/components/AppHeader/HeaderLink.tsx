@@ -54,14 +54,14 @@ export default function HeaderLink({ text, link, active }: Props) {
                         },
                     },
                     !!active && {
-                        background: "#fff",
+                        background: palette.white,
                         color: palette.blueGrey[900],
                         "&::after": {
                             background: palette.blueGrey[600],
                             bottom: 24,
                         },
                         "&:hover": {
-                            background: "#fff",
+                            background: palette.white,
                         },
                     },
                 ]}

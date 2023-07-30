@@ -34,11 +34,32 @@ export default createTheme({
                         fontWeight: 600,
                         textTransform: "unset",
                     }),
+                sizeLarge: ({ theme }) =>
+                    theme.unstable_sx({
+                        fontSize: 20,
+                        px: 4,
+                        py: 2,
+                    }),
             },
         },
         MuiButtonBase: {
             defaultProps: {
                 disableRipple: true,
+            },
+        },
+        MuiDivider: {
+            styleOverrides: {
+                root: ({ theme }) =>
+                    theme.unstable_sx({
+                        mx: "auto",
+                        my: 4,
+                        width: 1,
+                        maxWidth: 360,
+                        height: 6,
+                        border: "none",
+                        borderRadius: 1,
+                        background: palette.blueGrey[600],
+                    }),
             },
         },
         MuiLink: {
@@ -61,7 +82,12 @@ export default createTheme({
             main: palette.orange[600],
             light: palette.orange[500],
             dark: palette.orange[700],
-            contrastText: "#fff",
+            contrastText: palette.white,
+        },
+        secondary: {
+            main: palette.white,
+            dark: palette.blueGrey[100],
+            contrastText: palette.black,
         },
     },
     typography: {
@@ -69,6 +95,10 @@ export default createTheme({
         h1: {
             fontSize: "4rem",
             fontWeight: 700,
+        },
+        h2: {
+            fontSize: "2.25rem",
+            fontWeight: 600,
         },
     },
 });

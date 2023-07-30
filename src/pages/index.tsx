@@ -10,7 +10,7 @@ import {
     SITE_TITLE,
     SOCIAL_IMAGE,
 } from "@/lib/constants";
-import { Box, Button, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Divider, Toolbar, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
 import theme from "@/theme";
@@ -40,81 +40,92 @@ export default function Home({ projects }: Props) {
                     <meta name="twitter:image" content={SOCIAL_IMAGE} />
                     <meta name="og:twitter:alt" content={SITE_DESCRIPTION} /> */}
                 </Head>
-                <Toolbar />
-                <Grid
-                    container
-                    spacing={2.25}
-                    columns={10}
-                    sx={{ mt: { xs: 4, md: 0 } }}
+                <Box
+                    component="section"
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        minHeight: "100vh",
+                    }}
                 >
-                    <Grid xs={10} md={5} lg={4}>
-                        <Box
-                            sx={{
-                                display: {
-                                    md: "flex",
-                                },
-                                flexDirection: "column",
-                                justifyContent: "center",
-                                alignItems: "flex-start",
-                                height: {
-                                    md: 1,
-                                },
-                            }}
-                        >
-                            <Typography
-                                variant="h1"
-                                sx={{
-                                    mb: 2,
-                                    fontSize: "2.25rem",
-                                    fontWeight: 600,
-                                }}
-                            >
-                                {NAME}
-                            </Typography>
-                            <Typography variant="body1" sx={{ mb: 2 }}>
-                                Id amet velit esse pariatur tempor minim
-                                consectetur ea deserunt eu ad nulla.
-                                Reprehenderit consequat sit anim elit cillum eu
-                                deserunt.
-                            </Typography>
-                            <Typography variant="body1" sx={{ mb: 2 }}>
-                                Reprehenderit excepteur dolor commodo mollit ex
-                                id tempor irure dolor laboris occaecat irure
-                                pariatur excepteur.
-                            </Typography>
-                            <Button>Get in touch</Button>
-                        </Box>
-                    </Grid>
-                    <Grid xs={10} md={5} lg={6}>
-                        <Box
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                height: 1,
-                            }}
-                        >
+                    <Toolbar />
+                    <Grid
+                        container
+                        spacing={2.25}
+                        columns={10}
+                        sx={{ mt: { xs: 4, md: 0 } }}
+                    >
+                        <Grid xs={10} md={5} lg={4}>
                             <Box
                                 sx={{
-                                    position: "relative",
-                                    aspectRatio: 710 / 660,
-                                    maxWidth: {
-                                        xs: "75vw",
-                                        lg: "auto",
+                                    display: {
+                                        md: "flex",
                                     },
-                                    mx: "auto",
-                                    flexGrow: 1,
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "flex-start",
+                                    height: {
+                                        md: 1,
+                                    },
                                 }}
                             >
-                                <Image
-                                    fill
-                                    src="/images/portrait.png"
-                                    sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
-                                    alt={NAME}
-                                />
+                                <Typography
+                                    variant="h1"
+                                    sx={{
+                                        mb: 2,
+                                        fontSize: "2.25rem",
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    {NAME}
+                                </Typography>
+                                <Typography variant="body1" sx={{ mb: 2 }}>
+                                    Id amet velit esse pariatur tempor minim
+                                    consectetur ea deserunt eu ad nulla.
+                                    Reprehenderit consequat sit anim elit cillum
+                                    eu deserunt.
+                                </Typography>
+                                <Typography variant="body1" sx={{ mb: 2 }}>
+                                    Reprehenderit excepteur dolor commodo mollit
+                                    ex id tempor irure dolor laboris occaecat
+                                    irure pariatur excepteur.
+                                </Typography>
+                                <Button>Get in touch</Button>
                             </Box>
-                        </Box>
+                        </Grid>
+                        <Grid xs={10} md={5} lg={6}>
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    height: 1,
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        position: "relative",
+                                        aspectRatio: 710 / 660,
+                                        maxWidth: {
+                                            xs: "75vw",
+                                            lg: "auto",
+                                        },
+                                        mx: "auto",
+                                        flexGrow: 1,
+                                    }}
+                                >
+                                    <Image
+                                        fill
+                                        src="/images/portrait.png"
+                                        sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
+                                        alt={NAME}
+                                    />
+                                </Box>
+                            </Box>
+                        </Grid>
                     </Grid>
-                </Grid>
+                    <Divider />
+                </Box>
                 <section>
                     <p>
                         Culpa est amet adipisicing ad. Labore id duis Lorem

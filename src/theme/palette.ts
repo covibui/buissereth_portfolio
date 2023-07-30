@@ -27,4 +27,5 @@ export default {
         900: "#7c2d12",
         950: "#431407",
     },
+    white: "#fff",
 };

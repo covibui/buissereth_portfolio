@@ -1,8 +1,9 @@
 import Head from "next/head";
 import AppHeader from "./AppHeader";
 import AppContainer from "./AppContainer";
-import { DOMAIN, SITE_TITLE } from "@/lib/constants";
+import { CONTACT_EMAIL, DOMAIN, SITE_TITLE } from "@/lib/constants";
 import { useRouter } from "next/router";
+import ContactSection from "./ContactSection";
 
 export default function Layout({
     children,
@@ -40,7 +41,10 @@ export default function Layout({
                 <meta name="og:url" content={DOMAIN + router.route} />
             </Head>
             <AppHeader />
-            <AppContainer>{children}</AppContainer>
+            <AppContainer>
+                {children}
+                <ContactSection />
+            </AppContainer>
         </>
     );
 }
