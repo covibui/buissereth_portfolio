@@ -21,7 +21,6 @@ interface Props {
 
 export default function Home({ projects }: Props) {
     const breakpoints = theme.breakpoints.values;
-    console.log(breakpoints);
     return (
         <>
             <Layout>

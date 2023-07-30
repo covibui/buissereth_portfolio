@@ -1,14 +1,16 @@
+import { NavItem } from "@/data/menus";
 import palette from "@/theme/palette";
 import { Link, ListItem } from "@mui/material";
 import RouterLink from "next/link";
+import { useRouter } from "next/router";
 
 interface Props {
-    text: string;
-    link: string;
-    active?: boolean;
+    item: NavItem;
 }
 
-export default function HeaderLink({ text, link, active }: Props) {
+export default function HeaderLink({ item }: Props) {
+    const router = useRouter();
+    const isActive = router.pathname === item.link;
     return (
         <ListItem
             sx={{
@@ -19,7 +21,7 @@ export default function HeaderLink({ text, link, active }: Props) {
         >
             <Link
                 component={RouterLink}
-                href={link}
+                href={item.link}
                 sx={[
                     {
                         display: "flex",
@@ -53,7 +55,7 @@ export default function HeaderLink({ text, link, active }: Props) {
                             },
                         },
                     },
-                    !!active && {
+                    !!isActive && {
                         background: palette.white,
                         color: palette.blueGrey[900],
                         "&::after": {
@@ -66,7 +68,7 @@ export default function HeaderLink({ text, link, active }: Props) {
                     },
                 ]}
             >
-                {text}
+                {item.text}
             </Link>
         </ListItem>
     );

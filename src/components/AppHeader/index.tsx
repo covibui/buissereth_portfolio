@@ -21,29 +21,11 @@ import HeaderLink from "./HeaderLink";
 import { useRouter } from "next/router";
 import HeaderSocialLink from "./HeaderSocialLink";
 import FAIcon from "../FaIcon";
+import { navItems, socialNavItems } from "@/data/menus";
+import MobileLink from "./MobileLink";
+import MobileSocialLink from "./MobileSocialLink";
 
 const DRAWER_WIDTH = 300;
-interface NavItem {
-    text: string;
-    link: string;
-}
-
-const navItems: NavItem[] = [
-    { text: "Work", link: "/" },
-    { text: "About", link: "/about" },
-];
-
-interface SocialNavItem extends NavItem {
-    icon: string;
-}
-
-const socialNavItems: SocialNavItem[] = [
-    {
-        text: "LinkedIn",
-        link: "https://www.linkedin.com/in/brianna-buissereth-5a79a613a/",
-        icon: "linkedin",
-    },
-];
 
 export default function AppHeader() {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -60,32 +42,7 @@ export default function AppHeader() {
             <Toolbar />
             <List disablePadding>
                 {navItems.map((item, idx) => (
-                    <ListItem key={idx} disablePadding>
-                        <Link
-                            component={RouterLink}
-                            href={item.link}
-                            sx={[
-                                {
-                                    width: 1,
-                                    my: 1,
-                                    px: 2,
-                                    py: 1,
-                                    fontSize: 24,
-                                    fontWeight: 600,
-                                    color: palette.blueGrey[600],
-                                    transition: "color .2s",
-                                    "&:hover": {
-                                        color: palette.blueGrey[900],
-                                    },
-                                },
-                                router.pathname === item.link && {
-                                    color: palette.blueGrey[900],
-                                },
-                            ]}
-                        >
-                            {item.text}
-                        </Link>
-                    </ListItem>
+                    <MobileLink key={idx} item={item} />
                 ))}
             </List>
             <List
@@ -93,36 +50,7 @@ export default function AppHeader() {
                 sx={{ display: "flex", justifyContent: "flex-start" }}
             >
                 {socialNavItems.map((item, idx) => (
-                    <ListItem
-                        key={idx}
-                        disablePadding
-                        sx={{
-                            display: "inline-flex",
-                            width: "unset",
-                            px: 1,
-                        }}
-                    >
-                        <Link
-                            component={RouterLink}
-                            href={item.link}
-                            sx={{
-                                display: "inline-flex",
-                                p: 1,
-                                color: palette.blueGrey[600],
-                                lineHeight: 1,
-                                transition: "color .2s",
-                                "&:hover": {
-                                    color: palette.blueGrey[900],
-                                },
-                            }}
-                        >
-                            <FAIcon
-                                variant="brands"
-                                icon={item.icon}
-                                sx={{ fontSize: "2.25rem" }}
-                            />
-                        </Link>
-                    </ListItem>
+                    <MobileSocialLink key={idx} item={item} />
                 ))}
             </List>
         </Box>
@@ -203,22 +131,12 @@ export default function AppHeader() {
                         >
                             <List disablePadding sx={{ display: "flex" }}>
                                 {navItems.map((item, idx) => (
-                                    <HeaderLink
-                                        key={idx}
-                                        text={item.text}
-                                        link={item.link}
-                                        active={router.pathname === item.link}
-                                    />
+                                    <HeaderLink key={idx} item={item} />
                                 ))}
                             </List>
                             <List disablePadding sx={{ display: "flex" }}>
                                 {socialNavItems.map((item, idx) => (
-                                    <HeaderSocialLink
-                                        key={idx}
-                                        variant="brands"
-                                        icon={item.icon}
-                                        link={item.link}
-                                    />
+                                    <HeaderSocialLink key={idx} item={item} />
                                 ))}
                             </List>
                         </Box>

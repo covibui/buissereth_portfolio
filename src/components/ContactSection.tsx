@@ -8,7 +8,7 @@ export default function ContactSection() {
             component="section"
             id="contact"
             sx={{
-                mb: 6,
+                my: 6,
                 px: {
                     xs: 2.5,
                     md: 6,
