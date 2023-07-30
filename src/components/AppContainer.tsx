@@ -9,7 +9,7 @@ interface Props {
 export default function AppContainer({ children }: Props) {
     return (
         <Grid container>
-            <Grid md={10} mdOffset={1}>
+            <Grid xs={12} md={10} mdOffset={1}>
                 <Box sx={{ px: { xs: 2 } }}>{children}</Box>
             </Grid>
         </Grid>
