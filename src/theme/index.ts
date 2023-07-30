@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material";
 import { Poppins } from "next/font/google";
+import palette from "./palette";
 
 export const poppins = Poppins({
     weight: ["400", "600", "700"],
@@ -19,6 +20,22 @@ export default createTheme({
         },
     },
     components: {
+        MuiButton: {
+            defaultProps: {
+                variant: "contained",
+                disableElevation: true,
+            },
+            styleOverrides: {
+                root: ({ theme }) =>
+                    theme.unstable_sx({
+                        borderRadius: 0,
+                        py: 1.25,
+                        fontSize: 16,
+                        fontWeight: 600,
+                        textTransform: "unset",
+                    }),
+            },
+        },
         MuiButtonBase: {
             defaultProps: {
                 disableRipple: true,
@@ -37,6 +54,14 @@ export default createTheme({
                     height: 96,
                 },
             },
+        },
+    },
+    palette: {
+        primary: {
+            main: palette.orange[600],
+            light: palette.orange[500],
+            dark: palette.orange[700],
+            contrastText: "#fff",
         },
     },
     typography: {

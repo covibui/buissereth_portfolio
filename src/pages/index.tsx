@@ -41,7 +41,12 @@ export default function Home({ projects }: Props) {
                     <meta name="og:twitter:alt" content={SITE_DESCRIPTION} /> */}
                 </Head>
                 <Toolbar />
-                <Grid container spacing={2.25} columns={10}>
+                <Grid
+                    container
+                    spacing={2.25}
+                    columns={10}
+                    sx={{ mt: { xs: 4, md: 0 } }}
+                >
                     <Grid xs={10} md={5} lg={4}>
                         <Box
                             sx={{
@@ -59,19 +64,20 @@ export default function Home({ projects }: Props) {
                             <Typography
                                 variant="h1"
                                 sx={{
+                                    mb: 2,
                                     fontSize: "2.25rem",
                                     fontWeight: 600,
                                 }}
                             >
                                 {NAME}
                             </Typography>
-                            <Typography variant="body1">
+                            <Typography variant="body1" sx={{ mb: 2 }}>
                                 Id amet velit esse pariatur tempor minim
                                 consectetur ea deserunt eu ad nulla.
                                 Reprehenderit consequat sit anim elit cillum eu
                                 deserunt.
                             </Typography>
-                            <Typography variant="body1">
+                            <Typography variant="body1" sx={{ mb: 2 }}>
                                 Reprehenderit excepteur dolor commodo mollit ex
                                 id tempor irure dolor laboris occaecat irure
                                 pariatur excepteur.
@@ -82,21 +88,30 @@ export default function Home({ projects }: Props) {
                     <Grid xs={10} md={5} lg={6}>
                         <Box
                             sx={{
-                                position: "relative",
-                                aspectRatio: 710 / 660,
-                                maxWidth: {
-                                    xs: "75vw",
-                                    lg: "auto",
-                                },
-                                mx: "auto",
+                                display: "flex",
+                                alignItems: "center",
+                                height: 1,
                             }}
                         >
-                            <Image
-                                fill
-                                src="/images/portrait.png"
-                                sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
-                                alt={NAME}
-                            />
+                            <Box
+                                sx={{
+                                    position: "relative",
+                                    aspectRatio: 710 / 660,
+                                    maxWidth: {
+                                        xs: "75vw",
+                                        lg: "auto",
+                                    },
+                                    mx: "auto",
+                                    flexGrow: 1,
+                                }}
+                            >
+                                <Image
+                                    fill
+                                    src="/images/portrait.png"
+                                    sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
+                                    alt={NAME}
+                                />
+                            </Box>
                         </Box>
                     </Grid>
                 </Grid>
