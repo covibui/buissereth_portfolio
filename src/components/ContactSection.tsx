@@ -5,6 +5,8 @@ import { CONTACT_EMAIL, NAME } from "@/lib/constants";
 export default function ContactSection() {
     return (
         <Box
+            component="section"
+            id="contact"
             sx={{
                 mb: 6,
                 px: {

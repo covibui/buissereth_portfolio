@@ -91,7 +91,7 @@ export default function Home({ projects }: Props) {
                                     ex id tempor irure dolor laboris occaecat
                                     irure pariatur excepteur.
                                 </Typography>
-                                <Button>Get in touch</Button>
+                                <Button href="#contact">Get in touch</Button>
                             </Box>
                         </Grid>
                         <Grid xs={10} md={5} lg={6}>
