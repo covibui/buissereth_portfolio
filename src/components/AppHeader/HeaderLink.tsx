@@ -49,6 +49,11 @@ export default function HeaderLink({ item }: Props) {
                         },
                         "&:hover": {
                             background: palette.blueGrey[200],
+                        },
+                        "&:focus-visible": {
+                            outline: `2px solid ${palette.orange[500]}`,
+                        },
+                        "&:hover, &:focus-visible": {
                             color: palette.blueGrey[900],
                             "&::after": {
                                 background: palette.blueGrey[600],

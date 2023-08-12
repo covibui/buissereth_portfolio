@@ -44,7 +44,6 @@ export default function ContactSection() {
             </Typography>
             <Button
                 size="large"
-                color="secondary"
                 href={`mailto:${CONTACT_EMAIL}?subject=${NAME} - Collaboration Interest`}
             >
                 {CONTACT_EMAIL}

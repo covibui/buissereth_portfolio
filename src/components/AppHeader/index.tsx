@@ -80,13 +80,23 @@ export default function AppHeader() {
                                 component={RouterLink}
                                 href="/"
                                 sx={{
-                                    display: "inline",
+                                    display: "inline-flex",
+                                    transition: "background .2s",
+                                    "&:hover, &:active": {
+                                        background: palette.blueGrey[200],
+                                        boxShadow: "none",
+                                    },
+                                    "&:focus-visible": {
+                                        outline: `2px solid ${palette.orange[500]}`,
+                                        outlineOffset: 4,
+                                    },
                                 }}
                             >
                                 <Box
                                     sx={{
                                         display: "inline-flex",
                                         alignItems: "center",
+                                        justifyContent: "center",
                                         gap: 2,
                                     }}
                                 >
@@ -151,6 +161,9 @@ export default function AppHeader() {
                                 color: palette.black,
                                 "&:hover": {
                                     background: palette.blueGrey[200],
+                                },
+                                "&:focus-visible": {
+                                    outline: `2px solid ${palette.orange[500]}`,
                                 },
                             }}
                         >

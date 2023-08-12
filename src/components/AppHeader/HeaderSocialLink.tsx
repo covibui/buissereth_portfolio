@@ -17,10 +17,16 @@ export default function HeaderSocialLink({ item }: Props) {
                 aria-label={item.text}
                 target={item.target}
                 sx={{
+                    display: "flex",
                     color: palette.blueGrey[600],
                     lineHeight: 1,
                     transition: "color .2s",
-                    "&:hover": { color: palette.blueGrey[900] },
+                    "&:hover, &:focus-visible": {
+                        color: palette.blueGrey[900],
+                    },
+                    "&:focus-visible": {
+                        outline: `2px solid ${palette.orange[500]}`,
+                    },
                 }}
             >
                 <FAIcon

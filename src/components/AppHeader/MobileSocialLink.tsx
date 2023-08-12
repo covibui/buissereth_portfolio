@@ -29,8 +29,11 @@ export default function MobileSocialLink({ item }: Props) {
                     color: palette.blueGrey[600],
                     lineHeight: 1,
                     transition: "color .2s",
-                    "&:hover": {
+                    "&:hover, &:focus-visible": {
                         color: palette.blueGrey[900],
+                    },
+                    "&:focus-visible": {
+                        outline: `2px solid ${palette.orange[500]}`,
                     },
                 }}
             >

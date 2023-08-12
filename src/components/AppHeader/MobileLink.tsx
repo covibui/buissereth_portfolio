@@ -27,8 +27,12 @@ export default function MobileLink({ item }: Props) {
                         fontWeight: 600,
                         color: palette.blueGrey[600],
                         transition: "color .2s",
-                        "&:hover": {
+                        "&:hover, &:focus-visible": {
                             color: palette.blueGrey[900],
+                        },
+                        "&:focus-visible": {
+                            outline: `2px solid ${palette.orange[500]}`,
+                            outlineOffset: -2,
                         },
                     },
                     isActive && {

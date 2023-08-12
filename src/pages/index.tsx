@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import { GetStaticProps } from "next";
-import { ProjectFrontMatter, ProjectGroup, ProjectType } from "@/types";
+import { ProjectGroup } from "@/types";
 import RouterLink from "next/link";
 import { getSortedProjects } from "@/lib/projects";
 import {
@@ -92,7 +92,9 @@ export default function Home({ projectGroups }: Props) {
                                     ex id tempor irure dolor laboris occaecat
                                     irure pariatur excepteur.
                                 </Typography>
-                                <Button href="#contact">Get in touch</Button>
+                                <Button color="primary" href="#contact">
+                                    Get in touch
+                                </Button>
                             </Box>
                         </Grid>
                         <Grid xs={10} md={5} lg={6}>
@@ -169,6 +171,24 @@ export default function Home({ projectGroups }: Props) {
                                                                 RouterLink
                                                             }
                                                             href={`/projects/${group.slug}/${project.slug}/`}
+                                                            sx={{
+                                                                display:
+                                                                    "block",
+                                                                width: 1,
+                                                                height: 1,
+                                                                "&:hover, &:focus-visible":
+                                                                    {
+                                                                        "& .title-overlay":
+                                                                            {
+                                                                                opacity: 0.7,
+                                                                            },
+                                                                    },
+                                                                "&:focus-visible":
+                                                                    {
+                                                                        outline: `2px solid ${palette.orange[500]}`,
+                                                                        outlineOffset: 2,
+                                                                    },
+                                                            }}
                                                         >
                                                             <Box
                                                                 sx={{
@@ -178,12 +198,6 @@ export default function Home({ projectGroups }: Props) {
                                                                             .blueGrey[100],
                                                                     position:
                                                                         "relative",
-                                                                    "&:hover": {
-                                                                        "& .title-overlay":
-                                                                            {
-                                                                                opacity: 0.7,
-                                                                            },
-                                                                    },
                                                                 }}
                                                             >
                                                                 <Image
@@ -213,7 +227,7 @@ export default function Home({ projectGroups }: Props) {
                                                                                 .blueGrey[700],
                                                                         opacity: 0,
                                                                         transition:
-                                                                            "opacity ease-in-out 0.15s",
+                                                                            "opacity .2s",
                                                                     }}
                                                                     className="title-overlay"
                                                                 >
@@ -243,43 +257,6 @@ export default function Home({ projectGroups }: Props) {
                             );
                         }
                     })}
-                    {/* <Box component="section">
-                        <Typography variant="h3">Work Projects</Typography>
-                        <Box sx={{ flexGrow: 1 }}>
-                            <Grid container spacing={5} sx={{ my: 0 }}>
-                                {[...Array(7)].map((_, idx) => {
-                                    const randomId = (
-                                        Math.random() * 100
-                                    ).toFixed(0);
-                                    return (
-                                        <Grid
-                                            key={idx}
-                                            {...{ xs: 12, sm: 6, lg: 4 }}
-                                            sx={{ aspectRatio: 3 / 2 }}
-                                        >
-                                            <Box
-                                                sx={{
-                                                    height: 1,
-                                                    background:
-                                                        palette.blueGrey[100],
-                                                    position: "relative",
-                                                }}
-                                            >
-                                                <Image
-                                                    src={`https://picsum.photos/id/${randomId}/900/600`}
-                                                    fill
-                                                    style={{
-                                                        objectFit: "cover",
-                                                    }}
-                                                    alt={`alt`}
-                                                />
-                                            </Box>
-                                        </Grid>
-                                    );
-                                })}
-                            </Grid>
-                        </Box>
-                    </Box> */}
                 </Box>
             </Layout>
         </>
@@ -288,7 +265,6 @@ export default function Home({ projectGroups }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
     const projectGroups = getSortedProjects();
-    console.log(projectGroups);
     return {
         props: {
             projectGroups,

@@ -23,6 +23,7 @@ export default createTheme({
         MuiButton: {
             defaultProps: {
                 variant: "contained",
+                color: "info",
                 disableElevation: true,
             },
             styleOverrides: {
@@ -34,11 +35,33 @@ export default createTheme({
                         fontWeight: 600,
                         textTransform: "unset",
                     }),
+                containedPrimary: ({ theme }) =>
+                    theme.unstable_sx({
+                        "&:focus-visible": {
+                            background: theme.palette.primary.dark,
+                            outline: `2px solid ${theme.palette.primary.main}`,
+                        },
+                    }),
+                containedInfo: ({ theme }) =>
+                    theme.unstable_sx({
+                        "&:focus-visible": {
+                            background: theme.palette.info.dark,
+                            outline: `2px solid ${theme.palette.info.main}`,
+                        },
+                    }),
+                sizeMedium: {
+                    "&:focus-visible": {
+                        outlineOffset: 2,
+                    },
+                },
                 sizeLarge: ({ theme }) =>
                     theme.unstable_sx({
                         fontSize: 20,
                         px: 4,
                         py: 2,
+                        "&:focus-visible": {
+                            outlineOffset: 4,
+                        },
                     }),
             },
         },
@@ -84,9 +107,9 @@ export default createTheme({
             dark: palette.orange[700],
             contrastText: palette.white,
         },
-        secondary: {
+        info: {
             main: palette.white,
-            dark: palette.blueGrey[100],
+            dark: palette.blueGrey[200],
             contrastText: palette.black,
         },
     },

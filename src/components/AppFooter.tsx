@@ -22,10 +22,15 @@ const FooterLink = ({ text, link, target, children }: FooterLinkProps) => (
             aria-label={text}
             target={target}
             sx={{
+                display: "flex",
                 color: palette.blueGrey[500],
                 lineHeight: 1,
-                "&:hover": {
+                "&:hover, &:focus-visible": {
                     color: palette.blueGrey[600],
+                },
+                "&:focus-visible": {
+                    outline: `1px solid ${palette.blueGrey[600]}`,
+                    outlineOffset: 2,
                 },
             }}
         >
