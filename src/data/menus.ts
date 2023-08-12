@@ -8,7 +8,7 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
     { text: "Work", link: "/" },
-    { text: "About", link: "/about" },
+    { text: "About", link: "/about/" },
 ];
 
 export interface SocialNavItem extends NavItem {

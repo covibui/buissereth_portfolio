@@ -2,7 +2,7 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import { GetStaticProps } from "next";
 import { ProjectFrontMatter, ProjectGroup, ProjectType } from "@/types";
-import Link from "next/link";
+import RouterLink from "next/link";
 import { getSortedProjects } from "@/lib/projects";
 import {
     NAME,
@@ -10,7 +10,7 @@ import {
     SITE_TITLE,
     SOCIAL_IMAGE,
 } from "@/lib/constants";
-import { Box, Button, Divider, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Divider, Link, Toolbar, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
 import theme from "@/theme";
@@ -128,7 +128,7 @@ export default function Home({ projectGroups }: Props) {
                     <Divider />
                 </Box>
                 <Box component="section" id="projects" sx={{ mt: 10 }}>
-                    <Box sx={{ mb: 7 }}>
+                    <Box>
                         <Typography variant="h2">Projects</Typography>
                         <Typography sx={{ maxWidth: { md: 0.5 } }}>
                             Duis qui ullamco eiusmod. Nulla duis consequat
@@ -144,16 +144,13 @@ export default function Home({ projectGroups }: Props) {
                                     key={idx}
                                     component="section"
                                     id={`${group.slug}-projects`}
+                                    sx={{ mt: 7 }}
                                 >
-                                    <Typography variant="h3">
+                                    <Typography variant="h3" sx={{ mb: 6 }}>
                                         {`${group.title} Projects`}
                                     </Typography>
                                     <Box sx={{ flexGrow: 1 }}>
-                                        <Grid
-                                            container
-                                            spacing={5}
-                                            sx={{ my: 0 }}
-                                        >
+                                        <Grid container spacing={5} sx={{}}>
                                             {group.projects.map(
                                                 (project, idx) => (
                                                     <Grid
@@ -167,16 +164,76 @@ export default function Home({ projectGroups }: Props) {
                                                             aspectRatio: 3 / 2,
                                                         }}
                                                     >
-                                                        <Box
-                                                            sx={{
-                                                                height: 1,
-                                                                background:
-                                                                    palette
-                                                                        .blueGrey[100],
-                                                                position:
-                                                                    "relative",
-                                                            }}
-                                                        ></Box>
+                                                        <Link
+                                                            component={
+                                                                RouterLink
+                                                            }
+                                                            href={`/projects/${group.slug}/${project.slug}/`}
+                                                        >
+                                                            <Box
+                                                                sx={{
+                                                                    height: 1,
+                                                                    background:
+                                                                        palette
+                                                                            .blueGrey[100],
+                                                                    position:
+                                                                        "relative",
+                                                                    "&:hover": {
+                                                                        "& .title-overlay":
+                                                                            {
+                                                                                opacity: 0.7,
+                                                                            },
+                                                                    },
+                                                                }}
+                                                            >
+                                                                <Image
+                                                                    src={`/images/projects/${group.slug}/${project.slug}/${project.thumb}`}
+                                                                    fill
+                                                                    style={{
+                                                                        objectFit:
+                                                                            "cover",
+                                                                    }}
+                                                                    alt={`${project.title} - ${group.title} Project`}
+                                                                />
+                                                                <Box
+                                                                    sx={{
+                                                                        width: 1,
+                                                                        height: 1,
+                                                                        p: 3,
+                                                                        display:
+                                                                            "flex",
+                                                                        alignItems:
+                                                                            "center",
+                                                                        justifyContent:
+                                                                            "center",
+                                                                        position:
+                                                                            "absolute",
+                                                                        backgroundColor:
+                                                                            palette
+                                                                                .blueGrey[700],
+                                                                        opacity: 0,
+                                                                        transition:
+                                                                            "opacity ease-in-out 0.15s",
+                                                                    }}
+                                                                    className="title-overlay"
+                                                                >
+                                                                    <Typography
+                                                                        component="strong"
+                                                                        sx={{
+                                                                            color: palette.white,
+                                                                            fontSize: 24,
+                                                                            fontWeight: 600,
+                                                                            textAlign:
+                                                                                "center",
+                                                                        }}
+                                                                    >
+                                                                        {
+                                                                            project.title
+                                                                        }
+                                                                    </Typography>
+                                                                </Box>
+                                                            </Box>
+                                                        </Link>
                                                     </Grid>
                                                 )
                                             )}

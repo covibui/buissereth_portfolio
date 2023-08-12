@@ -101,5 +101,10 @@ export default createTheme({
             fontWeight: 600,
             marginBottom: 16,
         },
+        h3: {
+            fontSize: "1.5rem",
+            fontWeight: 600,
+            marginBottom: 16,
+        },
     },
 });
