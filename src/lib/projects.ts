@@ -3,20 +3,29 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
-import { ProjectData, ProjectFrontMatter, ProjectType } from "@/types";
+import {
+    ProjectData,
+    ProjectFrontMatter,
+    ProjectGroup,
+    ProjectType,
+    ProjectTypes,
+} from "@/types";
 import groupBy from "lodash/groupBy";
 
 const root = path.join(process.cwd(), "src");
 const projectsDirectory = path.join(root, "data/projects");
 
-export function getSortedProjects(projectType?: ProjectType) {
-    const filesNames = fs.readdirSync(projectsDirectory);
+export function getSortedProjectsByType(
+    projectType: string
+): ProjectFrontMatter[] {
+    const projectTypeDirectory = path.join(projectsDirectory, projectType);
+    const fileNames = fs.readdirSync(projectTypeDirectory);
 
     // @ts-ignore
-    const allProjects: ProjectFrontMatter[] = filesNames.map((fileName) => {
+    const projects: ProjectFrontMatter[] = fileNames.map((fileName) => {
         const slug = fileName.replace(/\.md$/, "");
 
-        const fullPath = path.join(projectsDirectory, fileName);
+        const fullPath = path.join(projectTypeDirectory, fileName);
         const fileContents = fs.readFileSync(fullPath, "utf8");
 
         const { data } = matter(fileContents);
@@ -27,15 +36,24 @@ export function getSortedProjects(projectType?: ProjectType) {
         };
     });
 
-    const sortedProjects = allProjects.sort((a, b) => {
+    return projects.sort((a, b) => {
         if (a.displayOrder < b.displayOrder) {
             return -1;
         } else {
             return 1;
         }
     });
+}
 
-    return groupBy(sortedProjects, "type");
+export function getSortedProjects(): ProjectGroup[] {
+    const groups = Object.entries(ProjectTypes).map(([title, slug]) => {
+        return {
+            slug: slug,
+            title: title,
+            projects: getSortedProjectsByType(slug),
+        };
+    });
+    return groups;
 }
 
 export async function getProjectBySlug(slug: string) {

@@ -1,5 +1,5 @@
 import palette from "@/theme/palette";
-import FAIcon from "../FaIcon";
+import FAIcon from "../FAIcon";
 import { Link, ListItem } from "@mui/material";
 import RouterLink from "next/link";
 import { SocialNavItem } from "@/data/menus";

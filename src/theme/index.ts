@@ -99,6 +99,7 @@ export default createTheme({
         h2: {
             fontSize: "2.25rem",
             fontWeight: 600,
+            marginBottom: 16,
         },
     },
 });

@@ -4,7 +4,13 @@ export interface PostData {
     [k: string]: any;
 }
 
-export type ProjectType = "college" | "work";
+export type ProjectType = "college" | "work" | "other";
+
+export enum ProjectTypes {
+    School = "school",
+    Work = "work",
+    Other = "other",
+}
 
 interface Image {
     image: string;
@@ -35,4 +41,10 @@ export interface ProjectFrontMatter {
 export interface ProjectData {
     frontMatter: ProjectFrontMatter;
     content: any;
+}
+
+export interface ProjectGroup {
+    slug: string;
+    title: string;
+    projects: ProjectFrontMatter[];
 }

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import { GetStaticProps } from "next";
-import { ProjectFrontMatter, ProjectType } from "@/types";
+import { ProjectFrontMatter, ProjectGroup, ProjectType } from "@/types";
 import Link from "next/link";
 import { getSortedProjects } from "@/lib/projects";
 import {
@@ -14,12 +14,13 @@ import { Box, Button, Divider, Toolbar, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
 import theme from "@/theme";
+import palette from "@/theme/palette";
 
 interface Props {
-    projects: Record<ProjectType, ProjectFrontMatter[]>;
+    projectGroups?: ProjectGroup[];
 }
 
-export default function Home({ projects }: Props) {
+export default function Home({ projectGroups }: Props) {
     const breakpoints = theme.breakpoints.values;
     return (
         <>
@@ -41,6 +42,7 @@ export default function Home({ projects }: Props) {
                 </Head>
                 <Box
                     component="section"
+                    id="hero"
                     sx={{
                         display: "flex",
                         flexDirection: "column",
@@ -125,53 +127,114 @@ export default function Home({ projects }: Props) {
                     </Grid>
                     <Divider />
                 </Box>
-                <section>
-                    <p>
-                        Culpa est amet adipisicing ad. Labore id duis Lorem
-                        laboris pariatur laborum Lorem dolor aute voluptate
-                        eiusmod esse excepteur qui ex.
-                    </p>
-                    <p>
-                        Non ad ex aute ad ex exercitation. Consequat ea mollit
-                        quis mollit minim ut eiusmod voluptate consequat ipsum
-                        fugiat exercitation mollit anim laborum. Culpa anim
-                        exercitation duis sint enim consequat sint laborum
-                        reprehenderit pariatur nisi culpa.
-                    </p>
-                </section>
-                <section>
-                    <h2>Blog</h2>
-                    <ul>
-                        {projects.work.length > 0 &&
-                            projects.work.map(({ slug, title, type }, idx) => (
-                                <li key={idx}>
-                                    <Link href={`/projects/${slug}`}>
-                                        {title} - {type}
-                                    </Link>
-                                </li>
-                            ))}
-                        {projects.college.length > 0 &&
-                            projects.college.map(
-                                ({ slug, title, type }, idx) => (
-                                    <li key={idx}>
-                                        <Link href={`/projects/${slug}`}>
-                                            {title} - {type}
-                                        </Link>
-                                    </li>
-                                )
-                            )}
-                    </ul>
-                </section>
+                <Box component="section" id="projects" sx={{ mt: 10 }}>
+                    <Box sx={{ mb: 7 }}>
+                        <Typography variant="h2">Projects</Typography>
+                        <Typography sx={{ maxWidth: { md: 0.5 } }}>
+                            Duis qui ullamco eiusmod. Nulla duis consequat
+                            commodo enim non aliqua est et Lorem do. Ut laboris
+                            eiusmod sint culpa commodo voluptate. Non amet esse
+                            ad ut.
+                        </Typography>
+                    </Box>
+                    {projectGroups?.map((group, idx) => {
+                        if (group.projects.length) {
+                            return (
+                                <Box
+                                    key={idx}
+                                    component="section"
+                                    id={`${group.slug}-projects`}
+                                >
+                                    <Typography variant="h3">
+                                        {`${group.title} Projects`}
+                                    </Typography>
+                                    <Box sx={{ flexGrow: 1 }}>
+                                        <Grid
+                                            container
+                                            spacing={5}
+                                            sx={{ my: 0 }}
+                                        >
+                                            {group.projects.map(
+                                                (project, idx) => (
+                                                    <Grid
+                                                        key={idx}
+                                                        {...{
+                                                            xs: 12,
+                                                            sm: 6,
+                                                            lg: 4,
+                                                        }}
+                                                        sx={{
+                                                            aspectRatio: 3 / 2,
+                                                        }}
+                                                    >
+                                                        <Box
+                                                            sx={{
+                                                                height: 1,
+                                                                background:
+                                                                    palette
+                                                                        .blueGrey[100],
+                                                                position:
+                                                                    "relative",
+                                                            }}
+                                                        ></Box>
+                                                    </Grid>
+                                                )
+                                            )}
+                                        </Grid>
+                                    </Box>
+                                </Box>
+                            );
+                        }
+                    })}
+                    {/* <Box component="section">
+                        <Typography variant="h3">Work Projects</Typography>
+                        <Box sx={{ flexGrow: 1 }}>
+                            <Grid container spacing={5} sx={{ my: 0 }}>
+                                {[...Array(7)].map((_, idx) => {
+                                    const randomId = (
+                                        Math.random() * 100
+                                    ).toFixed(0);
+                                    return (
+                                        <Grid
+                                            key={idx}
+                                            {...{ xs: 12, sm: 6, lg: 4 }}
+                                            sx={{ aspectRatio: 3 / 2 }}
+                                        >
+                                            <Box
+                                                sx={{
+                                                    height: 1,
+                                                    background:
+                                                        palette.blueGrey[100],
+                                                    position: "relative",
+                                                }}
+                                            >
+                                                <Image
+                                                    src={`https://picsum.photos/id/${randomId}/900/600`}
+                                                    fill
+                                                    style={{
+                                                        objectFit: "cover",
+                                                    }}
+                                                    alt={`alt`}
+                                                />
+                                            </Box>
+                                        </Grid>
+                                    );
+                                })}
+                            </Grid>
+                        </Box>
+                    </Box> */}
+                </Box>
             </Layout>
         </>
     );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const projects = getSortedProjects();
+    const projectGroups = getSortedProjects();
+    console.log(projectGroups);
     return {
         props: {
-            projects,
+            projectGroups,
         },
     };
 };

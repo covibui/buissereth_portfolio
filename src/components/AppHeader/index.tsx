@@ -20,7 +20,7 @@ import RouterLink from "next/link";
 import HeaderLink from "./HeaderLink";
 import { useRouter } from "next/router";
 import HeaderSocialLink from "./HeaderSocialLink";
-import FAIcon from "../FaIcon";
+import FAIcon from "../FAIcon";
 import { navItems, socialNavItems } from "@/data/menus";
 import MobileLink from "./MobileLink";
 import MobileSocialLink from "./MobileSocialLink";
