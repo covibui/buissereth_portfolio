@@ -1,16 +1,13 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
 import {
     ProjectData,
     ProjectFrontMatter,
+    ProjectFrontMatterData,
     ProjectGroup,
     ProjectType,
-    ProjectTypes,
 } from "@/types";
-import groupBy from "lodash/groupBy";
 
 const root = path.join(process.cwd(), "src");
 const projectsDirectory = path.join(root, "data/projects");
@@ -46,7 +43,7 @@ export function getSortedProjectsByType(
 }
 
 export function getSortedProjects(): ProjectGroup[] {
-    const groups = Object.entries(ProjectTypes).map(([title, slug]) => {
+    const groups = Object.entries(ProjectType).map(([title, slug]) => {
         return {
             slug: slug,
             title: title,
@@ -56,13 +53,18 @@ export function getSortedProjects(): ProjectGroup[] {
     return groups;
 }
 
-export async function getProjectBySlug(slug: string) {
+export async function getProjectByTypeAndSlug(
+    projectType: string,
+    slug: string
+): Promise<ProjectData> {
     const source = fs.readFileSync(
-        path.join(root, "data/projects", `${slug}.md`),
+        path.join(root, "data/projects", projectType, `${slug}.md`),
         "utf8"
     );
 
-    const { data, content } = matter(source);
+    // @ts-ignore
+    const { data, content }: { data: ProjectFrontMatterData; content: string } =
+        matter(source);
 
     return {
         frontMatter: {
@@ -73,8 +75,9 @@ export async function getProjectBySlug(slug: string) {
     };
 }
 
-export function getAllProjectSlugs() {
-    const fileNames = fs.readdirSync(projectsDirectory);
+export function getAllProjectSlugsByType(projectType: string) {
+    const projectTypeDirectory = path.join(projectsDirectory, projectType);
+    const fileNames = fs.readdirSync(projectTypeDirectory);
     return fileNames.map((fileName) => {
         return {
             params: {

@@ -4,9 +4,7 @@ export interface PostData {
     [k: string]: any;
 }
 
-export type ProjectType = "college" | "work" | "other";
-
-export enum ProjectTypes {
+export enum ProjectType {
     School = "school",
     Work = "work",
     Other = "other",
@@ -22,12 +20,11 @@ interface KeyFeature extends Image {
     title: string;
     summary: string;
 }
-export interface ProjectFrontMatter {
-    slug: string;
+
+export interface ProjectFrontMatterData {
     title: string;
     summary: string;
     thumb: string;
-    type: ProjectType;
     displayOrder: number;
     roles: string[];
     hero: Image;
@@ -36,6 +33,9 @@ export interface ProjectFrontMatter {
     promoVideo: string;
     gallery: Image[];
     color: string;
+}
+export interface ProjectFrontMatter extends ProjectFrontMatterData {
+    slug: string;
 }
 
 export interface ProjectData {

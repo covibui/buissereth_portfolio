@@ -82,6 +82,8 @@ export default function AppHeader() {
                                 sx={{
                                     display: "inline-flex",
                                     transition: "background .2s",
+                                    m: -0.5,
+                                    p: 0.5,
                                     "&:hover, &:active": {
                                         background: palette.blueGrey[200],
                                         boxShadow: "none",
