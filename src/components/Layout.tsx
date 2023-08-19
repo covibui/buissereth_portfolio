@@ -38,10 +38,8 @@ export default function Layout({
         <meta name="og:url" content={DOMAIN + router.route} />
       </Head>
       <AppHeader />
-      <AppContainer>
-        {children}
-        <ContactSection />
-      </AppContainer>
+      {children}
+      <ContactSection />
       <AppFooter />
     </>
   );

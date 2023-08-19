@@ -7,6 +7,7 @@ import {
   ProjectFrontMatterData,
   ProjectGroup,
   ProjectType,
+  SectionType,
 } from "@/types";
 
 const root = path.join(process.cwd(), "src");

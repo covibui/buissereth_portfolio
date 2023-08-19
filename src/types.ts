@@ -14,13 +14,14 @@ interface CaptionImage extends Image {
   caption: string;
 }
 
-export type SectionType =
-  | "Cover"
-  | "TwoColumn"
-  | "Gallery"
-  | "CaptionGallery"
-  | "TitleBreak"
-  | "KeyImage";
+export enum SectionType {
+  Cover = "cover",
+  TwoColumn = "two-column",
+  Gallery = "gallery",
+  CaptionGallery = "caption-gallery",
+  TitleBreak = "title-break",
+  KeyImage = "key-image",
+}
 
 export interface Section {
   type: SectionType;
@@ -29,13 +30,13 @@ export interface Section {
 }
 
 export interface CoverSection extends Section {
-  type: Extract<SectionType, "Cover">;
+  type: SectionType.Cover;
   title: string;
   hero: Image;
 }
 
 export interface TwoColumnSection extends Section {
-  type: Extract<SectionType, "TwoColumn">;
+  type: SectionType.TwoColumn;
   subtitle: string;
   description: string;
   variant: "left" | "right";
@@ -43,23 +44,25 @@ export interface TwoColumnSection extends Section {
 }
 
 export interface GallerySection extends Section {
-  type: Extract<SectionType, "Gallery">;
+  type: SectionType.Gallery;
   subtitle: string;
   description: string;
   images: Image[];
 }
 
 export interface CaptionGallerySection extends Omit<GallerySection, "type"> {
-  type: Extract<SectionType, "CaptionGallery">;
+  type: SectionType.CaptionGallery;
   images: CaptionImage[];
 }
 
 export interface TitleBreakSection extends Section {
+  type: SectionType.TitleBreak;
   subtitle: string;
   description: string;
 }
 
 export interface KeyImageSection extends Section {
+  type: SectionType.KeyImage;
   subtitle: string;
   description: string;
   image: Image[];
@@ -70,7 +73,8 @@ type ContentSection =
   | TwoColumnSection
   | GallerySection
   | CaptionGallerySection
-  | TitleBreakSection;
+  | TitleBreakSection
+  | KeyImageSection;
 
 export interface ProjectFrontMatterData {
   displayOrder: number;

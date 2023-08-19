@@ -1,9 +1,11 @@
+import ContentSectionWrapper from "@/components/ContentSections/ContentSectionWrapper";
 import Layout from "@/components/Layout";
 import {
   getAllProjectSlugsByType,
   getProjectByTypeAndSlug,
 } from "@/lib/projects";
 import { ProjectData, ProjectType } from "@/types";
+import { Box } from "@mui/material";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
@@ -15,10 +17,14 @@ export default function Project({ frontMatter, content }: ProjectData) {
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
-      <article>
-        <h1>{frontMatter.title}</h1>
-        <ReactMarkdown>{content}</ReactMarkdown>
-      </article>
+      <Box sx={{ scrollSnapType: "y mandatory" }}>
+        <ContentSectionWrapper>
+          <p>foo</p>
+        </ContentSectionWrapper>
+        <ContentSectionWrapper>
+          <p>bar</p>
+        </ContentSectionWrapper>
+      </Box>
     </Layout>
   );
 }
