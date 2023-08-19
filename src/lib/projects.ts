@@ -43,13 +43,21 @@ export function getSortedProjectsByType(
 }
 
 export function getSortedProjects(): ProjectGroup[] {
-    const groups = Object.entries(ProjectType).map(([title, slug]) => {
-        return {
-            slug: slug,
-            title: title,
-            projects: getSortedProjectsByType(slug),
-        };
-    });
+    // * Uncomment below and remove 54-60 when ready to enable school and work projects.
+    // const groups = Object.entries(ProjectType).map(([title, slug]) => {
+    //     return {
+    //         slug: slug,
+    //         title: title,
+    //         projects: getSortedProjectsByType(slug),
+    //     };
+    // });
+    const groups = [
+        {
+            slug: "work",
+            title: "Work",
+            projects: getSortedProjectsByType("work"),
+        },
+    ];
     return groups;
 }
 

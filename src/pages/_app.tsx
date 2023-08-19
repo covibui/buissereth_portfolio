@@ -11,36 +11,29 @@ import "@fortawesome/fontawesome-free/css/all.css";
 const clientSideEmotionCache = createEmotionCache();
 
 export interface MyAppProps extends AppProps {
-    emotionCache?: EmotionCache;
+  emotionCache?: EmotionCache;
 }
 
 export default function App(props: MyAppProps) {
-    const {
-        Component,
-        emotionCache = clientSideEmotionCache,
-        pageProps,
-    } = props;
-    return (
-        <StrictMode>
-            <CacheProvider value={emotionCache}>
-                <Head>
-                    <meta
-                        name="viewport"
-                        content="initial-scale=1, width=device-width"
-                    />
-                    <style>
-                        {`
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  return (
+    <StrictMode>
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+          <style>
+            {`
                         html {
                             scroll-behavior: smooth;
                         }
                         `}
-                    </style>
-                </Head>
-                <ThemeProvider theme={theme}>
-                    <CssBaseline />
-                    <Component {...pageProps} />
-                </ThemeProvider>
-            </CacheProvider>
-        </StrictMode>
-    );
+          </style>
+        </Head>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </CacheProvider>
+    </StrictMode>
+  );
 }
