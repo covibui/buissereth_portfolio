@@ -1,50 +1,97 @@
-export interface PostData {
-    id: string;
-    content?: string;
-    [k: string]: any;
-}
-
 export enum ProjectType {
-    School = "school",
-    Work = "work",
-    Other = "other",
+  School = "school",
+  Work = "work",
+  Other = "other",
 }
 
 interface Image {
-    image: string;
-    imageAlt: string;
-    summary?: string;
+  file: string;
+  alt: string;
 }
 
-interface KeyFeature extends Image {
-    title: string;
-    summary: string;
+interface CaptionImage extends Image {
+  title: string;
+  caption: string;
 }
+
+export type SectionType =
+  | "Cover"
+  | "TwoColumn"
+  | "Gallery"
+  | "CaptionGallery"
+  | "TitleBreak"
+  | "KeyImage";
+
+export interface Section {
+  type: SectionType;
+  subtitle?: string;
+  description?: string;
+}
+
+export interface CoverSection extends Section {
+  type: Extract<SectionType, "Cover">;
+  title: string;
+  hero: Image;
+}
+
+export interface TwoColumnSection extends Section {
+  type: Extract<SectionType, "TwoColumn">;
+  subtitle: string;
+  description: string;
+  variant: "left" | "right";
+  image: Image;
+}
+
+export interface GallerySection extends Section {
+  type: Extract<SectionType, "Gallery">;
+  subtitle: string;
+  description: string;
+  images: Image[];
+}
+
+export interface CaptionGallerySection extends Omit<GallerySection, "type"> {
+  type: Extract<SectionType, "CaptionGallery">;
+  images: CaptionImage[];
+}
+
+export interface TitleBreakSection extends Section {
+  subtitle: string;
+  description: string;
+}
+
+export interface KeyImageSection extends Section {
+  subtitle: string;
+  description: string;
+  image: Image[];
+}
+
+type ContentSection =
+  | CoverSection
+  | TwoColumnSection
+  | GallerySection
+  | CaptionGallerySection
+  | TitleBreakSection;
 
 export interface ProjectFrontMatterData {
-    title: string;
-    summary: string;
-    thumb: string;
-    displayOrder: number;
-    roles: string[];
-    hero: Image;
-    purpose: string;
-    keyFeatures: KeyFeature[];
-    promoVideo: string;
-    gallery: Image[];
-    color: string;
+  displayOrder: number;
+  title: string;
+  subtitle?: string;
+  summary: string;
+  thumb: string;
+  hero: Image;
+  sections: ContentSection[];
 }
 export interface ProjectFrontMatter extends ProjectFrontMatterData {
-    slug: string;
+  slug: string;
 }
 
 export interface ProjectData {
-    frontMatter: ProjectFrontMatter;
-    content: any;
+  frontMatter: ProjectFrontMatter;
+  content: any;
 }
 
 export interface ProjectGroup {
-    slug: string;
-    title: string;
-    projects: ProjectFrontMatter[];
+  slug: string;
+  title: string;
+  projects: ProjectFrontMatter[];
 }
