@@ -34,7 +34,7 @@ interface Props {
 export default function Home({ projectGroups }: Props) {
   const breakpoints = theme.breakpoints.values;
   const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));
-  const isProjectSingleCol = useMediaQuery("(max-width: 686px)");
+  const isProjectsMultiColumn = useMediaQuery("(min-width: 687px)");
 
   const ProjectCard = ({
     projectType,
@@ -45,11 +45,8 @@ export default function Home({ projectGroups }: Props) {
   }) => (
     <Box
       sx={[
-        {
-          aspectRatio: 3 / 2,
-        },
-        isProjectSingleCol && {
-          aspectRatio: 6 / 2,
+        isProjectsMultiColumn && {
+          aspectRatio: 1.6,
         },
       ]}
     >
@@ -83,19 +80,12 @@ export default function Home({ projectGroups }: Props) {
             position: "relative",
           }}
         >
-          <Image
-            src={`/images/projects/${projectType}/${project.slug}/${project.thumb}`}
-            fill
-            style={{
-              objectFit: "cover",
-            }}
-            alt={`${project.title} - ${projectType} Project`}
-          />
           <Box
             sx={{
               width: 1,
               height: 1,
-              position: "absolute",
+              position: "relative",
+              zIndex: 1,
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
@@ -105,17 +95,27 @@ export default function Home({ projectGroups }: Props) {
             className="project-overlay"
           >
             <Box
-              sx={{
-                pt: 4,
-                px: 5,
-                display: "flex",
-                flexDirection: "column",
-              }}
+              sx={[
+                {
+                  pt: 3,
+                  px: 3,
+                  display: "flex",
+                  gap: 1,
+                },
+                isProjectsMultiColumn && {
+                  pt: 4,
+                  px: 5,
+                  gap: 0.5,
+                  flexDirection: "column",
+                },
+              ]}
             >
-              <FAIcon
-                icon="pen-nib"
-                sx={{ mb: 0.5, color: palette.white, fontSize: { xl: 32 } }}
-              />
+              <Box sx={[!isProjectsMultiColumn && { mt: 0.5 }]}>
+                <FAIcon
+                  icon="pen-nib"
+                  sx={{ color: palette.white, fontSize: { xl: 32 } }}
+                />
+              </Box>
               <Typography
                 component="strong"
                 sx={{
@@ -145,6 +145,15 @@ export default function Home({ projectGroups }: Props) {
               />
             </Box>
           </Box>
+          <Image
+            src={`/images/projects/${projectType}/${project.slug}/${project.thumb}`}
+            fill
+            style={{
+              objectFit: "cover",
+              position: "absolute",
+            }}
+            alt={`${project.title} - ${projectType} Project`}
+          />
         </Box>
       </Link>
     </Box>
@@ -283,7 +292,7 @@ export default function Home({ projectGroups }: Props) {
                     <Box sx={{ flexGrow: 1 }}>
                       <Box
                         sx={[
-                          !isProjectSingleCol && {
+                          isProjectsMultiColumn && {
                             display: "grid",
                             gridTemplateColumns:
                               "repeat(auto-fill, minmax(300px, 1fr))",
