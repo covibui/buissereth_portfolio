@@ -10,7 +10,15 @@ import {
   SITE_TITLE,
   SOCIAL_IMAGE,
 } from "@/lib/constants";
-import { Box, Button, Divider, Link, Toolbar, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  Link,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
 import theme from "@/theme";
@@ -23,6 +31,7 @@ interface Props {
 
 export default function Home({ projectGroups }: Props) {
   const breakpoints = theme.breakpoints.values;
+  const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <>
       <Layout>
@@ -47,6 +56,7 @@ export default function Home({ projectGroups }: Props) {
               flexDirection: "column",
               justifyContent: "space-between",
               minHeight: "100vh",
+              scrollSnapAlign: { md: "start" },
             }}
           >
             <Toolbar />
@@ -126,8 +136,13 @@ export default function Home({ projectGroups }: Props) {
             </Grid>
             <Divider />
           </Box>
-          <Box component="section" id="projects" sx={{ mt: 10 }}>
-            <Box>
+          <Box
+            component="section"
+            id="projects"
+            sx={{ scrollSnapAlign: { md: "start" } }}
+          >
+            {isScreenMd && <Toolbar />}
+            <Box sx={{ mt: 10 }}>
               <Typography variant="h2">Projects</Typography>
               <Typography sx={{ maxWidth: { md: 0.5 } }}>
                 Duis qui ullamco eiusmod. Nulla duis consequat commodo enim non
