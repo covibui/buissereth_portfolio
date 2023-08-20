@@ -83,6 +83,7 @@ export interface ProjectFrontMatterData {
   summary: string;
   thumb: string;
   hero: Image;
+  color: string;
   sections: ContentSection[];
 }
 export interface ProjectFrontMatter extends ProjectFrontMatterData {

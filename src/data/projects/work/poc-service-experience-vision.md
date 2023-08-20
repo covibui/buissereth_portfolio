@@ -6,6 +6,7 @@ thumb: 'placeholder-thumb.jpg'
 hero:
     file: 'hero.jpg'
     alt: 'Velit mollit enim adipisicing est velit id est elit anim nulla reprehenderit.'
+color: '#277DA1'
 sections:
     - type: 'two-column'
       subtitle: '40 Point Inspection'

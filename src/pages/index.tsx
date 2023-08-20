@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import { GetStaticProps } from "next";
-import { ProjectGroup } from "@/types";
+import { ProjectFrontMatter, ProjectGroup } from "@/types";
 import RouterLink from "next/link";
 import { getSortedProjects } from "@/lib/projects";
 import {
@@ -24,6 +24,8 @@ import Image from "next/image";
 import theme from "@/theme";
 import palette from "@/theme/palette";
 import AppContainer from "@/components/AppContainer";
+import hexToRGBA from "@/utils/hexToRGBA";
+import FAIcon from "@/components/FAIcon";
 
 interface Props {
   projectGroups?: ProjectGroup[];
@@ -32,6 +34,122 @@ interface Props {
 export default function Home({ projectGroups }: Props) {
   const breakpoints = theme.breakpoints.values;
   const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));
+  const isProjectSingleCol = useMediaQuery("(max-width: 686px)");
+
+  const ProjectCard = ({
+    projectType,
+    project,
+  }: {
+    projectType: string;
+    project: ProjectFrontMatter;
+  }) => (
+    <Box
+      sx={[
+        {
+          aspectRatio: 3 / 2,
+        },
+        isProjectSingleCol && {
+          aspectRatio: 6 / 2,
+        },
+      ]}
+    >
+      <Link
+        component={RouterLink}
+        href={`/projects/${projectType}/${project.slug}/`}
+        sx={{
+          display: "block",
+          width: 1,
+          height: 1,
+          borderRadius: 1,
+          overflow: "hidden",
+          "&:hover, &:focus-visible": {
+            "& .project-overlay": {
+              background: hexToRGBA(project.color, 0.6),
+              "& .fa-arrow-right": {
+                left: 4,
+              },
+            },
+          },
+          "&:focus-visible": {
+            outline: `2px solid ${palette.orange[500]}`,
+            outlineOffset: 2,
+          },
+        }}
+      >
+        <Box
+          sx={{
+            height: 1,
+            background: palette.blueGrey[100],
+            position: "relative",
+          }}
+        >
+          <Image
+            src={`/images/projects/${projectType}/${project.slug}/${project.thumb}`}
+            fill
+            style={{
+              objectFit: "cover",
+            }}
+            alt={`${project.title} - ${projectType} Project`}
+          />
+          <Box
+            sx={{
+              width: 1,
+              height: 1,
+              position: "absolute",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              background: hexToRGBA(project.color, 0.5),
+              transition: "background .2s",
+            }}
+            className="project-overlay"
+          >
+            <Box
+              sx={{
+                pt: 4,
+                px: 5,
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <FAIcon
+                icon="pen-nib"
+                sx={{ mb: 0.5, color: palette.white, fontSize: { xl: 32 } }}
+              />
+              <Typography
+                component="strong"
+                sx={{
+                  color: palette.white,
+                  fontSize: 24,
+                  lineHeight: "38px",
+                }}
+              >
+                {project.title}
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                pb: 2,
+                px: 2,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                gap: 1,
+                color: palette.white,
+              }}
+            >
+              <Typography sx={{ fontSize: 18 }}>Explore</Typography>
+              <FAIcon
+                sx={{ position: "relative", left: 0, transition: "left .2s" }}
+                icon="arrow-right"
+              />
+            </Box>
+          </Box>
+        </Box>
+      </Link>
+    </Box>
+  );
+
   return (
     <>
       <Layout>
@@ -163,84 +281,24 @@ export default function Home({ projectGroups }: Props) {
                       {`${group.title} Projects`}
                     </Typography>
                     <Box sx={{ flexGrow: 1 }}>
-                      <Grid container spacing={5} sx={{}}>
+                      <Box
+                        sx={[
+                          !isProjectSingleCol && {
+                            display: "grid",
+                            gridTemplateColumns:
+                              "repeat(auto-fill, minmax(300px, 1fr))",
+                            gap: 5,
+                          },
+                        ]}
+                      >
                         {group.projects.map((project, idx) => (
-                          <Grid
+                          <ProjectCard
                             key={idx}
-                            {...{
-                              xs: 12,
-                              sm: 6,
-                              lg: 4,
-                            }}
-                            sx={{
-                              aspectRatio: 3 / 2,
-                            }}
-                          >
-                            <Link
-                              component={RouterLink}
-                              href={`/projects/${group.slug}/${project.slug}/`}
-                              sx={{
-                                display: "block",
-                                width: 1,
-                                height: 1,
-                                "&:hover, &:focus-visible": {
-                                  "& .title-overlay": {
-                                    opacity: 0.7,
-                                  },
-                                },
-                                "&:focus-visible": {
-                                  outline: `2px solid ${palette.orange[500]}`,
-                                  outlineOffset: 2,
-                                },
-                              }}
-                            >
-                              <Box
-                                sx={{
-                                  height: 1,
-                                  background: palette.blueGrey[100],
-                                  position: "relative",
-                                }}
-                              >
-                                <Image
-                                  src={`/images/projects/${group.slug}/${project.slug}/${project.thumb}`}
-                                  fill
-                                  style={{
-                                    objectFit: "cover",
-                                  }}
-                                  alt={`${project.title} - ${group.title} Project`}
-                                />
-                                <Box
-                                  sx={{
-                                    width: 1,
-                                    height: 1,
-                                    p: 3,
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    position: "absolute",
-                                    backgroundColor: palette.blueGrey[700],
-                                    opacity: 0,
-                                    transition: "opacity .2s",
-                                  }}
-                                  className="title-overlay"
-                                >
-                                  <Typography
-                                    component="strong"
-                                    sx={{
-                                      color: palette.white,
-                                      fontSize: 24,
-                                      fontWeight: 600,
-                                      textAlign: "center",
-                                    }}
-                                  >
-                                    {project.title}
-                                  </Typography>
-                                </Box>
-                              </Box>
-                            </Link>
-                          </Grid>
+                            projectType={group.slug}
+                            project={project}
+                          />
                         ))}
-                      </Grid>
+                      </Box>
                     </Box>
                   </Box>
                 );
