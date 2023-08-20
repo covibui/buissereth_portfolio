@@ -33,6 +33,8 @@ export interface CoverSection extends Section {
   type: SectionType.Cover;
   title: string;
   hero: Image;
+  variant: "vertical" | "horizontal";
+  color: string;
 }
 
 export interface TwoColumnSection extends Section {
@@ -68,7 +70,7 @@ export interface KeyImageSection extends Section {
   image: Image[];
 }
 
-type ContentSection =
+export type ContentSection =
   | CoverSection
   | TwoColumnSection
   | GallerySection
@@ -80,9 +82,11 @@ export interface ProjectFrontMatterData {
   displayOrder: number;
   title: string;
   subtitle?: string;
+  description: string;
   summary: string;
   thumb: string;
   hero: Image;
+  heroOrientation: "vertical" | "horizontal";
   color: string;
   sections: ContentSection[];
 }

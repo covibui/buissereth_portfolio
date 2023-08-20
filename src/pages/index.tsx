@@ -189,7 +189,7 @@ export default function Home({ projectGroups }: Props) {
             <Toolbar />
             <Grid
               container
-              spacing={2.25}
+              spacing={2.5}
               columns={10}
               sx={{ mt: { xs: 4, md: 0 } }}
             >

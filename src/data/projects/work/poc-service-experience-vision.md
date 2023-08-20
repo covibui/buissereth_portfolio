@@ -1,11 +1,13 @@
 ---
 displayOrder: 1
 title: 'POC Service Experience Vision'
+subtitle: 'Ut ullamco amet sint.'
 description: 'To envision a solution for automotive technicians to have an assistive technology for daily tasks and inspections.' 
-thumb: 'project-thumb.jpg'
+thumb: 'project-cover.jpg'
 hero:
-    file: 'hero.jpg'
+    file: 'project-cover.jpg'
     alt: 'Velit mollit enim adipisicing est velit id est elit anim nulla reprehenderit.'
+heroOrientation: 'horizontal'
 color: '#277DA1'
 sections:
     - type: 'two-column'
