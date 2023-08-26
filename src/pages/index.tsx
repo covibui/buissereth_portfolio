@@ -183,7 +183,6 @@ export default function Home({ projectGroups }: Props) {
               flexDirection: "column",
               justifyContent: "space-between",
               minHeight: "100vh",
-              scrollSnapAlign: { md: "start" },
             }}
           >
             <Toolbar />
@@ -263,11 +262,7 @@ export default function Home({ projectGroups }: Props) {
             </Grid>
             <Divider />
           </Box>
-          <Box
-            component="section"
-            id="projects"
-            sx={{ scrollSnapAlign: { md: "start" } }}
-          >
+          <Box component="section" id="projects">
             {isScreenMd && <Toolbar />}
             <Box sx={{ mt: 10 }}>
               <Typography variant="h2">Projects</Typography>

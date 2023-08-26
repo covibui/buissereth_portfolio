@@ -8,7 +8,7 @@ export default function ContactSection() {
   const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <AppContainer>
-      <Box sx={{ scrollSnapAlign: { md: "start" } }}>
+      <Box>
         {isScreenMd && <Toolbar />}
         <Box
           component="section"

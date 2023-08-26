@@ -17,7 +17,6 @@ export default function ProjectContentSection({ section }: Props) {
           flexDirection: "column",
           justifyContent: "space-between",
           minHeight: "100vh",
-          scrollSnapAlign: { md: "start" },
         }}
       >
         <Toolbar />

@@ -23,10 +23,10 @@ export default function App(props: MyAppProps) {
           <meta name="viewport" content="initial-scale=1, width=device-width" />
           <style>
             {`
-                        html {
-                            scroll-behavior: smooth;
-                        }
-                        `}
+              html {
+                  scroll-behavior: smooth;
+              }
+            `}
           </style>
         </Head>
         <ThemeProvider theme={theme}>
