@@ -15,6 +15,7 @@ import { Box } from "@mui/material";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import ProjectDisclaimer from "@/components/ProjectDisclaimer";
 
 export default function Project({ frontMatter, content }: ProjectData) {
   const coverSection: CoverSection = {
@@ -26,17 +27,16 @@ export default function Project({ frontMatter, content }: ProjectData) {
     variant: frontMatter.heroOrientation,
     color: frontMatter.color,
   };
-  const contentSections: ContentSection[] = [
-    coverSection,
-    ...frontMatter.sections,
-  ];
+
   return (
     <Layout>
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
       <Box>
-        {contentSections.map((section, idx) => (
+        <ProjectContentSection section={coverSection} />
+        <ProjectDisclaimer />
+        {frontMatter.sections.map((section, idx) => (
           <ProjectContentSection key={idx} section={section} />
         ))}
       </Box>
