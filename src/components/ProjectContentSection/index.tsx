@@ -1,8 +1,14 @@
 import { Box, Toolbar } from "@mui/material";
 import { ReactNode } from "react";
 import AppContainer from "../AppContainer";
-import { ContentSection, CoverSection, SectionType } from "@/types";
+import {
+  ContentSection,
+  CoverSection,
+  SectionType,
+  TwoColumnSection,
+} from "@/types";
 import ProjectCoverSection from "./ProjectCoverSection";
+import ProjectTwoColumnSection from "./ProjectTwoColumnSection";
 
 interface Props {
   section: ContentSection;
@@ -30,7 +36,7 @@ export default function ProjectContentSection({ section }: Props) {
     ),
     [SectionType.TwoColumn]: (
       <ContentSectionWrapper>
-        <p>two-col</p>
+        <ProjectTwoColumnSection section={section as TwoColumnSection} />
       </ContentSectionWrapper>
     ),
     [SectionType.Gallery]: (

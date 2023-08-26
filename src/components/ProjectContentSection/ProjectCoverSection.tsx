@@ -12,12 +12,14 @@ import {
 import Grid from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import DescriptionContent from "./DescriptionContent";
 
 interface Props {
   section: CoverSection;
 }
 
 export default function ProjectCoverSection({ section }: Props) {
+  const { title, subtitle, description, hero, variant, color } = section;
   const router = useRouter();
   const breakpoints = theme.breakpoints.values;
   const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));
@@ -33,9 +35,9 @@ export default function ProjectCoverSection({ section }: Props) {
           lineHeight: 1.3,
         }}
       >
-        {section.title}
+        {title}
       </Typography>
-      {section.subtitle && (
+      {subtitle && (
         <Typography
           sx={{
             mb: 2,
@@ -43,10 +45,10 @@ export default function ProjectCoverSection({ section }: Props) {
             fontWeight: 600,
           }}
         >
-          {section.subtitle}
+          {subtitle}
         </Typography>
       )}
-      {section.description && <Typography>{section.description}</Typography>}
+      {description && <DescriptionContent description={description} />}
     </>
   );
 
@@ -59,15 +61,17 @@ export default function ProjectCoverSection({ section }: Props) {
           justifyContent: "space-between",
           minHeight: "100vh",
         },
-        section.variant === "vertical" && {
+        variant === "vertical" && {
           px: { md: 1.25 },
         },
       ]}
     >
       <Toolbar />
-      {section.variant === "horizontal" || !isScreenMd ? (
+      {variant === "horizontal" || !isScreenMd ? (
         <>
           <Box
+            component="section"
+            id="hero"
             sx={{
               position: "relative",
               height: 1,
@@ -100,15 +104,15 @@ export default function ProjectCoverSection({ section }: Props) {
                   top: 0,
                   width: 1,
                   height: 1,
-                  background: hexToRGBA(section.color, 0.5),
+                  background: hexToRGBA(color, 0.5),
                   zIndex: 1,
                 }}
               />
               <Image
                 fill
-                src={`/images${router.asPath}${section.hero.file}`}
+                src={`/images${router.asPath}${hero.file}`}
                 sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
-                alt={section.hero.alt}
+                alt={hero.alt}
                 style={{
                   objectFit: "cover",
                   position: "absolute",
@@ -165,15 +169,15 @@ export default function ProjectCoverSection({ section }: Props) {
                     position: "absolute",
                     width: 1,
                     height: 1,
-                    background: hexToRGBA(section.color, 0.5),
+                    background: hexToRGBA(color, 0.5),
                     zIndex: 1,
                   }}
                 />
                 <Image
                   fill
-                  src={`/images${router.asPath}${section.hero.file}`}
+                  src={`/images${router.asPath}${hero.file}`}
                   sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
-                  alt={section.hero.alt}
+                  alt={hero.alt}
                   style={{
                     objectFit: "cover",
                     position: "absolute",
