@@ -263,7 +263,7 @@ export default function Home({ projectGroups }: Props) {
             <Divider />
           </Box>
           <Box component="section" id="projects">
-            {isScreenMd && <Toolbar />}
+            <Toolbar />
             <Box sx={{ mt: 10 }}>
               <Typography variant="h2">Projects</Typography>
               <Typography sx={{ maxWidth: { md: 0.5 } }}>
