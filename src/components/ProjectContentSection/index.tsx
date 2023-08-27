@@ -44,11 +44,6 @@ export default function ProjectContentSection({ section }: Props) {
         <p>gallery</p>
       </ContentSectionWrapper>
     ),
-    [SectionType.CaptionGallery]: (
-      <ContentSectionWrapper>
-        <p>caption gallery</p>
-      </ContentSectionWrapper>
-    ),
     [SectionType.TitleBreak]: (
       <ContentSectionWrapper>
         <p>title break</p>

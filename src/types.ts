@@ -1,7 +1,7 @@
 export enum ProjectType {
+  Other = "other",
   School = "school",
   Work = "work",
-  Other = "other",
 }
 
 export interface Image {
@@ -16,11 +16,10 @@ interface CaptionImage extends Image {
 
 export enum SectionType {
   Cover = "cover",
-  TwoColumn = "two-column",
   Gallery = "gallery",
-  CaptionGallery = "caption-gallery",
-  TitleBreak = "title-break",
   KeyImage = "key-image",
+  TitleBreak = "title-break",
+  TwoColumn = "two-column",
 }
 
 export interface Section {
@@ -37,30 +36,11 @@ export interface CoverSection extends Section {
   color: string;
 }
 
-export interface TwoColumnSection extends Section {
-  type: SectionType.TwoColumn;
-  subtitle: string;
-  description: string;
-  variant: "left" | "right";
-  image: Image;
-}
-
 export interface GallerySection extends Section {
   type: SectionType.Gallery;
   subtitle: string;
   description: string;
-  images: Image[];
-}
-
-export interface CaptionGallerySection extends Omit<GallerySection, "type"> {
-  type: SectionType.CaptionGallery;
-  images: CaptionImage[];
-}
-
-export interface TitleBreakSection extends Section {
-  type: SectionType.TitleBreak;
-  subtitle: string;
-  description: string;
+  images: Image[] | CaptionImage[];
 }
 
 export interface KeyImageSection extends Section {
@@ -70,13 +50,26 @@ export interface KeyImageSection extends Section {
   image: Image[];
 }
 
+export interface TitleBreakSection extends Section {
+  type: SectionType.TitleBreak;
+  subtitle: string;
+  description: string;
+}
+
+export interface TwoColumnSection extends Section {
+  type: SectionType.TwoColumn;
+  subtitle: string;
+  description: string;
+  variant: "left" | "right";
+  image: Image;
+}
+
 export type ContentSection =
   | CoverSection
-  | TwoColumnSection
   | GallerySection
-  | CaptionGallerySection
+  | KeyImageSection
   | TitleBreakSection
-  | KeyImageSection;
+  | TwoColumnSection;
 
 export interface ProjectFrontMatterData {
   displayOrder: number;
