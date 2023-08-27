@@ -46,7 +46,7 @@ export default function Home({ projectGroups }: Props) {
     <Box
       sx={[
         isProjectsMultiColumn && {
-          aspectRatio: 1.6,
+          aspectRatio: 5 / 3,
         },
       ]}
     >
@@ -152,7 +152,7 @@ export default function Home({ projectGroups }: Props) {
               objectFit: "cover",
               position: "absolute",
             }}
-            alt={`${project.title} - ${projectType} Project`}
+            alt={`${project.title} - ${projectType} project`}
           />
         </Box>
       </Link>

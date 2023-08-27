@@ -17,7 +17,11 @@ export function getSortedProjectsByType(
   projectType: string
 ): ProjectFrontMatter[] {
   const projectTypeDirectory = path.join(projectsDirectory, projectType);
-  const fileNames = fs.readdirSync(projectTypeDirectory);
+  let fileNames = fs.readdirSync(projectTypeDirectory);
+  const templateIndex = fileNames.indexOf("_template.md");
+  if (templateIndex > -1) {
+    fileNames.splice(templateIndex, 1);
+  }
 
   // @ts-ignore
   const projects: ProjectFrontMatter[] = fileNames.map((fileName) => {
@@ -27,7 +31,6 @@ export function getSortedProjectsByType(
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     const { data } = matter(fileContents);
-
     return {
       slug,
       ...data,
