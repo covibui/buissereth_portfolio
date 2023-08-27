@@ -47,7 +47,7 @@ export interface KeyImageSection extends Section {
   type: SectionType.KeyImage;
   subtitle: string;
   description: string;
-  image: Image[];
+  image: Image;
 }
 
 export interface TitleBreakSection extends Section {

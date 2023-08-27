@@ -19,4 +19,10 @@ sections: # any number of sections, order here will determine order on the proje
     image:
       file: 'image.jpg' # string: file name only, contained within a 1 / 1.5 aspect ratio container
       alt: 'Amet culpa irure et amet sunt in ut incididunt ex minim aliqua ex ea.' # string
+  - type: 'key-image'
+    subtitle: 'Section Title' # string
+    description: 'Ipsum enim officia aliqua est in adipisicing.' # string: separate paragraphs with \n
+    image:
+      file: 'image.jpg' # string: file name only, contained within a 4 / 3 aspect ratio container
+      alt: 'Duis ullamco dolore est.' # string
 ---
