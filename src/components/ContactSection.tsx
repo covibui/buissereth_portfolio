@@ -2,7 +2,7 @@ import { Box, Button, Toolbar, Typography, useMediaQuery } from "@mui/material";
 import palette from "@/theme/palette";
 import { CONTACT_EMAIL, NAME } from "@/lib/constants";
 import AppContainer from "./AppContainer";
-import theme from "@/theme";
+import { theme } from "@/theme";
 
 export default function ContactSection() {
   const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));

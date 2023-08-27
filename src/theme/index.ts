@@ -20,7 +20,27 @@ declare module "@mui/material/styles" {
   }
 }
 
-export default createTheme({
+declare module "@mui/material/styles" {
+  interface TypographyVariants {
+    projectSubtitle: React.CSSProperties;
+    projectTitle: React.CSSProperties;
+  }
+
+  interface TypographyVariantsOptions {
+    projectSubtitle?: React.CSSProperties;
+    projectTitle?: React.CSSProperties;
+  }
+}
+
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    projectDescription: true;
+    projectSubtitle: true;
+    projectTitle: true;
+  }
+}
+
+export let theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
@@ -111,6 +131,14 @@ export default createTheme({
         },
       },
     },
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          projectSubtitle: "h2",
+          projectTitle: "h1",
+        },
+      },
+    },
   },
   palette: {
     primary: {
@@ -125,6 +153,9 @@ export default createTheme({
       contrastText: palette.black,
     },
   },
+});
+
+theme = createTheme(theme, {
   typography: {
     fontFamily: poppins.style.fontFamily,
     h1: {
@@ -140,6 +171,23 @@ export default createTheme({
       fontSize: "1.5rem",
       fontWeight: 600,
       marginBottom: 16,
+    },
+    projectSubtitle: {
+      marginBottom: 16,
+      fontSize: "1.5rem",
+      fontWeight: 600,
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2.25rem",
+      },
+    },
+    projectTitle: {
+      marginBottom: 16,
+      fontSize: "2rem",
+      fontWeight: 700,
+      lineHeight: 1.3,
+      [theme.breakpoints.up("md")]: {
+        fontSize: "4rem",
+      },
     },
   },
 });

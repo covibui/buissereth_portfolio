@@ -1,4 +1,4 @@
-import theme from "@/theme";
+import { theme } from "@/theme";
 import palette from "@/theme/palette";
 import { CoverSection } from "@/types";
 import hexToRGBA from "@/utils/hexToRGBA";
@@ -26,19 +26,10 @@ export default function ProjectCoverSection({ section }: Props) {
 
   const CoverTextContent = () => (
     <>
-      <Typography
-        variant="h1"
-        sx={{
-          mb: 2,
-          fontSize: { xs: "2rem", md: "4rem" },
-          fontWeight: 700,
-          lineHeight: 1.3,
-        }}
-      >
-        {title}
-      </Typography>
+      <Typography variant="projectTitle">{title}</Typography>
       {subtitle && (
         <Typography
+          variant="projectSubtitle"
           sx={{
             mb: 2,
             fontSize: { xs: "1.5rem", md: "2.25rem" },
@@ -91,7 +82,7 @@ export default function ProjectCoverSection({ section }: Props) {
                 background: palette.white,
               }}
             >
-              <Grid xs={12} mdOffset={1}>
+              <Grid xs={12} md={10} mdOffset={1}>
                 <Box sx={{ my: 8, px: { xs: 2, md: 0 } }}>
                   <CoverTextContent />
                 </Box>

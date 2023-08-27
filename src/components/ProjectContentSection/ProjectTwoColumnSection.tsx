@@ -29,7 +29,7 @@ export default function ProjectTwoColumnSection({ section }: Props) {
           },
         }}
       >
-        <Typography variant="h2">{subtitle}</Typography>
+        <Typography variant="projectSubtitle">{subtitle}</Typography>
         <DescriptionContent description={description} />
       </Box>
     </Grid>

@@ -21,7 +21,7 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
-import theme from "@/theme";
+import { theme } from "@/theme";
 import palette from "@/theme/palette";
 import AppContainer from "@/components/AppContainer";
 import hexToRGBA from "@/utils/hexToRGBA";
