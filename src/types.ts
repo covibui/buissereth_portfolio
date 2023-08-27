@@ -4,7 +4,7 @@ export enum ProjectType {
   Other = "other",
 }
 
-interface Image {
+export interface Image {
   file: string;
   alt: string;
 }

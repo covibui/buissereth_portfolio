@@ -2,17 +2,11 @@ import { theme } from "@/theme";
 import palette from "@/theme/palette";
 import { CoverSection } from "@/types";
 import hexToRGBA from "@/utils/hexToRGBA";
-import {
-  Box,
-  Divider,
-  Toolbar,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Toolbar, Typography, useMediaQuery } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import DescriptionContent from "./DescriptionContent";
+import useGetImagePath from "@/hooks/useGetImagePath";
 
 interface Props {
   section: CoverSection;
@@ -20,9 +14,11 @@ interface Props {
 
 export default function ProjectCoverSection({ section }: Props) {
   const { title, subtitle, description, hero, variant, color } = section;
-  const router = useRouter();
   const breakpoints = theme.breakpoints.values;
   const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));
+
+  const heroImagePath = useGetImagePath(hero);
+  const overlayColor = hexToRGBA(color, 0.5);
 
   const CoverTextContent = () => (
     <>
@@ -41,6 +37,19 @@ export default function ProjectCoverSection({ section }: Props) {
       )}
       {description && <DescriptionContent description={description} />}
     </>
+  );
+
+  const HeroImage = () => (
+    <Image
+      fill
+      src={heroImagePath}
+      sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
+      alt={hero.alt}
+      style={{
+        objectFit: "cover",
+        position: "absolute",
+      }}
+    />
   );
 
   return (
@@ -95,20 +104,11 @@ export default function ProjectCoverSection({ section }: Props) {
                   top: 0,
                   width: 1,
                   height: 1,
-                  background: hexToRGBA(color, 0.5),
+                  background: overlayColor,
                   zIndex: 1,
                 }}
               />
-              <Image
-                fill
-                src={`/images${router.asPath}${hero.file}`}
-                sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
-                alt={hero.alt}
-                style={{
-                  objectFit: "cover",
-                  position: "absolute",
-                }}
-              />
+              <HeroImage />
             </Box>
           </Box>
         </>
@@ -160,20 +160,11 @@ export default function ProjectCoverSection({ section }: Props) {
                     position: "absolute",
                     width: 1,
                     height: 1,
-                    background: hexToRGBA(color, 0.5),
+                    background: overlayColor,
                     zIndex: 1,
                   }}
                 />
-                <Image
-                  fill
-                  src={`/images${router.asPath}${hero.file}`}
-                  sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
-                  alt={hero.alt}
-                  style={{
-                    objectFit: "cover",
-                    position: "absolute",
-                  }}
-                />
+                <HeroImage />
               </Box>
             </Box>
           </Grid>
