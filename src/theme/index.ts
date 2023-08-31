@@ -138,6 +138,52 @@ export let theme = createTheme({
           projectTitle: "h1",
         },
       },
+      variants: [
+        {
+          props: { variant: "projectSubtitle" },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              marginBottom: 16,
+              fontSize: "1.5rem",
+              fontWeight: 600,
+              [theme.breakpoints.up("sm")]: {
+                fontSize: "2.25rem",
+              },
+            }),
+        },
+        {
+          props: { variant: "projectTitle" },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              marginBottom: 16,
+              fontSize: "2rem",
+              fontWeight: 700,
+              lineHeight: 1.3,
+              [theme.breakpoints.up("sm")]: {
+                fontSize: "4rem",
+              },
+            }),
+        },
+      ],
+      styleOverrides: {
+        root: {
+          fontFamily: poppins.style.fontFamily,
+        },
+        h1: {
+          fontSize: "4rem",
+          fontWeight: 700,
+        },
+        h2: {
+          fontSize: "2.25rem",
+          fontWeight: 600,
+          marginBottom: 16,
+        },
+        h3: {
+          fontSize: "1.5rem",
+          fontWeight: 600,
+          marginBottom: 16,
+        },
+      },
     },
   },
   palette: {
@@ -151,43 +197,6 @@ export let theme = createTheme({
       main: palette.white,
       dark: palette.blueGrey[200],
       contrastText: palette.black,
-    },
-  },
-});
-
-theme = createTheme(theme, {
-  typography: {
-    fontFamily: poppins.style.fontFamily,
-    h1: {
-      fontSize: "4rem",
-      fontWeight: 700,
-    },
-    h2: {
-      fontSize: "2.25rem",
-      fontWeight: 600,
-      marginBottom: 16,
-    },
-    h3: {
-      fontSize: "1.5rem",
-      fontWeight: 600,
-      marginBottom: 16,
-    },
-    projectSubtitle: {
-      marginBottom: 16,
-      fontSize: "1.5rem",
-      fontWeight: 600,
-      [theme.breakpoints.up("md")]: {
-        fontSize: "2.25rem",
-      },
-    },
-    projectTitle: {
-      marginBottom: 16,
-      fontSize: "2rem",
-      fontWeight: 700,
-      lineHeight: 1.3,
-      [theme.breakpoints.up("md")]: {
-        fontSize: "4rem",
-      },
     },
   },
 });
