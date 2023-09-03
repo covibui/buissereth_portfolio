@@ -12,6 +12,21 @@ hero: # hero image on the project page
 heroOrientation: 'horizontal' # either 'horizontal' or 'vertical', controls variant of the hero section
 color: '#FFFFFF' # hex color: flat colors only, transparency is automatically calculated
 sections: # any number of sections, order here will determine order on the project page
+  - type: 'gallery'
+    subtitle: 'Section Title' # string
+    items: # any number of items
+      - description: 'Aliqua consequat irure dolore esse quis. Eu excepteur esse veniam.' # string: separate paragraphs with \n
+        image:
+          file: 'image.jpg' # string: file name only
+          alt: 'Consectetur quis enim aute dolor.' # string
+          title: 'Image title' # string: optional, NOTE: NOT YET SUPPORTED IN UI
+          caption: 'aliqua ex incididunt cupidatat reprehenderit.' # string: optional, NOTE: NOT YET SUPPORTED IN UI
+  - type: 'key-image'
+  subtitle: 'Section Title' # string
+  description: 'Ipsum enim officia aliqua est in adipisicing.' # string: separate paragraphs with \n
+  image:
+    file: 'image.jpg' # string: file name only, contained within a 4 / 3 aspect ratio container
+    alt: 'Duis ullamco dolore est.' # string
   - type: 'two-column'
     variant: 'left' # either 'left' or 'right', controls which side the image is on for desktop sizes, always on bottom for mobile
     subtitle: 'Section Title' # string
@@ -19,10 +34,4 @@ sections: # any number of sections, order here will determine order on the proje
     image:
       file: 'image.jpg' # string: file name only, contained within a 1 / 1.5 aspect ratio container
       alt: 'Amet culpa irure et amet sunt in ut incididunt ex minim aliqua ex ea.' # string
-  - type: 'key-image'
-    subtitle: 'Section Title' # string
-    description: 'Ipsum enim officia aliqua est in adipisicing.' # string: separate paragraphs with \n
-    image:
-      file: 'image.jpg' # string: file name only, contained within a 4 / 3 aspect ratio container
-      alt: 'Duis ullamco dolore est.' # string
 ---

@@ -4,6 +4,7 @@ import AppContainer from "../AppContainer";
 import {
   ContentSection,
   CoverSection,
+  GallerySection,
   KeyImageSection,
   SectionType,
   TwoColumnSection,
@@ -12,6 +13,7 @@ import ProjectCoverSection from "./ProjectCoverSection";
 import ProjectKeyImageSection from "./ProjectKeyImageSection";
 import ProjectTwoColumnSection from "./ProjectTwoColumnSection";
 import { theme } from "@/theme";
+import ProjectGallerySection from "./ProjectGallerySection";
 
 interface Props {
   section: ContentSection;
@@ -41,7 +43,7 @@ export default function ProjectContentSection({ section }: Props) {
     ),
     [SectionType.Gallery]: (
       <ContentSectionWrapper>
-        <p>gallery</p>
+        <ProjectGallerySection section={section as GallerySection} />
       </ContentSectionWrapper>
     ),
     [SectionType.KeyImage]: (
