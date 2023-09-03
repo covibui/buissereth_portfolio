@@ -36,11 +36,15 @@ export interface CoverSection extends Section {
   color: string;
 }
 
-export interface GallerySection extends Section {
+export interface GalleryItem {
+  description: string;
+  image: Image | CaptionImage;
+}
+
+export interface GallerySection extends Omit<Section, "description"> {
   type: SectionType.Gallery;
   subtitle: string;
-  description: string;
-  images: Image[] | CaptionImage[];
+  items: GalleryItem[];
 }
 
 export interface KeyImageSection extends Section {
