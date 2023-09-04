@@ -1,4 +1,4 @@
-export enum ProjectType {
+export enum ProjectCategory {
   Other = "other",
   School = "school",
   Work = "work",
@@ -75,8 +75,10 @@ export type ContentSection =
   | TitleBreakSection
   | TwoColumnSection;
 
+export type ProjectType = "case-study" | "code" | "design" | "ux";
 export interface ProjectFrontMatterData {
   displayOrder: number;
+  projectType: ProjectType;
   title: string;
   subtitle?: string;
   description: string;

@@ -1,9 +1,7 @@
 import { GalleryItem, GallerySection } from "@/types";
 import { Box, Typography } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
 import DescriptionContent from "./DescriptionContent";
 import useGetImagePath from "@/hooks/useGetImagePath";
-import Image from "next/image";
 
 interface Props {
   section: GallerySection;

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import { GetStaticProps } from "next";
-import { ProjectFrontMatter, ProjectGroup } from "@/types";
+import { ProjectFrontMatter, ProjectGroup, ProjectType } from "@/types";
 import RouterLink from "next/link";
 import { getSortedProjects } from "@/lib/projects";
 import {
@@ -33,8 +33,14 @@ interface Props {
 
 export default function Home({ projectGroups }: Props) {
   const breakpoints = theme.breakpoints.values;
-  const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));
   const isProjectsMultiColumn = useMediaQuery("(min-width: 687px)");
+
+  const iconByProjectType: Record<ProjectType, string> = {
+    "case-study": "file",
+    code: "code",
+    design: "pen-nib",
+    ux: "lightbulb",
+  };
 
   const ProjectCard = ({
     projectType,
@@ -112,7 +118,7 @@ export default function Home({ projectGroups }: Props) {
             >
               <Box sx={[!isProjectsMultiColumn && { mt: 0.5 }]}>
                 <FAIcon
-                  icon="pen-nib"
+                  icon={iconByProjectType[project.projectType]}
                   sx={{ color: palette.white, fontSize: { xl: 32 } }}
                 />
               </Box>
