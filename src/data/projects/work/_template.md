@@ -3,6 +3,7 @@
 # Project slug is the current file name
 # Place all images in `/public/images/work/{project slug}`
 displayOrder: 1 # number: affects the sort order within the project type group on the homepage
+projectType: 'case-study' # either 'case-study', 'code', 'design', or 'ux', controls the icon used on the homepage
 title: 'Project Name' # string: shows on project homepage and project page
 description: 'Veniam et velit magna dolore id minim Lorem deserunt ut laboris.' # string: shows on the project page, separate paragraphs with \n
 thumb: 'image.jpg' # string: file name only, cropped to 5 / 3 aspect ratio on the homepage, alt is automatically generated as `{project title} - work project`
