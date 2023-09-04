@@ -77,6 +77,7 @@ export type ContentSection =
 
 export interface ProjectFrontMatterData {
   displayOrder: number;
+  projectType: "ux" | "code" | "design" | "case-study";
   title: string;
   subtitle?: string;
   description: string;
