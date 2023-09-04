@@ -33,7 +33,6 @@ interface Props {
 
 export default function Home({ projectGroups }: Props) {
   const breakpoints = theme.breakpoints.values;
-  const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));
   const isProjectsMultiColumn = useMediaQuery("(min-width: 687px)");
 
   const ProjectCard = ({

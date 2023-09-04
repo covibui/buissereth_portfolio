@@ -6,8 +6,6 @@ import {
   ProjectFrontMatter,
   ProjectFrontMatterData,
   ProjectGroup,
-  ProjectType,
-  SectionType,
 } from "@/types";
 
 const root = path.join(process.cwd(), "src");
@@ -89,7 +87,11 @@ export async function getProjectByTypeAndSlug(
 
 export function getAllProjectSlugsByType(projectType: string) {
   const projectTypeDirectory = path.join(projectsDirectory, projectType);
-  const fileNames = fs.readdirSync(projectTypeDirectory);
+  let fileNames = fs.readdirSync(projectTypeDirectory);
+  const templateIndex = fileNames.indexOf("_template.md");
+  if (templateIndex > -1) {
+    fileNames.splice(templateIndex, 1);
+  }
   return fileNames.map((fileName) => {
     return {
       params: {

@@ -1,4 +1,4 @@
-export enum ProjectType {
+export enum ProjectCategory {
   Other = "other",
   School = "school",
   Work = "work",

@@ -3,7 +3,7 @@ displayOrder: 2
 projectType: 'ux'
 title: 'Research & Design Real Estate Co.'
 description: 'Redesign of a real estate company listing system to make more intuitive for realtors and assist them in creating more robust listings.'
-thumb: 'avi-waxman-f9qZuKoZYoY-unsplash.jpg'homepage, alt is automatically generated as `{project title} - work project`
+thumb: 'avi-waxman-f9qZuKoZYoY-unsplash.jpg'
 hero:
   file: 'avi-waxman-f9qZuKoZYoY-unsplash.jpg'
   alt: 'Four way street in suburban neighborhood'

@@ -3,13 +3,12 @@ import {
   getAllProjectSlugsByType,
   getProjectByTypeAndSlug,
 } from "@/lib/projects";
-import { ProjectData, ProjectType } from "@/types";
+import { ProjectData, ProjectCategory } from "@/types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 export default function Project({ frontMatter, content }: ProjectData) {
-  console.log(frontMatter);
   return (
     <Layout>
       <Head>
@@ -24,7 +23,7 @@ export default function Project({ frontMatter, content }: ProjectData) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllProjectSlugsByType(ProjectType.School);
+  const paths = getAllProjectSlugsByType(ProjectCategory.School);
   return {
     paths,
     fallback: false,
@@ -34,7 +33,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const projectSlug = params?.slug as string;
   const { frontMatter, content } = await getProjectByTypeAndSlug(
-    ProjectType.School,
+    ProjectCategory.School,
     projectSlug
   );
   return {
