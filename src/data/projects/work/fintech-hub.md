@@ -11,6 +11,7 @@ heroOrientation: 'vertical'
 color: '#4D908E'
 sections:
   - type: 'gallery'
+    slug: 'proto-personas'
     subtitle: 'Proto Personas'
     description: 'The journey started by adapting the clients proto personas and create a flow of the Innovation Hub. The purpose of the journeys is to show how the Innovation Hub provides a solution for 2 roles within the internal research themes.'
     items:
@@ -23,6 +24,7 @@ sections:
           file: 'sam.png'
           alt: 'Illustration of woman standing at her desk'
   - type: 'two-column'
+    slug: 'solutioning-a-content-ecosystem'
     variant: 'right'
     subtitle: 'Solutioning a Content Ecosystem'
     description: 'The team worked with stakeholders to find the right solution for a content hub. The content will be pulled from different sources, instead of migrating to a new place. The content hub will be able to search and locate the specific data and intelligently. The content is organized and categorized for high level viewing as well as the ability to deep dive into projects and their documentation.'

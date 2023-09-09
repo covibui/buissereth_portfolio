@@ -11,6 +11,7 @@ heroOrientation: 'horizontal'
 color: '#6D597A'
 sections:
   - type: 'two-column'
+    slug: 'virtual-try-on-designs'
     variant: 'right'
     subtitle: 'Virtual Try On Designs'
     description: 'The project tasks were to build out designs for each of the features of a Virtual Try On application and to standardize designed components to be used across all brands. The brands of our main client all have their own unique identity in terms of brand and style, therefore the components needed to be simple and versatile while fulfilling the complexity of the features of the VTO app.'
@@ -18,6 +19,7 @@ sections:
       file: 'vto-2screen.png'
       alt: 'Cosmetic company webpage to find your shade makeup'
   - type: 'key-image'
+    slug: 'final-designs'
     subtitle: 'Final Designs'
     description: ''
     image:

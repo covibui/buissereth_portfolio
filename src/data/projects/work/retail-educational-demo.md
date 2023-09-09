@@ -11,6 +11,7 @@ heroOrientation: 'vertical'
 color: '#f94144'
 sections:
   - type: 'two-column'
+    slug: 'instructional-design'
     variant: 'left'
     subtitle: 'Instructional Design'
     description: 'The initial requirements for this project were hard to reach. The contact wanted a clickable prototype that can be shared easily with audio and video. Not every prototyping tool can support all of those requirements. I decided that the project will use Figma so I can have playable gifs with a completely interactable prototype.'
@@ -18,6 +19,7 @@ sections:
       file: 'elearning-demo-two.png'
       alt: 'Two mobile phones with retail demo pages'
   - type: 'key-image'
+    slug: 'final-designs'
     subtitle: 'Final Designs'
     image:
       file: 'elearning-demo-three.png'

@@ -11,6 +11,7 @@ heroOrientation: 'vertical'
 color: '#90BE6D'
 sections:
   - type: 'key-image'
+    slug: 'assessment-ui-design'
     subtitle: 'Assessment UI Design'
     description: 'Provide transparency into security posture of each application and necessity of a security assessment or corrective actions to strengthen application team security maturity \nSelf-serviced, real-time, gauge interface that helps to provide an enterprise wide visibility into application risk and application security posture details \nIntegrate results from all automated security testing tools across all teams. Optimized and automated process of determining when security assessment is needed and lengthen the time between assessments'
     image:

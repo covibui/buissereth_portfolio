@@ -11,6 +11,7 @@ heroOrientation: 'horizontal'
 color: '#43aa8b'
 sections:
   - type: 'key-image'
+    slug: 'user-journey'
     subtitle: 'User Journey'
     description: 'We want to understand the journey when buying a car at the dealership. We had researched and discussed the process through 2 perspectives: the dealership and the customer.'
     image:

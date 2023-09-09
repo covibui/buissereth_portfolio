@@ -24,6 +24,7 @@ export enum SectionType {
 
 export interface Section {
   type: SectionType;
+  slug: string;
   subtitle?: string;
   description?: string;
 }
@@ -74,14 +75,18 @@ export type ContentSection =
   | TitleBreakSection
   | TwoColumnSection;
 
-export type ProjectType = "case-study" | "code" | "design" | "ux";
+export enum ProjectType {
+  caseStudy = "case-study",
+  code = "code",
+  design = "design",
+  ux = "ux",
+}
 export interface ProjectFrontMatterData {
   displayOrder: number;
   projectType: ProjectType;
   title: string;
   subtitle?: string;
-  description: string;
-  summary: string;
+  description?: string;
   thumb: string;
   hero: Image;
   heroOrientation: "vertical" | "horizontal";

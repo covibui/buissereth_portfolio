@@ -26,6 +26,7 @@ import palette from "@/theme/palette";
 import AppContainer from "@/components/AppContainer";
 import hexToRGBA from "@/utils/hexToRGBA";
 import FAIcon from "@/components/FAIcon";
+import lintProject from "@/utils/lintProject";
 
 interface Props {
   projectGroups?: ProjectGroup[];

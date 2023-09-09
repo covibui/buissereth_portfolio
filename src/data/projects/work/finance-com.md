@@ -7,11 +7,13 @@ description: 'The client seeks to create a modernized, human-centered branch com
 thumb: 'arlington-research-nFLmPAf9dVc-unsplash.jpg'
 hero:
   file: 'arlington-research-nFLmPAf9dVc-unsplash.jpg'
+  alt: 'UPDATE ALT TEXT'
 alt: 'People in an office setting'
 heroOrientation: 'horizontal'
 color: '#F9C74F'
 sections:
   - type: 'gallery'
+    slug: 'envisioning-the-ideal'
     subtitle: 'Envisioning The Ideal'
     items:
       - description: 'Journey 1 is a situation where a Branch Office Associate needs help with a task and self serves themselves through ‘Solutions Hub’ for a Documents & Scanning issue'
