@@ -8,18 +8,23 @@ interface Props {
 }
 
 export default function ProjectGallerySection({ section }: Props) {
-  const { subtitle, items } = section;
+  const { subtitle, description, items } = section;
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Typography variant="projectSubtitle" sx={{ textAlign: "center" }}>
         {subtitle}
       </Typography>
+      {description && (
+        <Box sx={{ mb: 8 }}>
+          <DescriptionContent description={description} />
+        </Box>
+      )}
       <Box
         sx={[
           items.length > 1 && {
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
             columnGap: 4,
             rowGap: 8,
           },
@@ -51,7 +56,7 @@ function GallerySectionItem({ item }: GallerySectionItemProps) {
         height: 1,
       }}
     >
-      <DescriptionContent description={description} />
+      {description && <DescriptionContent description={description} />}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={imagePath}

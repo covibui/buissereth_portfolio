@@ -46,11 +46,13 @@ export default function ProjectKeyImageSection({ section }: Props) {
               <Box>
                 <Typography
                   variant="projectSubtitle"
-                  sx={{ textAlign: "center" }}
+                  sx={[{ textAlign: "center" }, !description && { mb: 8 }]}
                 >
                   {subtitle}
                 </Typography>
-                <DescriptionContent description={description} />
+                {description && (
+                  <DescriptionContent description={description} />
+                )}
               </Box>
             </Grid>
           </Grid>

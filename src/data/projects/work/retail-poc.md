@@ -17,94 +17,48 @@ sections:
     job at hand.'
     image:
       file: 'appsuite-two.png'
-      alt: 'Two screens of an appsuite for managing a retail business'
+      alt: 'Two screens of an app suite for managing a retail business'
   - type: 'gallery'
-    subtitle: 'Personas' 
-    description: 'Each persona then had their own distinct
-journeys that reflected how they would interact
-with their respective app which helped us plan
-and create the features for them. From the user
-journeys, we created prototypes to
-demonstrate to Jabil how users would interact
-with their systems, making each step intuitive
-to users so that their experience would be
- seamless and painless.' 
-    items: 
-      image: # I dont know if this needs a - in the beginning
-          file: 'Kristen.png' # string: file name only
-          alt: 'User persona documnent' # string
-          title: '' # string: optional, NOTE: NOT YET SUPPORTED IN UI
-          caption: ' ' # string: optional, NOTE: NOT YET SUPPORTED IN UI
-      image: # I dont know if this needs a - in the beginning
-          file: 'Rodrigo.png' # string: file name only
-          alt: 'User persona documnent' # string
-          title: '' # string: optional, NOTE: NOT YET SUPPORTED IN UI
-          caption: ' ' # string: optional, NOTE: NOT YET SUPPORTED IN UI
+    subtitle: 'Personas'
+    description: 'Each persona then had their own distinct journeys that reflected how they would interact with their respective app which helped us plan and create the features for them. From the user journeys, we created prototypes to demonstrate to Jabil how users would interact with their systems, making each step intuitive to users so that their experience would be seamless and painless.'
+    items:
+      - image:
+          file: 'Kristen.png'
+          alt: 'User persona document'
+      - image:
+          file: 'Rodrigo.png'
+          alt: 'User persona document'
   - type: 'gallery'
-    subtitle: 'User Flows' # string
-    items: # any number of items
-      - description: 'A brand-facing and internal web portal
-that allows a user to manage product
-information and planogram information and
-synchronize with kiosks in the
-field. The device will report product
-levels and the cloud/backend
-will integrate with Shopify for customers that
-are already managing their products.' 
+    subtitle: 'User Flows'
+    items:
+      - description: 'A brand-facing and internal web portal that allows a user to manage product information and planogram information and synchronize with kiosks in the field. The device will report product levels and the cloud/backend will integrate with Shopify for customers that are already managing their products.'
         image:
           file: 'Flow-2.png'
-          alt: 'User flow document' 
-          title: '' 
-          caption: '' 
-      - description: 'This is a brand-facing web portal that allows a
-brand-marketing user to upload media (videos
-and images) and create a schedule to play
-media on the displays.' 
+          alt: 'User flow document'
+      - description: 'This is a brand-facing web portal that allows a brand-marketing user to upload media (videos and images) and create a schedule to play media on the displays.'
         image:
           file: 'Flow-1.png'
-          alt: 'User flow document' 
-          title: '' 
-          caption: '' 
-      - description: 'This is an internal web portal that can display
-IoT/Telemetry, sales transactions, and customer
-analytics data in various visual forms. In
-the future, this portal may allow a user to
-perform device management and integrate with a 3rd
-party service management/routing application.' 
-      image:
-        file: 'Flow-3.png'
-        alt: 'User flow document' 
-        title: '' 
-        caption: '' 
+          alt: 'User flow document'
+      - description: 'This is an internal web portal that can display IoT/Telemetry, sales transactions, and customer analytics data in various visual forms. In the future, this portal may allow a user to perform device management and integrate with a 3rd party service management/routing application.'
+        image:
+          file: 'Flow-3.png'
+          alt: 'User flow document'
   - type: 'key-image'
-  subtitle: 'Final Prototype' # string
-  description: '' # string: separate paragraphs with \n
-  image:
-    file: 'final-retail.png' # string: file name only, contained within a 4 / 3 aspect ratio container
-    alt: 'App suite webpages for retail manufacturing ' # string
+    subtitle: 'Final Prototype'
+    image:
+      file: 'final-retail.png'
+      alt: 'App suite webpages for retail manufacturing'
   - type: 'two-column'
     variant: 'right'
     subtitle: 'Customer Experience'
-    description: 'Lastly, a final persona, Monica was created to represent a Kylie Cosmetics customer that would
-walk up to the Edge Retail device and purchase a
-product. Her user journey was representative of
-how any consumer would interact with a kiosk and what expectations they would
-have while interacting with it. This allowed us to
-analyze how the other three personas would
-reach/interact with her experience.\n
-The UI represents the user interface on the client devices. The goal was to have the digital UI
-interact with the physical space of the kiosk.'
+    description: 'Lastly, a final persona, Monica was created to represent a Kylie Cosmetics customer that would walk up to the Edge Retail device and purchase a product. Her user journey was representative of how any consumer would interact with a kiosk and what expectations they would have while interacting with it. This allowed us to analyze how the other three personas would reach/interact with her experience.\nThe UI represents the user interface on the client devices. The goal was to have the digital UI interact with the physical space of the kiosk.'
     image:
       file: 'customer-2screen.png'
       alt: 'Two screens of an kiosk user interface'
   - type: 'key-image'
-  subtitle: '3 Dimensional Experience'
-  description: 'By utilizing basic CAD skills and Photoshop, I
-made a prototype of the physical kiosk space. The
-users are directly interacting with the space and
-also the internal resources to from Jabil keeping
-the operation of the kiosk running.' 
-  image:
-    file: 'kiosks.png' 
-    alt: '3D representation of a interactive kiosk' 
+    subtitle: '3 Dimensional Experience'
+    description: 'By utilizing basic CAD skills and Photoshop, I made a prototype of the physical kiosk space. The users are directly interacting with the space and also the internal resources to from Jabil keeping the operation of the kiosk running.'
+    image:
+      file: 'kiosks.png'
+      alt: '3D representation of a interactive kiosk'
 ---

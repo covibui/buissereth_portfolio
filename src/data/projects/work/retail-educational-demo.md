@@ -5,7 +5,7 @@ title: 'Retail Learning Demos'
 description: 'Design of a service for instruction design and modules to make a brand agnostic customer retail demos.'
 thumb: 'austin-distel-rxpThOwuVgE-unsplash.jpg'
 hero:
-  file: 'austin-distel-rxpThOwuVgE-unsplash'
+  file: 'austin-distel-rxpThOwuVgE-unsplash.jpg'
   alt: 'Man teaching a small group in a company setting'
 heroOrientation: 'vertical'
 color: '#f94144'
@@ -19,7 +19,6 @@ sections:
       alt: 'Two mobile phones with retail demo pages'
   - type: 'key-image'
     subtitle: 'Final Designs'
-    description: ''
     image:
       file: 'elearning-demo-three.png'
       alt: 'Three mobile phones with retail demo pages and uiz questions'

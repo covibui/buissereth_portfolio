@@ -10,6 +10,7 @@ export default function ProjectDisclaimer() {
         severity="warning"
         sx={{
           position: "relative",
+          mx: "auto",
           maxWidth: 1130,
           p: 0,
           overflow: "hidden",
