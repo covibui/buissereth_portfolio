@@ -52,7 +52,7 @@ export default function ContactSection() {
             size="large"
             href={`mailto:${CONTACT_EMAIL}?subject=${NAME} - Collaboration Interest`}
           >
-            {CONTACT_EMAIL}
+            Contact Me
           </Button>
         </Box>
       </Box>

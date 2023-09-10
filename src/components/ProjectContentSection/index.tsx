@@ -32,7 +32,6 @@ export default function ProjectContentSection({ section }: Props) {
           minHeight: { md: "100vh" },
         }}
       >
-        {isScreenMd && <Toolbar />}
         {children}
       </Box>
     </AppContainer>
@@ -42,9 +41,7 @@ export default function ProjectContentSection({ section }: Props) {
       <ProjectCoverSection section={section as CoverSection} />
     ),
     [SectionType.Gallery]: (
-      <ContentSectionWrapper>
-        <ProjectGallerySection section={section as GallerySection} />
-      </ContentSectionWrapper>
+      <ProjectGallerySection section={section as GallerySection} />
     ),
     [SectionType.KeyImage]: (
       <ProjectKeyImageSection section={section as KeyImageSection} />

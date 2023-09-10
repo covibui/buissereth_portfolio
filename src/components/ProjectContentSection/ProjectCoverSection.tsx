@@ -62,7 +62,7 @@ export default function ProjectCoverSection({ section }: Props) {
           minHeight: "100vh",
         },
         variant === "vertical" && {
-          px: { md: 1.25 },
+          px: { md: 2.5 },
         },
       ]}
     >
@@ -115,7 +115,7 @@ export default function ProjectCoverSection({ section }: Props) {
       ) : (
         <Grid
           container
-          spacing={2.5}
+          spacing={5}
           columns={12}
           sx={{ mt: 0, height: 1, flexGrow: 1 }}
         >
@@ -139,7 +139,11 @@ export default function ProjectCoverSection({ section }: Props) {
               <CoverTextContent />
             </Box>
           </Grid>
-          <Grid xs={12} md={6} sx={{ my: { md: -1.25 }, pr: { md: 0 } }}>
+          <Grid
+            xs={12}
+            md={6}
+            sx={{ my: { md: -2.5 }, pr: { md: 0 }, mb: { xs: 0, md: 0 } }}
+          >
             <Box
               sx={{
                 display: "flex",

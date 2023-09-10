@@ -11,7 +11,6 @@ heroOrientation: 'horizontal'
 color: '#277DA1'
 sections:
   - type: 'two-column'
-    slug: '40-point-inspection'
     variant: 'left'
     subtitle: '40 Point Inspection'
     description: 'We built a concept around the process of a 40 point inspection in a typical auto-mechanic shop, then built a demo prototype showcasing how a voice user interface can streamline the inspection process.\nTo tell the story I brought the screens into Adobe After Effects to simulate movement in the voice user interface and illustrate the conversational aspect of the story.'

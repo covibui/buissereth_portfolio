@@ -1,6 +1,6 @@
 import palette from "@/theme/palette";
 import hexToRGBA from "@/utils/hexToRGBA";
-import { Alert, AlertTitle, Box } from "@mui/material";
+import { Alert, AlertTitle, Box, Typography } from "@mui/material";
 import FAIcon from "./FAIcon";
 
 export default function ProjectDisclaimer() {
@@ -45,12 +45,14 @@ export default function ProjectDisclaimer() {
           />
           Disclaimer
         </AlertTitle>
-        The digital content presented below has undergone modifications and
-        alterations to safeguard the confidentiality and privacy of the involved
-        parties. Any identifiable information has been intentionally removed or
-        replaced to ensure anonymity and protect the clients&apos; identities.
-        These precautions have been taken to uphold the utmost confidentiality
-        and respect for all parties depicted in the content.
+        <Typography sx={{ fontSize: `${14 / 16}rem` }}>
+          The digital content presented below has undergone modifications and
+          alterations to safeguard the confidentiality and privacy of the
+          involved parties. Any identifiable information has been intentionally
+          removed or replaced to ensure anonymity and protect the clients&apos;
+          identities. These precautions have been taken to uphold the utmost
+          confidentiality and respect for all parties depicted in the content.
+        </Typography>
       </Alert>
     </Box>
   );

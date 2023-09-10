@@ -2,21 +2,30 @@ import path from "path";
 import fs from "fs";
 import {
   ContentSection,
+  Image,
   ProjectFrontMatter,
   ProjectType,
   SectionType,
 } from "@/types";
 
 class ProjectValidationError extends Error {
-  constructor(slug: string, message: string) {
-    super(`${slug}: ${message}`);
+  constructor(slug: string, field: string, value: any, message: string) {
+    super(`${slug} - "${field}" ${message}. Received: ${value}`);
     this.name = "ProjectValidationError";
   }
 }
 
 class ProjectSectionValidationError extends Error {
-  constructor(projectSlug: string, sectionName: string, message: string) {
-    super(`${projectSlug}: Section ${sectionName}: ${message}`);
+  constructor(
+    projectSlug: string,
+    sectionIndex: number,
+    field: string,
+    value: any,
+    message: string
+  ) {
+    super(
+      `${projectSlug} - "sections[${sectionIndex}].${field}" ${message}. Received: ${value}`
+    );
     this.name = "ProjectSectionValidationError";
   }
 }
@@ -26,14 +35,17 @@ const imagesDirectory = path.join(process.cwd(), "public/images/projects");
 function lintProjectSection(
   projectSlug: string,
   section: ContentSection,
+  index: number,
   imageFiles: string[]
 ) {
   const validateString = (field: string, value: any) => {
     if (!value || typeof value !== "string" || value.length < 1) {
       throw new ProjectSectionValidationError(
         projectSlug,
-        section.slug ? section.slug : "Unknown",
-        `"${field}" must be a string at least one character long`
+        index,
+        field,
+        value,
+        "must be a string at least one character long"
       );
     }
   };
@@ -42,59 +54,119 @@ function lintProjectSection(
     if (value && typeof value !== "string") {
       throw new ProjectSectionValidationError(
         projectSlug,
-        section.slug,
-        `"${field}" must be a string at least one character long or removed`
+        index,
+        field,
+        value,
+        "must be a string at least one character long or removed"
       );
     }
   };
 
-  validateString("slug", section.slug);
-  if (section.slug.includes(" ")) {
-    throw new ProjectSectionValidationError(
-      projectSlug,
-      section.slug,
-      `"slug must contain no space characters`
-    );
-  }
+  const validateImageFile = (field: string, value: any) => {
+    if (!value || typeof value !== "string" || !imageFiles.includes(value)) {
+      throw new ProjectSectionValidationError(
+        projectSlug,
+        index,
+        field,
+        value,
+        "must be a valid file name and included in the project image folder"
+      );
+    }
+  };
+
+  const validateImage = (field: string, value: Image) => {
+    if (!value) {
+      throw new ProjectSectionValidationError(
+        projectSlug,
+        index,
+        field,
+        value,
+        "must be defined"
+      );
+    }
+    validateImageFile(`${field}.file`, value.file);
+    validateString(`${field}.alt`, value.alt);
+    if (!value.title && value.caption) {
+      throw new ProjectSectionValidationError(
+        projectSlug,
+        index,
+        `${field}.title`,
+        value.title,
+        `must be defined if using "${field}.caption"`
+      );
+    }
+    if (value.title && !value.caption) {
+      throw new ProjectSectionValidationError(
+        projectSlug,
+        index,
+        `${field}.caption`,
+        value.caption,
+        `must be defined if using "${field}.title"`
+      );
+    }
+    validateConditionalString(`${field}.title`, value.title);
+    validateConditionalString(`${field}.caption`, value.caption);
+  };
 
   if (!section.type || !Object.values(SectionType).includes(section.type)) {
     throw new ProjectSectionValidationError(
       projectSlug,
-      section.slug,
-      `"type" must be one of ${Object.values(SectionType).join(" || ")}`
+      index,
+      "type",
+      section.type,
+      `must be one of ${Object.values(SectionType).join(" || ")}`
     );
   }
 
-  const validateConditionalDescription = (
-    description?: string,
-    field?: string
-  ) => {
-    if (description && typeof description !== "string") {
-      throw new ProjectSectionValidationError(
-        projectSlug,
-        section.slug,
-        `"${
-          field ? field + ".description" : "description"
-        }" must be a string at least one character long or removed`
-      );
-    }
-  };
-
-  if (section.type === "gallery") {
+  if (section.type === SectionType.Gallery) {
     validateString("subtitle", section.subtitle);
-    validateConditionalDescription("description", section.description);
+    validateConditionalString("description", section.description);
 
     if (!section.items) {
       throw new ProjectSectionValidationError(
         projectSlug,
-        section.slug,
-        `"items" must include at least one item`
+        index,
+        "items",
+        section.items,
+        "must include at least one item"
       );
     }
 
-    section.items.forEach((item) => {
+    section.items.forEach((item, idx) => {
       validateConditionalString("item.description", item.description);
+      validateImage(`items[${idx}].image`, item.image);
     });
+  }
+
+  if (section.type === SectionType.KeyImage) {
+    validateString("subtitle", section.subtitle);
+    console.log(Array.isArray(section.description));
+    if (Array.isArray(section.description)) {
+      section.description.forEach((item, idx) => {
+        validateString(`description[${idx}]`, item);
+      });
+    } else {
+      validateConditionalString("description", section.description);
+    }
+    validateImage("image", section.image);
+  }
+
+  if (section.type === SectionType.TitleBreak) {
+    // TODO: add validation once component is fully defined
+  }
+
+  if (section.type === SectionType.TwoColumn) {
+    validateString("subtitle", section.subtitle);
+    validateString("description", section.description);
+    if (!section.variant || !["left", "right"].includes(section.variant)) {
+      throw new ProjectSectionValidationError(
+        projectSlug,
+        index,
+        "variant",
+        section.variant,
+        "must be left || right"
+      );
+    }
   }
 }
 
@@ -113,7 +185,9 @@ export default function lintProject(
     if (!value || typeof value !== "number") {
       throw new ProjectValidationError(
         project.slug,
-        `"${field}" must be a number`
+        field,
+        value,
+        "must be a number"
       );
     }
   };
@@ -122,7 +196,9 @@ export default function lintProject(
     if (!value || typeof value !== "string" || value.length < 1) {
       throw new ProjectValidationError(
         project.slug,
-        `"${field}" must be a string at least one character long`
+        field,
+        value,
+        "must be a string at least one character long"
       );
     }
   };
@@ -131,7 +207,9 @@ export default function lintProject(
     if (value && typeof value !== "string") {
       throw new ProjectValidationError(
         project.slug,
-        `"${field}" must be a string at least one character long or removed`
+        field,
+        value,
+        "must be a string at least one character long or removed"
       );
     }
   };
@@ -140,9 +218,42 @@ export default function lintProject(
     if (!value || typeof value !== "string" || !imageFiles.includes(value)) {
       throw new ProjectValidationError(
         project.slug,
-        `"${field}" must be a valid file name and included in the project image folder`
+        field,
+        value,
+        "must be a valid file name and included in the project image folder"
       );
     }
+  };
+
+  const validateImage = (field: string, value: Image) => {
+    if (!value) {
+      throw new ProjectValidationError(
+        project.slug,
+        field,
+        value,
+        "must be defined"
+      );
+    }
+    validateImageFile(`${field}.file`, value.file);
+    validateString(`${field}.alt`, value.alt);
+    if (!value.title && value.caption) {
+      throw new ProjectValidationError(
+        project.slug,
+        `${field}.title`,
+        value.title,
+        `must be defined if using "${field}.caption"`
+      );
+    }
+    if (value.title && !value.caption) {
+      throw new ProjectValidationError(
+        project.slug,
+        `${field}.caption`,
+        value.caption,
+        `must be defined if using "${field}.title"`
+      );
+    }
+    validateConditionalString(`${field}.title`, value.title);
+    validateConditionalString(`${field}.caption`, value.caption);
   };
 
   validateNumber("displayOrder", project.displayOrder);
@@ -153,7 +264,9 @@ export default function lintProject(
   ) {
     throw new ProjectValidationError(
       project.slug,
-      `"ProjectType" must be one of ${Object.values(ProjectType).join(" || ")}`
+      "ProjectType",
+      project.projectType,
+      `must be one of ${Object.values(ProjectType).join(" || ")}`
     );
   }
 
@@ -161,12 +274,7 @@ export default function lintProject(
   validateConditionalString("subtitle", project.subtitle);
   validateConditionalString("description", project.description);
   validateImageFile("thumb", project.thumb);
-
-  if (!project.hero) {
-    throw new ProjectValidationError(project.slug, "`hero` must be defined");
-  }
-  validateImageFile("hero.file", project.hero.file);
-  validateString("hero.alt", project.hero.alt);
+  validateImage("hero", project.hero);
 
   if (
     !project.heroOrientation ||
@@ -174,7 +282,9 @@ export default function lintProject(
   ) {
     throw new ProjectValidationError(
       project.slug,
-      "`heroOrientation` must be vertical || horizontal"
+      "heroOrientation",
+      project.heroOrientation,
+      `must be vertical || horizontal`
     );
   }
 
@@ -185,18 +295,22 @@ export default function lintProject(
   ) {
     throw new ProjectValidationError(
       project.slug,
-      "`color` must be a string beginning with `#`"
+      "color",
+      project.color,
+      `must be a string beginning with "#"`
     );
   }
 
   if (!project.sections) {
     throw new ProjectValidationError(
       project.slug,
-      "`sections` must include at least one item"
+      "sections",
+      project.sections,
+      `must include at least one item`
     );
   }
 
-  project.sections.forEach((section) =>
-    lintProjectSection(project.slug, section, imageFiles)
+  project.sections.forEach((section, index) =>
+    lintProjectSection(project.slug, section, index, imageFiles)
   );
 }

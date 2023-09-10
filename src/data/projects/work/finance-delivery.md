@@ -11,8 +11,7 @@ heroOrientation: 'vertical'
 color: '#F8961E'
 sections:
   # need title break
-  - type: 'gallery'
-    slug: 'my-work'
+  - type: 'title-break'
     subtitle: 'My Work'
     items:
       - description: 'Thoroughly understand our target audience of financial advisors to gain insights into their needs, preferences, and pain points. This user-centered approach formed the foundation of our design strategy.'

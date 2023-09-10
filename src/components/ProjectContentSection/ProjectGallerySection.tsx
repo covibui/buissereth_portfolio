@@ -2,6 +2,7 @@ import { GalleryItem, GallerySection } from "@/types";
 import { Box, Typography } from "@mui/material";
 import DescriptionContent from "./DescriptionContent";
 import useGetImagePath from "@/hooks/useGetImagePath";
+import AppContainer from "../AppContainer";
 
 interface Props {
   section: GallerySection;
@@ -11,30 +12,32 @@ export default function ProjectGallerySection({ section }: Props) {
   const { subtitle, description, items } = section;
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Typography variant="projectSubtitle" sx={{ textAlign: "center" }}>
-        {subtitle}
-      </Typography>
-      {description && (
-        <Box sx={{ mb: 8 }}>
-          <DescriptionContent description={description} />
+    <AppContainer>
+      <Box sx={{ pt: 16, flexGrow: 1 }}>
+        <Typography variant="projectSubtitle" sx={{ textAlign: "center" }}>
+          {subtitle}
+        </Typography>
+        {description && (
+          <Box sx={{ mb: 8 }}>
+            <DescriptionContent description={description} />
+          </Box>
+        )}
+        <Box
+          sx={[
+            items.length > 1 && {
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              columnGap: 4,
+              rowGap: 8,
+            },
+          ]}
+        >
+          {items.map((item, idx) => (
+            <GallerySectionItem key={idx} item={item} />
+          ))}
         </Box>
-      )}
-      <Box
-        sx={[
-          items.length > 1 && {
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            columnGap: 4,
-            rowGap: 8,
-          },
-        ]}
-      >
-        {items.map((item, idx) => (
-          <GallerySectionItem key={idx} item={item} />
-        ))}
       </Box>
-    </Box>
+    </AppContainer>
   );
 }
 

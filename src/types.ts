@@ -7,11 +7,8 @@ export enum ProjectCategory {
 export interface Image {
   file: string;
   alt: string;
-}
-
-interface CaptionImage extends Image {
-  title: string;
-  caption: string;
+  title?: string;
+  caption?: string;
 }
 
 export enum SectionType {
@@ -24,7 +21,6 @@ export enum SectionType {
 
 export interface Section {
   type: SectionType;
-  slug: string;
   subtitle?: string;
   description?: string;
 }
@@ -39,7 +35,7 @@ export interface CoverSection extends Section {
 
 export interface GalleryItem {
   description?: string;
-  image: Image | CaptionImage;
+  image: Image;
 }
 
 export interface GallerySection extends Section {
@@ -48,9 +44,10 @@ export interface GallerySection extends Section {
   items: GalleryItem[];
 }
 
-export interface KeyImageSection extends Section {
+export interface KeyImageSection extends Omit<Section, "description"> {
   type: SectionType.KeyImage;
   subtitle: string;
+  description?: string | string[];
   image: Image;
 }
 

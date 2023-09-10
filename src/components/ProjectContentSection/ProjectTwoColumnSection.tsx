@@ -72,7 +72,7 @@ export default function ProjectTwoColumnSection({ section }: Props) {
       component="section"
       id={convertToKebabCase(subtitle)}
       container
-      spacing={2.5}
+      spacing={5}
       columns={10}
       sx={{ flexGrow: 1 }}
     >

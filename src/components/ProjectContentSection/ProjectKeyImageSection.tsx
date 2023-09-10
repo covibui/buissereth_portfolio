@@ -16,7 +16,7 @@ interface Props {
 export default function ProjectKeyImageSection({ section }: Props) {
   const { subtitle, description, image } = section;
   const breakpoints = theme.breakpoints.values;
-  const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));
+  console.log(description);
 
   const imagePath = useGetImagePath(image);
 
@@ -29,7 +29,6 @@ export default function ProjectKeyImageSection({ section }: Props) {
         minHeight: { md: "100vh" },
       }}
     >
-      {isScreenMd && <Toolbar />}
       <Box
         component="section"
         id={convertToKebabCase(subtitle)}
@@ -42,8 +41,8 @@ export default function ProjectKeyImageSection({ section }: Props) {
       >
         <AppContainer>
           <Grid container spacing={2.5} columns={10}>
-            <Grid xs={10} md={8} mdOffset={1} lg={6} lgOffset={2}>
-              <Box>
+            <Grid xs={10} md={8} mdOffset={1}>
+              <Box sx={{ pt: 16 }}>
                 <Typography
                   variant="projectSubtitle"
                   sx={[{ textAlign: "center" }, !description && { mb: 8 }]}
@@ -51,7 +50,27 @@ export default function ProjectKeyImageSection({ section }: Props) {
                   {subtitle}
                 </Typography>
                 {description && (
-                  <DescriptionContent description={description} />
+                  <>
+                    {Array.isArray(description) ? (
+                      <Box
+                        sx={{
+                          display: { lg: "grid" },
+                          gridTemplateColumns:
+                            "repeat(auto-fit, minmax(250px, 1fr))",
+                          columnGap: 4,
+                          rowGap: 8,
+                        }}
+                      >
+                        {description.map((item, idx) => (
+                          <Box key={idx} sx={{ mb: { xs: 2, lg: 0 } }}>
+                            <DescriptionContent description={item} />
+                          </Box>
+                        ))}
+                      </Box>
+                    ) : (
+                      <DescriptionContent description={description} />
+                    )}
+                  </>
                 )}
               </Box>
             </Grid>

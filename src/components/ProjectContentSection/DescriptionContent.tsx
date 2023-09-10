@@ -5,6 +5,7 @@ interface Props {
 }
 
 export default function DescriptionContent({ description }: Props) {
+  console.log(description);
   return (
     <>
       {description.split("\\n").map((paragraph, idx) => (

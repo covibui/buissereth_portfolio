@@ -11,7 +11,6 @@ heroOrientation: 'vertical'
 color: '#f3722c'
 sections:
   - type: 'key-image'
-    slug: 'task-analysis'
     subtitle: 'Task Analysis'
     description: 'The team conducted a series of virtual workshops with industry professionals. The purpose was to collect insights into the usability of the prototype through a wide range industry professionals. They were users that frequently use the original interface and volunteered to test the new design on creating a new listing.'
     image:

@@ -63,6 +63,7 @@ export let theme = createTheme({
           theme.unstable_sx({
             borderRadius: 0,
             py: 1.25,
+            fontFamily: poppins.style.fontFamily,
             fontSize: 16,
             fontWeight: 600,
             textTransform: "unset",
@@ -143,7 +144,7 @@ export let theme = createTheme({
           props: { variant: "projectSubtitle" },
           style: ({ theme }) =>
             theme.unstable_sx({
-              marginBottom: 16,
+              marginBottom: 4,
               fontSize: "1.5rem",
               fontWeight: 600,
               [theme.breakpoints.up("sm")]: {
@@ -155,7 +156,7 @@ export let theme = createTheme({
           props: { variant: "projectTitle" },
           style: ({ theme }) =>
             theme.unstable_sx({
-              marginBottom: 16,
+              marginBottom: 4,
               fontSize: "2rem",
               fontWeight: 700,
               lineHeight: 1.3,
@@ -182,6 +183,9 @@ export let theme = createTheme({
           fontSize: "1.5rem",
           fontWeight: 600,
           marginBottom: 16,
+        },
+        button: {
+          fontFamily: poppins.style.fontFamily,
         },
       },
     },
