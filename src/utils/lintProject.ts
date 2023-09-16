@@ -166,6 +166,7 @@ function lintProjectSection(
         "must be left || right"
       );
     }
+    validateImage("image", section.image);
   }
 }
 
