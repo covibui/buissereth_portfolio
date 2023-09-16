@@ -6,6 +6,7 @@ import DescriptionContent from "./DescriptionContent";
 import useGetImagePath from "@/hooks/useGetImagePath";
 import Image from "next/image";
 import { theme } from "@/theme";
+import AppContainer from "../AppContainer";
 
 interface Props {
   section: TwoColumnSection;
@@ -68,25 +69,36 @@ export default function ProjectTwoColumnSection({ section }: Props) {
   );
 
   return (
-    <Grid
-      component="section"
-      id={convertToKebabCase(subtitle)}
-      container
-      spacing={5}
-      columns={10}
-      sx={{ flexGrow: 1 }}
-    >
-      {variant === "left" && isScreenMd ? (
-        <>
-          <ImageColumn />
-          <TextColumn />
-        </>
-      ) : (
-        <>
-          <TextColumn />
-          <ImageColumn />
-        </>
-      )}
-    </Grid>
+    <AppContainer>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          minHeight: { md: "100vh" },
+        }}
+      >
+        <Grid
+          component="section"
+          id={convertToKebabCase(subtitle)}
+          container
+          spacing={5}
+          columns={10}
+          sx={{ flexGrow: 1 }}
+        >
+          {variant === "left" && isScreenMd ? (
+            <>
+              <ImageColumn />
+              <TextColumn />
+            </>
+          ) : (
+            <>
+              <TextColumn />
+              <ImageColumn />
+            </>
+          )}
+        </Grid>
+      </Box>
+    </AppContainer>
   );
 }

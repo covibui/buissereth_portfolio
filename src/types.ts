@@ -51,10 +51,10 @@ export interface KeyImageSection extends Omit<Section, "description"> {
   image: Image;
 }
 
-export interface TitleBreakSection extends Section {
+export interface TitleBreakSection extends Omit<Section, "description"> {
   type: SectionType.TitleBreak;
   subtitle: string;
-  description: string;
+  description: string | string[];
 }
 
 export interface TwoColumnSection extends Section {

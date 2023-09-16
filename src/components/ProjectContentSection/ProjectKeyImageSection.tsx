@@ -53,7 +53,7 @@ export default function ProjectKeyImageSection({ section }: Props) {
                     {Array.isArray(description) ? (
                       <Box
                         sx={{
-                          display: { lg: "grid" },
+                          display: { md: "grid" },
                           gridTemplateColumns:
                             "repeat(auto-fit, minmax(250px, 1fr))",
                           columnGap: 4,
