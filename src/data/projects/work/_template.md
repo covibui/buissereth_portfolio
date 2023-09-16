@@ -34,6 +34,13 @@ sections: # any number of sections, order here will determine order on the proje
     image:
       file: 'image.jpg' # string: file name only, contained within a 4 / 3 aspect ratio container
       alt: 'Duis ullamco dolore est.' # string
+  - type: 'title-break'
+    subtitle: 'Section Title' # string
+    description: 'Ipsum enim officia aliqua est in adipisicing.' # string: separate paragraphs with \n
+    # OR
+    description: # any number of strings, recommended up to 3
+      - 'Ipsum enim officia aliqua est in adipisicing.' # string: separate paragraphs with \n
+      - 'Ipsum enim officia aliqua est in adipisicing.' # string: separate paragraphs with \n
   - type: 'two-column'
     slug: 'section-title' # string
     variant: 'left' # either 'left' or 'right', controls which side the image is on for desktop sizes, always on bottom for mobile

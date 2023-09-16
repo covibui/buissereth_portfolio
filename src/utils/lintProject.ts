@@ -151,7 +151,14 @@ function lintProjectSection(
   }
 
   if (section.type === SectionType.TitleBreak) {
-    // TODO: add validation once component is fully defined
+    validateString("subtitle", section.subtitle);
+    if (Array.isArray(section.description)) {
+      section.description.forEach((item, idx) => {
+        validateString(`description[${idx}]`, item);
+      });
+    } else {
+      validateString("description", section.description);
+    }
   }
 
   if (section.type === SectionType.TwoColumn) {
