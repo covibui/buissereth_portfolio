@@ -16,7 +16,6 @@ interface Props {
 export default function ProjectKeyImageSection({ section }: Props) {
   const { subtitle, description, image } = section;
   const breakpoints = theme.breakpoints.values;
-  console.log(description);
 
   const imagePath = useGetImagePath(image);
 

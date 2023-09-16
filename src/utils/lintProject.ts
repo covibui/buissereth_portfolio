@@ -140,7 +140,6 @@ function lintProjectSection(
 
   if (section.type === SectionType.KeyImage) {
     validateString("subtitle", section.subtitle);
-    console.log(Array.isArray(section.description));
     if (Array.isArray(section.description)) {
       section.description.forEach((item, idx) => {
         validateString(`description[${idx}]`, item);
