@@ -79,11 +79,15 @@ export async function getProjectByTypeAndSlug(
   const { data, content }: { data: ProjectFrontMatterData; content: string } =
     matter(source);
 
+  const frontMatter: ProjectFrontMatter = {
+    slug,
+    ...data,
+  };
+
+  lintProject(projectType, frontMatter);
+
   return {
-    frontMatter: {
-      slug,
-      ...data,
-    },
+    frontMatter,
     content,
   };
 }
