@@ -7,11 +7,8 @@ export enum ProjectCategory {
 export interface Image {
   file: string;
   alt: string;
-}
-
-interface CaptionImage extends Image {
-  title: string;
-  caption: string;
+  title?: string;
+  caption?: string;
 }
 
 export enum SectionType {
@@ -37,27 +34,27 @@ export interface CoverSection extends Section {
 }
 
 export interface GalleryItem {
-  description: string;
-  image: Image | CaptionImage;
+  description?: string;
+  image: Image;
 }
 
-export interface GallerySection extends Omit<Section, "description"> {
+export interface GallerySection extends Section {
   type: SectionType.Gallery;
   subtitle: string;
   items: GalleryItem[];
 }
 
-export interface KeyImageSection extends Section {
+export interface KeyImageSection extends Omit<Section, "description"> {
   type: SectionType.KeyImage;
   subtitle: string;
-  description: string;
+  description?: string | string[];
   image: Image;
 }
 
-export interface TitleBreakSection extends Section {
+export interface TitleBreakSection extends Omit<Section, "description"> {
   type: SectionType.TitleBreak;
   subtitle: string;
-  description: string;
+  description: string | string[];
 }
 
 export interface TwoColumnSection extends Section {
@@ -75,14 +72,18 @@ export type ContentSection =
   | TitleBreakSection
   | TwoColumnSection;
 
-export type ProjectType = "case-study" | "code" | "design" | "ux";
+export enum ProjectType {
+  caseStudy = "case-study",
+  code = "code",
+  design = "design",
+  ux = "ux",
+}
 export interface ProjectFrontMatterData {
   displayOrder: number;
   projectType: ProjectType;
   title: string;
   subtitle?: string;
-  description: string;
-  summary: string;
+  description?: string;
   thumb: string;
   hero: Image;
   heroOrientation: "vertical" | "horizontal";

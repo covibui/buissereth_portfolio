@@ -3,7 +3,6 @@ import palette from "@/theme/palette";
 import { CoverSection } from "@/types";
 import hexToRGBA from "@/utils/hexToRGBA";
 import { Box, Toolbar, Typography, useMediaQuery } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
 import DescriptionContent from "./DescriptionContent";
 import useGetImagePath from "@/hooks/useGetImagePath";
@@ -61,9 +60,6 @@ export default function ProjectCoverSection({ section }: Props) {
           justifyContent: "space-between",
           minHeight: "100vh",
         },
-        variant === "vertical" && {
-          px: { md: 1.25 },
-        },
       ]}
     >
       <Toolbar />
@@ -81,22 +77,24 @@ export default function ProjectCoverSection({ section }: Props) {
               justifyContent: "flex-end",
             }}
           >
-            <Grid
-              container
+            <Box
               sx={{
-                width: 1,
+                display: "grid",
+                gridTemplateColumns: "repeat(12, 1fr)",
+                columnGap: 2.5,
                 position: "relative",
                 mt: { xs: 30, md: 0 },
+                px: { xs: 2, md: 0 },
                 zIndex: 2,
                 background: palette.white,
               }}
             >
-              <Grid xs={12} md={10} mdOffset={1}>
-                <Box sx={{ my: 8, px: { xs: 2, md: 0 } }}>
-                  <CoverTextContent />
-                </Box>
-              </Grid>
-            </Grid>
+              <Box
+                sx={{ gridColumn: { xs: "span 12", md: "2 / span 10" }, py: 8 }}
+              >
+                <CoverTextContent />
+              </Box>
+            </Box>
             <Box>
               <Box
                 sx={{
@@ -113,62 +111,55 @@ export default function ProjectCoverSection({ section }: Props) {
           </Box>
         </>
       ) : (
-        <Grid
-          container
-          spacing={2.5}
-          columns={12}
-          sx={{ mt: 0, height: 1, flexGrow: 1 }}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 1fr)",
+            columnGap: 2.5,
+            flexGrow: 1,
+          }}
         >
-          <Grid md={5} mdOffset={1}>
+          <Box
+            sx={{
+              gridColumn: "2 / span 5",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              height: 1,
+            }}
+          >
+            <CoverTextContent />
+          </Box>
+          <Box
+            sx={{
+              gridColumn: "span 6",
+              display: "flex",
+              alignItems: "center",
+              aspectRatio: { xs: 1, md: "unset" },
+              height: { md: 1 },
+            }}
+          >
             <Box
               sx={{
-                display: {
-                  md: "flex",
-                },
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "flex-start",
-                height: {
-                  md: 1,
-                },
-                pr: {
-                  md: 2,
-                },
-              }}
-            >
-              <CoverTextContent />
-            </Box>
-          </Grid>
-          <Grid xs={12} md={6} sx={{ my: { md: -1.25 }, pr: { md: 0 } }}>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                aspectRatio: { xs: 1, md: "unset" },
-                height: { md: 1 },
+                position: "relative",
+                height: 1,
+                flexGrow: 1,
               }}
             >
               <Box
                 sx={{
-                  position: "relative",
+                  position: "absolute",
+                  width: 1,
                   height: 1,
-                  flexGrow: 1,
+                  background: overlayColor,
+                  zIndex: 1,
                 }}
-              >
-                <Box
-                  sx={{
-                    position: "absolute",
-                    width: 1,
-                    height: 1,
-                    background: overlayColor,
-                    zIndex: 1,
-                  }}
-                />
-                <HeroImage />
-              </Box>
+              />
+              <HeroImage />
             </Box>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       )}
     </Box>
   );

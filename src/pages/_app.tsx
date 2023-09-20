@@ -7,7 +7,6 @@ import Head from "next/head";
 import { StrictMode } from "react";
 import "@fortawesome/fontawesome-free/css/all.css";
 
-// Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
 export interface MyAppProps extends AppProps {

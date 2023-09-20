@@ -1,5 +1,4 @@
 import { Box, Container } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
 import { ReactNode } from "react";
 
 interface Props {
@@ -9,11 +8,25 @@ interface Props {
 export default function AppContainer({ children }: Props) {
   return (
     <Container maxWidth="xl" disableGutters>
-      <Grid container>
-        <Grid xs={12} md={10} mdOffset={1}>
-          <Box sx={{ px: { xs: 2, md: 0 } }}>{children}</Box>
-        </Grid>
-      </Grid>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(12, 1fr)",
+          columnGap: 2.5,
+          px: { xs: 2, md: 0 },
+        }}
+      >
+        <Box
+          sx={{
+            gridColumn: {
+              xs: "span 12",
+              md: "2 / span 10",
+            },
+          }}
+        >
+          {children}
+        </Box>
+      </Box>
     </Container>
   );
 }

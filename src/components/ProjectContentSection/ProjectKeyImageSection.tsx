@@ -1,7 +1,6 @@
 import { KeyImageSection } from "@/types";
 import convertToKebabCase from "@/utils/convertToKebabCase";
 import { Box, Toolbar, Typography, useMediaQuery } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
 import DescriptionContent from "./DescriptionContent";
 import Image from "next/image";
 import useGetImagePath from "@/hooks/useGetImagePath";
@@ -16,8 +15,12 @@ interface Props {
 export default function ProjectKeyImageSection({ section }: Props) {
   const { subtitle, description, image } = section;
   const breakpoints = theme.breakpoints.values;
-  const isScreenMd = useMediaQuery(theme.breakpoints.up("md"));
 
+  const descriptionItems = description
+    ? Array.isArray(description)
+      ? description
+      : [description]
+    : undefined;
   const imagePath = useGetImagePath(image);
 
   return (
@@ -29,7 +32,6 @@ export default function ProjectKeyImageSection({ section }: Props) {
         minHeight: { md: "100vh" },
       }}
     >
-      {isScreenMd && <Toolbar />}
       <Box
         component="section"
         id={convertToKebabCase(subtitle)}
@@ -41,19 +43,50 @@ export default function ProjectKeyImageSection({ section }: Props) {
         }}
       >
         <AppContainer>
-          <Grid container spacing={2.5} columns={10}>
-            <Grid xs={10} md={8} mdOffset={1} lg={6} lgOffset={2}>
-              <Box>
-                <Typography
-                  variant="projectSubtitle"
-                  sx={{ textAlign: "center" }}
-                >
-                  {subtitle}
-                </Typography>
-                <DescriptionContent description={description} />
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "repeat(10, 1fr)",
+              columnGap: 2.5,
+              pt: 16,
+            }}
+          >
+            <Box
+              sx={{
+                gridColumn: {
+                  xs: "span 10",
+                  md: "2 / span 8",
+                },
+              }}
+            >
+              <Typography
+                variant="projectSubtitle"
+                sx={[{ textAlign: "center" }, !description && { mb: 8 }]}
+              >
+                {subtitle}
+              </Typography>
+            </Box>
+            {descriptionItems && (
+              <Box
+                sx={{
+                  gridColumn: {
+                    xs: "span 10",
+                    md: descriptionItems?.length > 2 ? "span 10" : "2 / span 8",
+                  },
+                  display: { md: "grid" },
+                  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+                  columnGap: 4,
+                  rowGap: 8,
+                }}
+              >
+                {descriptionItems.map((item, idx) => (
+                  <Box key={idx} sx={{ mb: { xs: 2, lg: 0 } }}>
+                    <DescriptionContent description={item} />
+                  </Box>
+                ))}
               </Box>
-            </Grid>
-          </Grid>
+            )}
+          </Box>
         </AppContainer>
         <Box
           sx={{
@@ -65,47 +98,46 @@ export default function ProjectKeyImageSection({ section }: Props) {
             position: "relative",
           }}
         >
-          <Grid
-            container
-            spacing={2.5}
+          <Box
             sx={{
-              pb: 0,
+              display: "grid",
+              gridTemplateColumns: "repeat(12, 1fr)",
+              columnGap: 2.5,
               background: palette.blueGrey[100],
             }}
           >
-            <Grid
-              xs={12}
-              sm={10}
-              smOffset={1}
-              lg={8}
-              lgOffset={2}
-              sx={{ mt: -12, pb: 0 }}
+            <Box
+              sx={{
+                gridColumn: {
+                  xs: "span 12",
+                  md: "2 / span 10",
+                },
+                mt: -12,
+              }}
             >
-              <Box sx={{ flexGrow: 1 }}>
-                <Box sx={{ display: "flex", justifyContent: "center" }}>
-                  <Box
-                    sx={{
-                      position: "relative",
-                      aspectRatio: 4 / 3,
-                      maxWidth: "auto",
-                      width: 1,
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Box
+                  sx={{
+                    position: "relative",
+                    aspectRatio: 4 / 3,
+                    maxWidth: "auto",
+                    width: 1,
+                  }}
+                >
+                  <Image
+                    fill
+                    src={imagePath}
+                    sizes={`(max-width: ${breakpoints.sm}): 50vw, 100vw`}
+                    alt={image.alt}
+                    style={{
+                      objectFit: "contain",
+                      position: "absolute",
                     }}
-                  >
-                    <Image
-                      fill
-                      src={imagePath}
-                      sizes={`(max-width: ${breakpoints.sm}): 50vw, 100vw`}
-                      alt={image.alt}
-                      style={{
-                        objectFit: "contain",
-                        position: "absolute",
-                      }}
-                    />
-                  </Box>
+                  />
                 </Box>
               </Box>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
         </Box>
       </Box>
     </Box>

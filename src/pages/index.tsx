@@ -19,7 +19,6 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
 import { theme } from "@/theme";
 import palette from "@/theme/palette";
@@ -192,80 +191,79 @@ export default function Home({ projectGroups }: Props) {
             }}
           >
             <Toolbar />
-            <Grid
-              container
-              spacing={2.5}
-              columns={10}
-              sx={{ mt: { xs: 4, md: 0 } }}
+            <Box
+              sx={{
+                display: { md: "grid" },
+                gridTemplateColumns: "repeat(10, 1fr)",
+                columnGap: 2.5,
+              }}
             >
-              <Grid xs={10} md={5} lg={4}>
-                <Box
+              <Box
+                sx={{
+                  gridColumn: { md: "span 5", lg: "span 4" },
+                  display: {
+                    md: "flex",
+                  },
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
+                  height: {
+                    md: 1,
+                  },
+                }}
+              >
+                <Typography
+                  variant="h1"
                   sx={{
-                    display: {
-                      md: "flex",
-                    },
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                    height: {
-                      md: 1,
-                    },
+                    mb: 2,
+                    fontSize: "2.25rem",
+                    fontWeight: 600,
                   }}
                 >
-                  <Typography
-                    variant="h1"
-                    sx={{
-                      mb: 2,
-                      fontSize: "2.25rem",
-                      fontWeight: 600,
-                    }}
-                  >
-                    {NAME}
-                  </Typography>
-                  <Typography variant="body1" sx={{ mb: 2 }}>
-                    Id amet velit esse pariatur tempor minim consectetur ea
-                    deserunt eu ad nulla. Reprehenderit consequat sit anim elit
-                    cillum eu deserunt.
-                  </Typography>
-                  <Typography variant="body1" sx={{ mb: 2 }}>
-                    Reprehenderit excepteur dolor commodo mollit ex id tempor
-                    irure dolor laboris occaecat irure pariatur excepteur.
-                  </Typography>
-                  <Button color="primary" href="#contact">
-                    Get in touch
-                  </Button>
-                </Box>
-              </Grid>
-              <Grid xs={10} md={5} lg={6}>
+                  {NAME}
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 2 }}>
+                  Id amet velit esse pariatur tempor minim consectetur ea
+                  deserunt eu ad nulla. Reprehenderit consequat sit anim elit
+                  cillum eu deserunt.
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 2 }}>
+                  Reprehenderit excepteur dolor commodo mollit ex id tempor
+                  irure dolor laboris occaecat irure pariatur excepteur.
+                </Typography>
+                <Button color="primary" href="#contact">
+                  Get in touch
+                </Button>
+              </Box>
+              <Box
+                sx={{
+                  gridColumn: { md: "span 5", lg: "span 6" },
+                  display: "flex",
+                  alignItems: "center",
+                  height: 1,
+                }}
+              >
                 <Box
                   sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    height: 1,
+                    position: "relative",
+                    aspectRatio: 710 / 660,
+                    maxWidth: {
+                      xs: "75vw",
+                      lg: "auto",
+                    },
+                    mx: "auto",
+                    flexGrow: 1,
                   }}
                 >
-                  <Box
-                    sx={{
-                      position: "relative",
-                      aspectRatio: 710 / 660,
-                      maxWidth: {
-                        xs: "75vw",
-                        lg: "auto",
-                      },
-                      mx: "auto",
-                      flexGrow: 1,
-                    }}
-                  >
-                    <Image
-                      fill
-                      src="/images/portrait.png"
-                      sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
-                      alt={NAME}
-                    />
-                  </Box>
+                  <Image
+                    fill
+                    src="/images/portrait.png"
+                    sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
+                    alt={NAME}
+                  />
                 </Box>
-              </Grid>
-            </Grid>
+              </Box>
+            </Box>
             <Divider />
           </Box>
           <Box component="section" id="projects">

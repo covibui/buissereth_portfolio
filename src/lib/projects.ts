@@ -7,6 +7,7 @@ import {
   ProjectFrontMatterData,
   ProjectGroup,
 } from "@/types";
+import lintProject from "@/utils/lintProject";
 
 const root = path.join(process.cwd(), "src");
 const projectsDirectory = path.join(root, "data/projects");
@@ -34,6 +35,8 @@ export function getSortedProjectsByType(
       ...data,
     };
   });
+
+  projects.forEach((project) => lintProject(projectType, project));
 
   return projects.sort((a, b) => {
     if (a.displayOrder < b.displayOrder) {
@@ -76,11 +79,15 @@ export async function getProjectByTypeAndSlug(
   const { data, content }: { data: ProjectFrontMatterData; content: string } =
     matter(source);
 
+  const frontMatter: ProjectFrontMatter = {
+    slug,
+    ...data,
+  };
+
+  lintProject(projectType, frontMatter);
+
   return {
-    frontMatter: {
-      slug,
-      ...data,
-    },
+    frontMatter,
     content,
   };
 }
