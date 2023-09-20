@@ -2,7 +2,7 @@
 displayOrder: 3
 projectType: 'design'
 title: 'Dealership Service Map'
-description: 'Car dealership'
+description: 'A comprehensive study to analyze and optimize the customer experience, from initial inquiry to post-purchase services, for enhanced satisfaction and efficiency.'
 thumb: 'screen-post-WnDC9k1aiZ8-unsplash.jpg'
 hero:
   file: 'screen-post-WnDC9k1aiZ8-unsplash.jpg'

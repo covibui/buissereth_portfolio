@@ -2,7 +2,10 @@
 displayOrder: 1
 projectType: 'ux'
 title: 'POC Service Experience Vision'
-description: 'To envision a solution for automotive technicians to have an assistive technology for daily tasks and inspections.' 
+description: 'Creating a proof of concept for an experimental voice user interface (VUI) to envision a solution for automotive
+technicians to have an assistive
+technology for daily tasks and
+inspections.' 
 thumb: 'project-cover.jpg'
 hero:
   file: 'project-cover.jpg'
