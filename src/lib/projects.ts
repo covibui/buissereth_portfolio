@@ -2,10 +2,12 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import {
+  ProjectCategory,
   ProjectData,
   ProjectFrontMatter,
   ProjectFrontMatterData,
   ProjectGroup,
+  ProjectType,
 } from "@/types";
 import lintProject from "@/utils/lintProject";
 
@@ -48,21 +50,14 @@ export function getSortedProjectsByType(
 }
 
 export function getSortedProjects(): ProjectGroup[] {
-  // * Uncomment below and remove 54-60 when ready to enable school and work projects.
-  // const groups = Object.entries(ProjectType).map(([title, slug]) => {
-  //     return {
-  //         slug: slug,
-  //         title: title,
-  //         projects: getSortedProjectsByType(slug),
-  //     };
-  // });
-  const groups = [
-    {
-      slug: "work",
-      title: "Work",
-      projects: getSortedProjectsByType("work"),
-    },
-  ];
+  const groups = Object.entries(ProjectCategory).map(([title, slug]) => {
+    return {
+      slug: slug,
+      title: title,
+      projects: getSortedProjectsByType(slug),
+    };
+  });
+
   return groups;
 }
 
