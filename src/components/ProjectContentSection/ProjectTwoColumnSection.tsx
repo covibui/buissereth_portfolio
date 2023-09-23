@@ -6,6 +6,7 @@ import useGetImagePath from "@/hooks/useGetImagePath";
 import Image from "next/image";
 import { theme } from "@/theme";
 import AppContainer from "../AppContainer";
+import { themeShadow } from "@/theme/palette";
 
 interface Props {
   section: TwoColumnSection;
@@ -49,6 +50,7 @@ export default function ProjectTwoColumnSection({ section }: Props) {
           style={{
             objectFit: "contain",
             position: "absolute",
+            boxShadow: image.shadow ? themeShadow : undefined,
           }}
         />
       </Box>

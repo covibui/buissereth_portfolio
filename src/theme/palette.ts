@@ -29,3 +29,5 @@ export default {
   },
   white: "#fff",
 };
+
+export const themeShadow = "2px 2px 6px 4px rgba(71,85,105,0.4)";

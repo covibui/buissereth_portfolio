@@ -9,6 +9,7 @@ export interface Image {
   alt: string;
   title?: string;
   caption?: string;
+  shadow?: boolean;
 }
 
 export enum SectionType {

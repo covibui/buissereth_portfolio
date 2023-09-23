@@ -106,6 +106,15 @@ function lintProjectSection(
     }
     validateConditionalString(`${field}.title`, value.title);
     validateConditionalString(`${field}.caption`, value.caption);
+    if (value.shadow && value.shadow !== true) {
+      throw new ProjectSectionValidationError(
+        projectSlug,
+        index,
+        `${field}.shadow`,
+        value.shadow,
+        "must either be boolean `true` or removed"
+      );
+    }
   };
 
   if (!section.type || !Object.values(SectionType).includes(section.type)) {
@@ -261,6 +270,14 @@ export default function lintProject(
     }
     validateConditionalString(`${field}.title`, value.title);
     validateConditionalString(`${field}.caption`, value.caption);
+    if (value.shadow) {
+      throw new ProjectValidationError(
+        project.slug,
+        `${field}.shadow`,
+        value.shadow,
+        "has no affect and should be removed"
+      );
+    }
   };
 
   validateNumber("displayOrder", project.displayOrder);

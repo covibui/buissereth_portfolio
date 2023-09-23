@@ -5,7 +5,7 @@ import DescriptionContent from "./DescriptionContent";
 import Image from "next/image";
 import useGetImagePath from "@/hooks/useGetImagePath";
 import { theme } from "@/theme";
-import palette from "@/theme/palette";
+import palette, { themeShadow } from "@/theme/palette";
 import AppContainer from "../AppContainer";
 
 interface Props {
@@ -132,6 +132,7 @@ export default function ProjectKeyImageSection({ section }: Props) {
                     style={{
                       objectFit: "contain",
                       position: "absolute",
+                      boxShadow: image.shadow ? themeShadow : undefined,
                     }}
                   />
                 </Box>

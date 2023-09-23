@@ -25,6 +25,7 @@ sections:
     image:
       file: 'afiye-desktop-screengrab01.png'
       alt: 'Desktop screen'
+      shadow: true
 
   - type: 'gallery'
     subtitle: 'User Research'

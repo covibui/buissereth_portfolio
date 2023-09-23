@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import DescriptionContent from "./DescriptionContent";
 import useGetImagePath from "@/hooks/useGetImagePath";
 import AppContainer from "../AppContainer";
+import { themeShadow } from "@/theme/palette";
 
 interface Props {
   section: GallerySection;
@@ -67,6 +68,7 @@ function GallerySectionItem({ item }: GallerySectionItemProps) {
         style={{
           width: "100%",
           height: "auto",
+          boxShadow: image.shadow ? themeShadow : undefined,
         }}
       />
     </Box>
