@@ -10,7 +10,9 @@ import {
 
 class ProjectValidationError extends Error {
   constructor(slug: string, field: string, value: any, message: string) {
-    super(`${slug} - "${field}" ${message}. Received: ${value}`);
+    super(
+      `${slug} - "${field}" ${message}. Received: ${typeof value} ${value}`
+    );
     this.name = "ProjectValidationError";
   }
 }
@@ -24,7 +26,7 @@ class ProjectSectionValidationError extends Error {
     message: string
   ) {
     super(
-      `${projectSlug} - "sections[${sectionIndex}].${field}" ${message}. Received: ${value}`
+      `${projectSlug} - "sections[${sectionIndex}].${field}" ${message}. Received: ${typeof value} ${value}`
     );
     this.name = "ProjectSectionValidationError";
   }
@@ -38,14 +40,14 @@ function lintProjectSection(
   index: number,
   imageFiles: string[]
 ) {
-  const validateString = (field: string, value: any) => {
+  const validateString = (field: string, value: any, message?: string) => {
     if (!value || typeof value !== "string" || value.length < 1) {
       throw new ProjectSectionValidationError(
         projectSlug,
         index,
         field,
         value,
-        "must be a string at least one character long"
+        message ?? "must be a string at least one character long"
       );
     }
   };
@@ -183,6 +185,15 @@ function lintProjectSection(
       );
     }
     validateImage("image", section.image);
+  }
+
+  if (section.type === SectionType.Video) {
+    validateString(
+      "subtitle",
+      section.subtitle,
+      "must be a string at least one character long (used only for section ID, not visible in UI)"
+    );
+    validateString("videoId", section.videoId);
   }
 }
 

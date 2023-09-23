@@ -1,13 +1,13 @@
 import { Box, Container } from "@mui/material";
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 
-interface Props {
+interface Props extends ComponentProps<typeof Container> {
   children: ReactNode;
 }
 
-export default function AppContainer({ children }: Props) {
+export default function AppContainer({ children, ...restProps }: Props) {
   return (
-    <Container maxWidth="xl" disableGutters>
+    <Container maxWidth="xl" disableGutters {...restProps}>
       <Box
         sx={{
           display: "grid",

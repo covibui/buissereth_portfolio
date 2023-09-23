@@ -7,12 +7,14 @@ import {
   SectionType,
   TitleBreakSection,
   TwoColumnSection,
+  VideoSection,
 } from "@/types";
 import ProjectCoverSection from "./ProjectCoverSection";
 import ProjectKeyImageSection from "./ProjectKeyImageSection";
 import ProjectTwoColumnSection from "./ProjectTwoColumnSection";
 import ProjectGallerySection from "./ProjectGallerySection";
 import ProjectTitleBreakSection from "./ProjectTitleBreakSection";
+import ProjectVideoSection from "./ProjectVideoSection";
 
 interface Props {
   section: ContentSection;
@@ -34,6 +36,9 @@ export default function ProjectContentSection({ section }: Props) {
     ),
     [SectionType.TwoColumn]: (
       <ProjectTwoColumnSection section={section as TwoColumnSection} />
+    ),
+    [SectionType.Video]: (
+      <ProjectVideoSection section={section as VideoSection} />
     ),
   };
   return SectionContentByType[section.type];

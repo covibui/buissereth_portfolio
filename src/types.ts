@@ -1,8 +1,8 @@
 export enum ProjectCategory {
+  Work = "work",
+  School = "school",
   // TODO: uncomment when ready to add `Other` projects
   // Other = "other",
-  School = "school",
-  Work = "work",
 }
 
 export interface Image {
@@ -19,6 +19,7 @@ export enum SectionType {
   KeyImage = "key-image",
   TitleBreak = "title-break",
   TwoColumn = "two-column",
+  Video = "video",
 }
 
 export interface Section {
@@ -67,12 +68,18 @@ export interface TwoColumnSection extends Section {
   image: Image;
 }
 
+export interface VideoSection extends Pick<Section, "type"> {
+  type: SectionType.Video;
+  videoId: string;
+}
+
 export type ContentSection =
   | CoverSection
   | GallerySection
   | KeyImageSection
   | TitleBreakSection
-  | TwoColumnSection;
+  | TwoColumnSection
+  | VideoSection;
 
 export enum ProjectType {
   caseStudy = "case-study",
