@@ -50,4 +50,8 @@ sections: # any number of sections, order here will determine order on the proje
     image:
       file: 'image.jpg' # string: file name only, contained within a 1 / 1.5 aspect ratio container
       alt: 'Amet culpa irure et amet sunt in ut incididunt ex minim aliqua ex ea.' # string
+
+  - type: 'video'
+    subtitle: 'Section Title' # string, this is not shown in the UI and only used to set the section ID value
+    videoId: '000000000' # string, Vimeo video ID
 ---

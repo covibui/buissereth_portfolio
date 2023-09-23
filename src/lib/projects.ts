@@ -89,11 +89,7 @@ export async function getProjectByTypeAndSlug(
 
 export function getAllProjectSlugsByType(projectType: string) {
   const projectTypeDirectory = path.join(projectsDirectory, projectType);
-  let fileNames = fs.readdirSync(projectTypeDirectory);
-  const templateIndex = fileNames.indexOf("_template.md");
-  if (templateIndex > -1) {
-    fileNames.splice(templateIndex, 1);
-  }
+  const fileNames = fs.readdirSync(projectTypeDirectory);
   return fileNames.map((fileName) => {
     return {
       params: {
