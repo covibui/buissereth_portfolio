@@ -1,5 +1,6 @@
 export enum ProjectCategory {
-  Other = "other",
+  // TODO: uncomment when ready to add `Other` projects
+  // Other = "other",
   School = "school",
   Work = "work",
 }
