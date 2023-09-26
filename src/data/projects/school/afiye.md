@@ -11,6 +11,10 @@ hero:
 heroOrientation: 'vertical'
 color: '#6D597A'
 sections:
+  - type: 'video'
+    subtitle: 'Promo Video'
+    videoId: '557249730'
+
   - type: 'two-column'
     variant: 'left'
     subtitle: 'Overview'
