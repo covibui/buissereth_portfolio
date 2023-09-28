@@ -68,8 +68,9 @@ export interface TwoColumnSection extends Section {
   image: Image;
 }
 
-export interface VideoSection extends Pick<Section, "type"> {
+export interface VideoSection extends Pick<Section, "type" | "subtitle"> {
   type: SectionType.Video;
+  subtitle: string;
   videoId: string;
 }
 
