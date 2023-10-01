@@ -110,7 +110,7 @@ export default function ProjectKeyImageSection({ section }: Props) {
               sx={{
                 gridColumn: {
                   xs: "span 12",
-                  md: "2 / span 10",
+                  md: "3 / span 8",
                 },
                 mt: -12,
               }}
@@ -127,8 +127,9 @@ export default function ProjectKeyImageSection({ section }: Props) {
                   <Image
                     fill
                     src={imagePath}
-                    sizes={`(max-width: ${breakpoints.sm}): 50vw, 100vw`}
+                    sizes={`100vw`}
                     alt={image.alt}
+                    quality={100}
                     style={{
                       objectFit: "contain",
                       position: "absolute",

@@ -10,10 +10,9 @@ import {
   ProjectCategory,
   SectionType,
 } from "@/types";
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import ProjectDisclaimer from "@/components/ProjectDisclaimer";
 
 export default function Project({ frontMatter }: ProjectData) {
   const coverSection: CoverSection = {
@@ -33,7 +32,7 @@ export default function Project({ frontMatter }: ProjectData) {
       </Head>
       <Box>
         <ProjectContentSection section={coverSection} />
-        <ProjectDisclaimer />
+        <Divider />
         {frontMatter.sections.map((section, idx) => (
           <ProjectContentSection key={idx} section={section} />
         ))}
