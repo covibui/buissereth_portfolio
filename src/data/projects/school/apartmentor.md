@@ -33,6 +33,7 @@ sections:
     image:
       file: 'apartmentor-zillow-screenshot02.png' 
       alt: 'Screenshot of the user interface of Zillow'
+      shadow: true
 
   - type: 'key-image'
     subtitle: 'Methodology for Design' 
@@ -43,6 +44,7 @@ sections:
     image:
       file: 'apartmentor-design-methodology.png'
       alt: "Style tile of Apartmentor's branding and visual identity"
+      shadow: true
 
   - type: 'two-column'
     variant: 'right'
@@ -51,6 +53,7 @@ sections:
     image:
       file: 'apartmentor-thumb.png'
       alt: 'Mobile phome screen grabs of key pages of Apartmentor'
+      shadow: true
 
   - type: 'two-column'
     variant: 'left'
@@ -59,6 +62,7 @@ sections:
     image:
       file: 'apartmentor-filters.png'
       alt: 'Mobile app on a filter page'
+      shadow: true
 
   - type: 'two-column'
     variant: 'right'
@@ -67,6 +71,7 @@ sections:
     image:
       file: 'apartmentor-listing.png'
       alt: 'Mobile app on a apartment listing page'
+      shadow: true
 
   - type: 'two-column'
     variant: 'left'
@@ -75,6 +80,7 @@ sections:
     image:
       file: 'apartmentor-lessons.png'
       alt: 'Mobile app on basic leasing lesson page'
+      shadow: true
 
   - type: 'two-column'
     variant: 'right'
@@ -83,6 +89,7 @@ sections:
     image:
       file: 'apartmentor-budgeting.png'
       alt: 'Mobile app on budgeting page'
+      shadow: true
 
   - type: 'gallery'
     subtitle: 'Final Observations' 
@@ -91,4 +98,6 @@ sections:
         image:
           file: 'apartmentor-thumb.png'
           alt: 'Mobile phome screen grabs of key pages of Apartmentor'
+          shadow: true
+        
 ---
