@@ -32,26 +32,27 @@ export default function ProjectTwoColumnSection({ section }: Props) {
     >
       <Box
         sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           position: "relative",
           aspectRatio: 1 / 1.5,
           maxWidth: {
             xs: "75vw",
-            lg: "auto",
+            lg: 1,
           },
           mx: "auto",
           flexGrow: 1,
         }}
       >
-        <Image
-          fill
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={imagePath}
-          sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
-          alt={image.alt}
           style={{
-            objectFit: "contain",
-            position: "absolute",
+            maxWidth: "100%",
             boxShadow: image.shadow ? themeShadow : undefined,
           }}
+          alt={image.alt}
         />
       </Box>
     </Box>

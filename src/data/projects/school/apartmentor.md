@@ -97,7 +97,6 @@ sections:
       - description: 'Through our Apartment Maintenance lessons and Budgeting section, we increase our app’s longevity by increasing recurring users. It no longer is just an app for finding an apartment, but it becomes an app for maintaining an apartment and ensuring one’s financial security for living on their own for the first time. In this way, we aren’t just a simple application for finding apartments, we are an ApartMentor.' 
         image:
           file: 'apartmentor-thumb.png'
-          alt: 'Mobile phome screen grabs of key pages of Apartmentor'
-          shadow: true
+          alt: 'Mobile phone screen grabs of key pages of Apartmentor'
         
 ---

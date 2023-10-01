@@ -124,15 +124,12 @@ export default function ProjectKeyImageSection({ section }: Props) {
                     width: 1,
                   }}
                 >
-                  <Image
-                    fill
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={imagePath}
-                    sizes={`100vw`}
                     alt={image.alt}
-                    quality={100}
                     style={{
-                      objectFit: "contain",
-                      position: "absolute",
+                      maxWidth: "100%",
                       boxShadow: image.shadow ? themeShadow : undefined,
                     }}
                   />
