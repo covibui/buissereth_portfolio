@@ -13,15 +13,15 @@ sections:
   - type: 'gallery'
     subtitle: 'Assessing the Current State'
     items:
-      - description: "Heuristic Evaluation\nWe started with a heuristic evaluation using Jakob Nielsen's 10 general principles for interaction design.  We evaluated the current state of the cloud service platform to highlight the technical and usability issues. We focused on the landing page and the sign up experience because it is the front door of the entire platform experience."
+      - description: "We started with a heuristic evaluation using Jakob Nielsen's 10 general principles for interaction design.  We evaluated the current state of the cloud service platform to highlight the technical and usability issues. We focused on the landing page and the sign up experience because it is the front door of the entire platform experience."
         image:
           file: 'landing.png'
           alt: 'Slide with an example of the heuristics findings'
-      - description: 'Persona Validation\nWe talked to professionals of varying titles and backgrounds that would interact with the cloud service platform. We validated our personas with their insights. These personas were then used to model the customer journeys.'
+      - description: 'We talked to professionals of varying titles and backgrounds that would interact with the cloud service platform. We validated our personas with their insights. These personas were then used to model the customer journeys.'
         image:
           file: 'personas.png'
           alt: 'Slide with a summary of 5 personas'
-      - description: 'USABILITY TESTING\nIn addition to the heuristic evaluation and person a validation workshops, we also conducted usability testing. Our subjects were small business owners that are giving feedback on the current state of the cloud service platform. They gave us valuable insights on how people approach the cloud service platform with or without a technical background.'
+      - description: 'In addition to the heuristic evaluation and person a validation workshops, we also conducted usability testing. Our subjects were small business owners that are giving feedback on the current state of the cloud service platform. They gave us valuable insights on how people approach the cloud service platform with or without a technical background.'
         image:
           file: 'usability.png'
           alt: 'Slide with examples usability testing sessions'

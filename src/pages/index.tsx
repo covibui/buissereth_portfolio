@@ -223,13 +223,10 @@ export default function Home({ projectGroups }: Props) {
                   {NAME}
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 2 }}>
-                  Id amet velit esse pariatur tempor minim consectetur ea
-                  deserunt eu ad nulla. Reprehenderit consequat sit anim elit
-                  cillum eu deserunt.
+                Welcome! I'm Brianna, a passionate UX designer on a mission to craft seamless and delightful digital experiences. Join me on my creative journey as we transform user needs into user-centered designs.
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 2 }}>
-                  Reprehenderit excepteur dolor commodo mollit ex id tempor
-                  irure dolor laboris occaecat irure pariatur excepteur.
+                I'm your UX storyteller, crafting narratives through pixels and pathways, all to create digital experiences that dance with elegance. Welcome to my world of design stories and interactive tales.
                 </Typography>
                 <Button color="primary" href="#contact">
                   Get in touch
@@ -271,9 +268,7 @@ export default function Home({ projectGroups }: Props) {
             <Box sx={{ mt: 10 }}>
               <Typography variant="h2">Projects</Typography>
               <Typography sx={{ maxWidth: { md: 0.5 } }}>
-                Duis qui ullamco eiusmod. Nulla duis consequat commodo enim non
-                aliqua est et Lorem do. Ut laboris eiusmod sint culpa commodo
-                voluptate. Non amet esse ad ut.
+              Dive into my UX playground where each project is a challenge through the minds of clients and users alike! Join the fun, it's a wild UX adventure you won't want to miss!
               </Typography>
             </Box>
             {projectGroups?.map((group, idx) => {
