@@ -114,3 +114,39 @@ export interface ProjectGroup {
   title: string;
   projects: ProjectFrontMatter[];
 }
+
+interface ExperienceItem {
+  employer: string;
+  location: string;
+  position: string;
+  date: string;
+  description: string;
+  responsibilities: string[];
+}
+
+interface EducationItem {
+  school: string;
+  date: string;
+  degree: string;
+  supplemental: string;
+}
+
+interface SkillItem {
+  name: string;
+  image: string;
+}
+
+export interface Resume {
+  title: string;
+  cta: {
+    title: string;
+    summary: string;
+    button: {
+      file: string;
+      text: string;
+    };
+  };
+  experience: ExperienceItem[];
+  education: EducationItem[];
+  skills: SkillItem[];
+}
