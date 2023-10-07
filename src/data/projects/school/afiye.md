@@ -54,6 +54,7 @@ sections:
     image:
       file: 'afiye-desktop-screengrab04.png'
       alt: 'Desktop screen'
+      shadow: true
 
   - type: 'gallery'
     subtitle: 'User Personas'
