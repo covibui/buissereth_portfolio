@@ -1,6 +1,5 @@
 export default function hexToRGBA(hex: string, opacity: number = 1): string {
   if (hex.charAt(0) !== "#") {
-    console.error("Value passed as hex is not valid:", hex);
     return "rgba(0, 0, 0, 1)";
   }
   const red = parseInt(hex.substring(1, 3), 16);
