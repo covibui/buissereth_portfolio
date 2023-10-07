@@ -29,7 +29,6 @@ export default function ProjectKeyImageSection({ section }: Props) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        minHeight: { md: "100vh" },
       }}
     >
       <Box
@@ -119,8 +118,6 @@ export default function ProjectKeyImageSection({ section }: Props) {
                 <Box
                   sx={{
                     position: "relative",
-                    aspectRatio: 4 / 3,
-                    maxWidth: "auto",
                     width: 1,
                   }}
                 >
@@ -131,6 +128,9 @@ export default function ProjectKeyImageSection({ section }: Props) {
                     style={{
                       maxWidth: "100%",
                       boxShadow: image.shadow ? themeShadow : undefined,
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                      display: "block",
                     }}
                   />
                 </Box>

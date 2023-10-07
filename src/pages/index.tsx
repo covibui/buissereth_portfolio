@@ -50,6 +50,9 @@ export default function Home({ projectGroups }: Props) {
   }) => (
     <Box
       sx={[
+        {
+          aspectRatio: 3 / 1,
+        },
         isProjectsMultiColumn && {
           aspectRatio: 5 / 3,
         },
@@ -125,8 +128,9 @@ export default function Home({ projectGroups }: Props) {
                 component="strong"
                 sx={{
                   color: palette.white,
-                  fontSize: 24,
-                  lineHeight: "38px",
+                  fontSize: 20,
+                  fontWeight: 600,
+                  lineHeight: "24px",
                 }}
               >
                 {project.title}
@@ -143,7 +147,9 @@ export default function Home({ projectGroups }: Props) {
                 color: palette.white,
               }}
             >
-              <Typography sx={{ fontSize: 18 }}>Explore</Typography>
+              <Typography sx={{ fontSize: 18, fontWeight: 600 }}>
+                Explore
+              </Typography>
               <FAIcon
                 sx={{ position: "relative", left: 0, transition: "left .2s" }}
                 icon="arrow-right"
@@ -223,10 +229,16 @@ export default function Home({ projectGroups }: Props) {
                   {NAME}
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 2 }}>
-                Welcome! I'm Brianna, a passionate UX designer on a mission to craft seamless and delightful digital experiences. Join me on my creative journey as we transform user needs into user-centered designs.
+                  Welcome! I&apos;m Brianna, a passionate UX designer on a
+                  mission to craft seamless and delightful digital experiences.
+                  Join me on my creative journey as we transform user needs into
+                  user-centered designs.
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 2 }}>
-                I'm your UX storyteller, crafting narratives through pixels and pathways, all to create digital experiences that dance with elegance. Welcome to my world of design stories and interactive tales.
+                  I&apos;m your UX storyteller, crafting narratives through
+                  pixels and pathways, all to create digital experiences that
+                  dance with elegance. Welcome to my world of design stories and
+                  interactive tales.
                 </Typography>
                 <Button color="primary" href="#contact">
                   Get in touch
@@ -268,7 +280,9 @@ export default function Home({ projectGroups }: Props) {
             <Box sx={{ mt: 10 }}>
               <Typography variant="h2">Projects</Typography>
               <Typography sx={{ maxWidth: { md: 0.5 } }}>
-              Dive into my UX playground where each project is a challenge through the minds of clients and users alike! Join the fun, it's a wild UX adventure you won't want to miss!
+                Dive into my UX playground where each project is a challenge
+                through the minds of clients and users alike! Join the fun,
+                it&apos;s a wild UX adventure you won&apos;t want to miss!
               </Typography>
             </Box>
             {projectGroups?.map((group, idx) => {
@@ -286,8 +300,11 @@ export default function Home({ projectGroups }: Props) {
                     <Box sx={{ flexGrow: 1 }}>
                       <Box
                         sx={[
-                          isProjectsMultiColumn && {
+                          {
                             display: "grid",
+                            gap: 3,
+                          },
+                          isProjectsMultiColumn && {
                             gridTemplateColumns:
                               "repeat(auto-fill, minmax(300px, 1fr))",
                             gap: 5,

@@ -11,7 +11,7 @@ resume:
       - employer: "EPAM Systems"
       location: "Center City, Philadelphia, PA"
       position: "Experience Designer"
-      date: "October 2020 - May 2020"
+      date: "October 2021 - May 2023"
       desc: "Designed intuitive user interfaces for internal applications and developed wireframes, prototypes, and mockups using applications including Sketch and Figma. Ensure designs align with client brand guidelines in order to maintain a consistent visual style across applications and platforms. Continuously refined and improved designs based on data-driven insights and user-centered principles. Collaborated closely with cross-functional teams, including developers and product managers, to ensure the effectiveness and the feasibility of design concepts to meet stakeholders needs."
       resp:
         [
