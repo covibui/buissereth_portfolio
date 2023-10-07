@@ -8,6 +8,16 @@ intro:
 resume:
   title: "Resume"
   experience:
+      - employer: "EPAM Systems"
+      location: "Center City, Philadelphia, PA"
+      position: "Experience Designer"
+      date: "October 2020 - May 2020"
+      desc: "Designed intuitive user interfaces for internal applications and developed wireframes, prototypes, and mockups using applications including Sketch and Figma. Ensure designs align with client brand guidelines in order to maintain a consistent visual style across applications and platforms. Continuously refined and improved designs based on data-driven insights and user-centered principles. Collaborated closely with cross-functional teams, including developers and product managers, to ensure the effectiveness and the feasibility of design concepts to meet stakeholders needs."
+      resp:
+        [
+          "Organized and structure content and information in a logical and user-friendly manner.",
+          "Developed high-fidelity wireframes to improve the layout and basic functionality of digital products.",
+        ]
     - employer: "Afiye"
       location: "Drexel University, Philadelphia, PA"
       position: "Drexel Senior Project"
@@ -16,13 +26,13 @@ resume:
       resp:
         [
           "Utilized strong assessment skills to determine necessary changes for the evolution of the project.",
-          "Produced high quality assets in different mediums.",
+          "Produced high quality assets across multiple mediums.",
         ]
     - employer: "EPAM Systems"
       location: "Center City, Philadelphia, PA"
       position: "Associate Experience Designer"
       date: "March 2020 - September 2020"
-      desc: "Visualized designed campaigns across various physical and digital media in line with existing client brand identities. Collaborated with multiple asynchronous remote teams and stakeholders. Designed digital products for a wide range of industries. Delivered high quality deliverables utilizing various prototyping tools, Adobe Creative Suite and other programs necessary to complete the task. Participated in diverse virtual experience research workshops with key project stakeholders. Encouraged the utilization of the latest digital tools."
+      desc: "Visualized and designed campaigns across various physical and digital media to solidify existing client brand identities. Collaborated with multiple asynchronous remote teams and stakeholders. Designed digital products for a wide range of industries. Delivered high quality deliverables utilizing prototyping tools, Adobe Creative Suite and other multimedia programs to effectively complete the project.  Participated in diverse virtual experience research workshops with key project stakeholders. Encouraged the utilization of the latest digital tools."
       resp:
         [
           "Researched and designed innovative digital solutions.",
@@ -32,7 +42,7 @@ resume:
       location: "Drexel University, Philadelphia, PA"
       position: "Drexel junior Project"
       date: "September 2019 - March 2020"
-      desc: "Created and designed the brand identity for a multiplayer online game to inspire creativity and generate fun in groups. Collaborated with and a team of multiple designers to develop an iterative/expandable design system. Developed and led research workshops as well as user play testing sessions to improve and iterate the game mechanics. Managed and outsourced team members for additional project elements."
+      desc: "Created and designed the brand identity for a multiplayer online game that inspired creativity. Collaborated a team to develop an iterative/expandable design system. Lead research workshops and user play testing sessions to improve and iterate. Managed and outsourced third parties for additional project elements."
       resp:
         [
           "Synthesized mediums to achieve an accomplished final product.",
@@ -60,6 +70,8 @@ resume:
       image: "icons/sketch.svg"
     - name: "InVision"
       image: "icons/invision.svg"
+    - name: "Axure RP 10"
+      image: "icons/axure_icon.svg"
     - name: "HTML"
       image: "icons/html.svg"
     - name: "JavaScript"
