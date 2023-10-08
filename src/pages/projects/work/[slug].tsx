@@ -14,6 +14,7 @@ import { Box } from "@mui/material";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import ProjectDisclaimer from "@/components/ProjectDisclaimer";
+import { SITE_TITLE } from "@/lib/constants";
 
 export default function Project({ frontMatter }: ProjectData) {
   const coverSection: CoverSection = {
@@ -29,7 +30,7 @@ export default function Project({ frontMatter }: ProjectData) {
   return (
     <Layout>
       <Head>
-        <title>{frontMatter.title}</title>
+        <title>{`${SITE_TITLE} - ${frontMatter.title}`}</title>
       </Head>
       <Box>
         <ProjectContentSection section={coverSection} />

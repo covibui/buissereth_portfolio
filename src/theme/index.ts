@@ -63,23 +63,38 @@ export let theme = createTheme({
           theme.unstable_sx({
             borderRadius: 0,
             py: 1.25,
-            fontFamily: poppins.style.fontFamily,
             fontSize: 16,
             fontWeight: 600,
             textTransform: "unset",
           }),
         containedPrimary: ({ theme }) =>
           theme.unstable_sx({
-            "&:focus-visible": {
+            "&:focus, &:focus-visible": {
               background: theme.palette.primary.dark,
               outline: `2px solid ${theme.palette.primary.main}`,
             },
           }),
         containedInfo: ({ theme }) =>
           theme.unstable_sx({
-            "&:focus-visible": {
+            "&:active": {
+              background: palette.blueGrey[300],
+            },
+            "&:focus, &:focus-visible": {
               background: theme.palette.info.dark,
               outline: `2px solid ${theme.palette.info.main}`,
+            },
+          }),
+        containedSecondary: ({ theme }) =>
+          theme.unstable_sx({
+            "&:active": {
+              background: palette.blueGrey[600],
+            },
+            "&:hover": {
+              background: theme.palette.secondary.light,
+            },
+            "&:focus, &:focus-visible": {
+              background: theme.palette.secondary.light,
+              outline: `2px solid ${theme.palette.secondary.main}`,
             },
           }),
         sizeMedium: {
@@ -167,9 +182,6 @@ export let theme = createTheme({
         },
       ],
       styleOverrides: {
-        root: {
-          fontFamily: poppins.style.fontFamily,
-        },
         h1: {
           fontSize: "4rem",
           fontWeight: 700,
@@ -184,9 +196,7 @@ export let theme = createTheme({
           fontWeight: 600,
           marginBottom: 16,
         },
-        button: {
-          fontFamily: poppins.style.fontFamily,
-        },
+        h4: { fontSize: "1.25rem", fontWeight: 600 },
       },
     },
   },
@@ -202,5 +212,12 @@ export let theme = createTheme({
       dark: palette.blueGrey[200],
       contrastText: palette.black,
     },
+    secondary: {
+      main: palette.blueGrey[900],
+      light: palette.blueGrey[700],
+    },
+  },
+  typography: {
+    fontFamily: poppins.style.fontFamily,
   },
 });

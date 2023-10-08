@@ -9,7 +9,6 @@ export default function ContactSection() {
   return (
     <AppContainer>
       <Box>
-        {isScreenMd && <Toolbar />}
         <Box
           component="section"
           id="contact"

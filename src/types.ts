@@ -126,6 +126,7 @@ interface ExperienceItem {
 
 interface EducationItem {
   school: string;
+  location: string;
   date: string;
   degree: string;
   supplemental: string;
@@ -136,7 +137,7 @@ interface SkillItem {
   image: string;
 }
 
-export interface Resume {
+export interface ResumeData {
   title: string;
   cta: {
     title: string;

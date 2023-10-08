@@ -41,6 +41,7 @@ experience:
       - "Produced high quality deliverables using various digital tools."
 education:
   - school: "Drexel University"
+    location: "Philadelphia, PA"
     date: "September 2017 - 2021"
     degree: "BS in Interactive Digital Media"
     supplemental: "Minor in Graphic Design"
@@ -62,7 +63,7 @@ skills:
   - name: "InVision"
     image: "invision.svg"
   - name: "Axure RP 10"
-    image: "axure_icon.svg"
+    image: "axure_icon.png"
   - name: "HTML"
     image: "html.svg"
   - name: "JavaScript"
