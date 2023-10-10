@@ -99,8 +99,10 @@ export default function Resume({ pageData }: Props) {
             Download PDF
           </Button>
         </Box>
-        <Box component="section" id="resume-experience" sx={{ mb: 5 }}>
-          <Typography variant="h2">Experience</Typography>
+        <Box component="section" id="resume-experience" sx={{ mb: 8 }}>
+          <Typography variant="h2" sx={{ mb: 6 }}>
+            Experience
+          </Typography>
           {pageData.experience.map((experienceItem, idx) => (
             <TimelineItem key={idx}>
               <Box
@@ -150,7 +152,9 @@ export default function Resume({ pageData }: Props) {
           ))}
         </Box>
         <Box component="section" id="resume-education" sx={{ mb: 5 }}>
-          <Typography variant="h2">Education</Typography>
+          <Typography variant="h2" sx={{ mb: 6 }}>
+            Education
+          </Typography>
           {pageData.education.map((educationItem, idx) => (
             <TimelineItem key={idx}>
               <Box
@@ -181,8 +185,10 @@ export default function Resume({ pageData }: Props) {
             </TimelineItem>
           ))}
         </Box>
-        <Box component="section" id="resume-skills" sx={{ mb: 5 }}>
-          <Typography variant="h2">Skills</Typography>
+        <Box component="section" id="resume-skills" sx={{ mb: 8 }}>
+          <Typography variant="h2" sx={{ mb: 6 }}>
+            Skills
+          </Typography>
           <Box
             sx={{
               display: "flex",
