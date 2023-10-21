@@ -229,16 +229,10 @@ export default function Home({ projectGroups }: Props) {
                   {NAME}
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 2 }}>
-                  Welcome! I&apos;m Brianna, a passionate UX designer on a
-                  mission to craft seamless and delightful digital experiences.
-                  Join me on my creative journey as we transform user needs into
-                  user-centered designs.
+                  I&apos;m Brianna, a passionate UX designer on a mission to craft seamless and delightful digital experiences. Welcome to my design stories and interactive journeys.  
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 2 }}>
-                  I&apos;m your UX storyteller, crafting narratives through
-                  pixels and pathways, all to create digital experiences that
-                  dance with elegance. Welcome to my world of design stories and
-                  interactive tales.
+                   Join me on my creative journey as we transform user needs into user-centered designs. I&apos;m your UX storyteller, crafting narratives through pixels and pathways, all to create digital experiences that dance with elegance.
                 </Typography>
                 <Button color="primary" href="#contact">
                   Get in touch
