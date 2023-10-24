@@ -1,2 +1,5 @@
+[context.production]
+    publish = ".next/"
+    command = "npm run build"
 [context.deploy-preview]
     publish = ".next/"
