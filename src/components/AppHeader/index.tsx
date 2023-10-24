@@ -31,7 +31,6 @@ export default function AppHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { breakpoints } = useTheme();
   const isMobile = useMediaQuery(breakpoints.down("sm"));
-  const router = useRouter();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);

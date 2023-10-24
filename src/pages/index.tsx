@@ -10,15 +10,7 @@ import {
   SITE_TITLE,
   SOCIAL_IMAGE,
 } from "@/lib/constants";
-import {
-  Box,
-  Button,
-  Divider,
-  Link,
-  Toolbar,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Button, Link, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { theme } from "@/theme";
 import palette from "@/theme/palette";
@@ -185,92 +177,100 @@ export default function Home({ projectGroups }: Props) {
                     <meta name="twitter:image" content={SOCIAL_IMAGE} />
                     <meta name="og:twitter:alt" content={SITE_DESCRIPTION} /> */}
         </Head>
-        <AppContainer>
+        <Box
+          component="section"
+          id="hero"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            minHeight: "100vh",
+          }}
+        >
           <Box
-            component="section"
-            id="hero"
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              minHeight: "100vh",
+              display: { md: "grid" },
+              gridTemplateColumns: "repeat(12, 1fr)",
+              columnGap: 2.5,
+              maxWidth: (theme) => theme.breakpoints.values.lg,
+              mt: 12,
+              mx: "auto",
+              px: { xs: 2, md: 0 },
             }}
           >
-            <Toolbar />
             <Box
               sx={{
-                display: { md: "grid" },
-                gridTemplateColumns: "repeat(10, 1fr)",
-                columnGap: 2.5,
+                gridColumn: { md: "span 6", lg: "span 7" },
+                my: { xs: 4, md: 2 },
+                px: { md: 3 },
+                display: "flex",
+                alignItems: "center",
+                height: 1,
               }}
             >
               <Box
                 sx={{
-                  gridColumn: { md: "span 5", lg: "span 4" },
-                  display: {
-                    md: "flex",
+                  position: "relative",
+                  aspectRatio: 846 / 937,
+                  maxWidth: {
+                    xs: "75vw",
+                    lg: "auto",
                   },
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "flex-start",
-                  height: {
-                    md: 1,
-                  },
+                  mx: "auto",
+                  flexGrow: 1,
                 }}
               >
-                <Typography
-                  variant="h1"
-                  sx={{
-                    mb: 2,
-                    fontSize: "2.25rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  {NAME}
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 2 }}>
-                  I&apos;m Brianna, a passionate UX designer on a mission to craft seamless and delightful digital experiences. Welcome to my design stories and interactive journeys.  
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 2 }}>
-                   Join me on my creative journey as we transform user needs into user-centered designs. I&apos;m your UX storyteller, crafting narratives through pixels and pathways, all to create digital experiences that dance with elegance.
-                </Typography>
-                <Button color="primary" href="#contact">
-                  Get in touch
-                </Button>
-              </Box>
-              <Box
-                sx={{
-                  gridColumn: { md: "span 5", lg: "span 6" },
-                  display: "flex",
-                  alignItems: "center",
-                  height: 1,
-                }}
-              >
-                <Box
-                  sx={{
-                    position: "relative",
-                    aspectRatio: 710 / 660,
-                    maxWidth: {
-                      xs: "75vw",
-                      lg: "auto",
-                    },
-                    mx: "auto",
-                    flexGrow: 1,
-                  }}
-                >
-                  <Image
-                    fill
-                    src="/images/portrait.png"
-                    sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
-                    alt={NAME}
-                  />
-                </Box>
+                <Image
+                  fill
+                  src="/images/buissereth_hero.png"
+                  sizes={`(max-width: ${breakpoints.md}): 50vw, 60vw`}
+                  alt={NAME}
+                />
               </Box>
             </Box>
-            <Divider />
+            <Box
+              sx={{
+                gridColumn: { md: "span 5", lg: "span 4" },
+                display: {
+                  md: "flex",
+                },
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                height: {
+                  md: 1,
+                },
+              }}
+            >
+              <Typography
+                variant="h1"
+                sx={{
+                  mb: 2,
+                  fontSize: "2.25rem",
+                  fontWeight: 600,
+                }}
+              >
+                {NAME}
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                I&apos;m Brianna, a passionate UX designer on a mission to craft
+                seamless and delightful digital experiences. Welcome to my
+                design stories and interactive journeys.
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                Join me on my creative journey as we transform user needs into
+                user-centered designs. I&apos;m your UX storyteller, crafting
+                narratives through pixels and pathways, all to create digital
+                experiences that dance with elegance.
+              </Typography>
+              <Button color="primary" href="#contact">
+                Get in touch
+              </Button>
+            </Box>
           </Box>
+        </Box>
+        <AppContainer>
           <Box component="section" id="projects">
-            <Toolbar />
             <Box sx={{ mt: 10 }}>
               <Typography variant="h2">Projects</Typography>
               <Typography sx={{ maxWidth: { md: 0.5 } }}>
