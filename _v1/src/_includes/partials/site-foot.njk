@@ -1,0 +1,21 @@
+<footer>
+  <div class="container flex flex-col md:flex-row justify-between md:items-center py-6">
+    <p>&copy; {% currentYear %} Brianna Buissereth</p>
+    <nav>
+      <ul class="flex items-center gap-4">
+        {% for item in navigation.items %}
+          <li class="before:hidden m-0 pl-0">
+            <a href="{{ item.url }}" class="font-normal text-blueGray-600 dark:text-gray-400 hover:text-blueGray-900 dark:hover:text-gray-50 hover:no-underline">{{ item.text }}</a>
+          </li>
+        {% endfor %}
+        {% for item in social.items %}
+          <li class="before:hidden h-5 w-5 m-0 pl-0">
+            <a href="{{ item.url }}" class="text-blueGray-600 dark:text-gray-400 hover:text-blueGray-900 dark:hover:text-gray-50">
+              {% include item.image %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</footer>

@@ -1,0 +1,3 @@
+# Ignore build and packaged files
+dist
+node_modules

@@ -1,0 +1,67 @@
+{
+  "name": "buissereth_portfolio",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "serve:webpack": "webpack --watch --config webpack/webpack.dev.js",
+    "serve:eleventy": "ELEVENTY_ENV=development eleventy --serve",
+    "serve": "npm-run-all clean --parallel serve:*",
+    "build:webpack": "webpack --config webpack/webpack.prod.js",
+    "build:eleventy": "ELEVENTY_ENV=production NODE_ENV=production eleventy",
+    "build": "run-s clean build:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/covibui/buissereth_portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/covibui/buissereth_portfolio/issues"
+  },
+  "homepage": "https://github.com/covibui/buissereth_portfolio#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.2.2",
+    "@babel/core": "^7.22.8",
+    "@babel/preset-env": "^7.22.7",
+    "@tailwindcss/aspect-ratio": "^0.2.2",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^8.3.0",
+    "copy-webpack-plugin": "^9.1.0",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^3.4.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-webpack-plugin": "^3.2.0",
+    "html-minifier": "^4.0.0",
+    "imagemin-webp": "^6.1.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "markdown-it": "^10.0.0",
+    "markdown-it-attrs": "^4.1.6",
+    "markdown-it-image-lazy-loading": "^1.2.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.25",
+    "postcss-import": "^14.1.0",
+    "postcss-loader": "^6.2.1",
+    "prettier": "^2.8.8",
+    "rimraf": "^3.0.2",
+    "style-loader": "^3.3.3",
+    "tailwindcss": "^2.2.19",
+    "tailwindcss-rtl": "^0.7.3",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-merge": "^5.9.0"
+  },
+  "dependencies": {
+    "jquery": "^3.7.0"
+  }
+}

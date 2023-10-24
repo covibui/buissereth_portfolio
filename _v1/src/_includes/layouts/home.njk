@@ -1,0 +1,37 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="container">
+    <article id="intro">
+      <h1>
+        {{ intro.eybrow }}
+        <em>{{ intro.main }}</em>
+      </h1>
+    </article>
+  </div>
+  <div class="container">
+    <article class="work">
+      <div class="work__header">
+        <h2>{{ work.title }}</h2>
+      </div>
+      <div class="work__content">
+        {% for item in collections.work %}
+          <a href="{{ item.url }}" arial-label="See {{ item.data.title }}" class="work__content__item  bg-projects-{{ item.data.color }}-light dark:bg-projects-{{ item.data.color }}-dark">
+            <img src="/assets/images/{{ item.data.thumb }}" alt="" loading="lazy" class="max-h-28">
+          </a>
+        {% endfor %}
+      </div>
+    </article>
+    <article class="related-work">
+      <div>
+        <h2>{{ relatedWork.title }}</h2>
+      </div>
+      <div class="work__content">
+        {% for item in collections.relatedWork %}
+          <a href="{{ item.url }}" aria-label="See {{ item.data.title }})" class="work__content__item bg-blueGray-100 dark:bg-gray-800">
+            <img src="/assets/images/{{ item.data.thumb }}" alt="" loading="lazy" class="max-h-28">
+          </a>
+        {% endfor %}
+      </div>
+    </article>
+  </div>
+{% endblock %}
