@@ -1,6 +1,6 @@
 [context.production]
     publish = ".next/"
-    command = "npm run build && npm run start"
+    command = "npm run build"
 [context.deploy-preview]
     publish = ".next/"
 [[plugins]]
