@@ -7,8 +7,7 @@ cta:
     file: "BUISSERETH_Resume.pdf"
     text: "Download"
 
-objective:
-  - description: "Driven User Experience and Interaction Designer seeking to harness proven expertise and skills to deliver outstanding user-centric solutions while building an effective digital experience in the world of media and design.  Proficient in user research, wireframing, prototyping and leveraging these skills to create intuitive and visually compelling designs that elevate user satisfaction. Thriving on variety and challenges, I view every project as an opportunity for personal and career development. Eager to work alongside fellow professionals, learning from their experiences and sharing my own expertise, to collectively enhance our skills and produce outstanding results. Seeking to contribute innovative solutions within a collaborative team, combining user-centric approaches with design expertise to deliver products that resonate and exceed expectations."
+objective: "Driven User Experience and Interaction Designer seeking to harness proven expertise and skills to deliver outstanding user-centric solutions while building an effective digital experience in the world of media and design.  Proficient in user research, wireframing, prototyping and leveraging these skills to create intuitive and visually compelling designs that elevate user satisfaction. Thriving on variety and challenges, I view every project as an opportunity for personal and career development. Eager to work alongside fellow professionals, learning from their experiences and sharing my own expertise, to collectively enhance our skills and produce outstanding results. Seeking to contribute innovative solutions within a collaborative team, combining user-centric approaches with design expertise to deliver products that resonate and exceed expectations."
 
 experience:
   - employer: "EPAM Systems"
@@ -51,6 +50,24 @@ experience:
       - "Produced high quality deliverables using various digital tools."
       - "Adopted different research methodologies and conducted open testing sessions."
       - "Assumed leadership responsibilities, steering the interdisciplinary teams in successfully executing project goals, driving collaborative efforts to achieve objectives within set timelines and exceed project expectations."
+affiliations:
+  - name: "Interaction Design Foundation"
+    certifications:
+      - name: "AI for Designers"
+        start: 2023
+        end: 2024
+      - name: "Interaction Design for Usability"
+        start: 2023
+        end: 2024
+      - name: "Design for a Better World"
+        start: 2023
+        end: 2024
+      - name: "Accessibility: How to Design for All"
+        start: 2023
+        end: 2024
+      - name: "Agile Methods for UX Design"
+        start: 2023
+        end: 2024
 education:
   - school: "Drexel University"
     location: "Philadelphia, PA"
