@@ -115,6 +115,17 @@ export interface ProjectGroup {
   projects: ProjectFrontMatter[];
 }
 
+interface Certification {
+  name: string;
+  start: number;
+  end: number;
+}
+
+interface AffiliationItem {
+  name: string;
+  certifications: Certification[];
+}
+
 interface ExperienceItem {
   employer: string;
   location: string;
@@ -139,6 +150,7 @@ interface SkillItem {
 
 export interface ResumeData {
   title: string;
+  objective: string;
   cta: {
     title: string;
     summary: string;
@@ -147,6 +159,7 @@ export interface ResumeData {
       text: string;
     };
   };
+  affiliations: AffiliationItem[];
   experience: ExperienceItem[];
   education: EducationItem[];
   skills: SkillItem[];

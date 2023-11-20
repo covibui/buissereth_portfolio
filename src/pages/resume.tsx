@@ -101,6 +101,10 @@ export default function Resume({ pageData }: Props) {
         </Box>
         <Box component="section" id="resume-experience" sx={{ mb: 8 }}>
           <Typography variant="h2" sx={{ mb: 6 }}>
+            Objective
+          </Typography>
+          <Typography sx={{ mb: 6 }}>{pageData.objective}</Typography>
+          <Typography variant="h2" sx={{ mb: 6 }}>
             Experience
           </Typography>
           {pageData.experience.map((experienceItem, idx) => (
@@ -148,6 +152,42 @@ export default function Resume({ pageData }: Props) {
                   )
                 )}
               </List>
+            </TimelineItem>
+          ))}
+        </Box>
+        <Box
+          component="section"
+          id="affiliations-certifications"
+          sx={{ mb: 5 }}
+        >
+          <Typography variant="h2" sx={{ mb: 6 }}>
+            Affiliations &amp; Certifications
+          </Typography>
+          {pageData.affiliations.map((affiliationItem, idx) => (
+            <TimelineItem key={idx}>
+              <Box sx={{ width: 1, maxWidth: 450, gap: 2 }}>
+                <Typography variant="h4">{affiliationItem.name}</Typography>
+                <List>
+                  {affiliationItem.certifications.map(
+                    (certificationItem, idx) => (
+                      <ListItem
+                        key={idx}
+                        disableGutters
+                        sx={{
+                          alignItems: "start",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <Typography>{certificationItem.name}</Typography>
+                        <Typography>
+                          {certificationItem.start}&nbsp;-&nbsp;
+                          {certificationItem.end}
+                        </Typography>
+                      </ListItem>
+                    )
+                  )}
+                </List>
+              </Box>
             </TimelineItem>
           ))}
         </Box>
